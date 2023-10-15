@@ -8,9 +8,11 @@ namespace StockAPI.Database.Services
     {
 
         private ITypeDictionary _dictionary;
-        public TableService(ITypeDictionary dictionary) 
+        private IDataInserter _inserter;
+        public TableService(ITypeDictionary dictionary,IDataInserter inserter) 
         {
             _dictionary = dictionary;
+            _inserter = inserter;
         }
         public void CreateTable<T>(string connectionString)
         {
@@ -35,7 +37,10 @@ namespace StockAPI.Database.Services
                 command.ExecuteNonQuery();
             }
         }
-
+        public void InsertData<T>(T data,string connectionString)
+        {
+            _inserter.InsertData<T>(data,connectionString);
+        }
         private string[] GetColumnsFromType<T>()
         {
             var properties = typeof(T).GetProperties();

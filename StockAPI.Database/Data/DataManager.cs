@@ -29,5 +29,9 @@ namespace StockAPI.Database.Data
         {
             _configuration.TableService.DeleteTable<T>(connectionString);
         }
+        public void InsertData<T>(T data) 
+        {
+            _configuration.TableService.InsertData(data, connectionString);
+        }
     }
 }

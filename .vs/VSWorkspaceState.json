@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Stock.API",
+    "\\Stock.API\\bin\\Release",
+    "\\Stock.API\\bin\\Release\\net7.0",
+    "\\Stock.API\\Controllers",
+    "\\Stock.API\\obj\\Debug",
+    "\\Stock.API\\obj\\Release"
+  ],
+  "SelectedNode": "\\StockAPI.sln",
+  "PreviewInSolutionExplorer": false
+}

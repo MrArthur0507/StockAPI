@@ -33,5 +33,13 @@ namespace StockAPI.Database.Data
         {
             _configuration.TableService.InsertData(data, connectionString);
         }
+        public List<T> SelectData<T>(string table)
+        {
+           return _configuration.DataSelector.SelectData<T>(table,connectionString);
+        }
+        public T SelectByID<T>(string table, string id)
+        {
+            return _configuration.DataSelector.SelectByID<T>(table, id,connectionString);
+        }
     }
 }

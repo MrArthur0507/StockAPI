@@ -12,8 +12,8 @@ namespace StockAPI.Database.Data
         private Dictionary<Type, string> _typeMap { get; } = new Dictionary<Type, string>() {
             { typeof(Guid), "UNIQUEIDENTIFIER" },
             { typeof(string), "NVARCHAR(255)" },
-            { typeof(int), "INT" }
-            // Add other data types as necessary
+            { typeof(int), "INT" },
+            { typeof(decimal), "DECIMAL(18,2)" },
         };
         public Dictionary<Type, string> GetSqlTypes()
         {

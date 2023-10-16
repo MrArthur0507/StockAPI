@@ -20,3 +20,6 @@ D:\VTU software engineering\C#\API\StockAPI\StockAPI.Database\obj\Debug\net6.0\r
 D:\VTU software engineering\C#\API\StockAPI\StockAPI.Database\obj\Debug\net6.0\StockAPI.Database.pdb
 D:\VTU software engineering\C#\API\StockAPI\StockAPI.Database\obj\Debug\net6.0\StockAPI.Database.genruntimeconfig.cache
 D:\VTU software engineering\C#\API\StockAPI\StockAPI.Database\obj\Debug\net6.0\ref\StockAPI.Database.dll
+D:\VTU software engineering\C#\API\StockAPI\StockAPI.Database\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+D:\VTU software engineering\C#\API\StockAPI\StockAPI.Database\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\VTU software engineering\C#\API\StockAPI\StockAPI.Database\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll

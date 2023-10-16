@@ -41,3 +41,8 @@ D:\VTU software engineering\C#\API\StockAPI\Accounts.API\obj\Debug\net7.0\refint
 D:\VTU software engineering\C#\API\StockAPI\Accounts.API\obj\Debug\net7.0\Accounts.API.pdb
 D:\VTU software engineering\C#\API\StockAPI\Accounts.API\obj\Debug\net7.0\Accounts.API.genruntimeconfig.cache
 D:\VTU software engineering\C#\API\StockAPI\Accounts.API\obj\Debug\net7.0\ref\Accounts.API.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\AccountAPI.Data.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Accounts.API.Services.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\AccountAPI.Data.pdb
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Accounts.API.Services.pdb
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\obj\Debug\net7.0\Accounts.API.MvcApplicationPartsAssemblyInfo.cs

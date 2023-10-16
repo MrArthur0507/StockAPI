@@ -13,12 +13,15 @@ namespace StockAPI.Database.Data
 
         public IDatabaseService DatabaseService { get; set; }
         public ITableService TableService { get; set; }
-        public string ConnectionString => "Server=DESKTOP-JAGL7D3\\SQLEXPRESS;Database=Stockss;Integrated Security=true;";
 
-        public DataConfiguration(IDatabaseService dbService, ITableService tbService)
+        public IDataSelector DataSelector { get; set; }
+        public string ConnectionString => "Server=DESKTOP-JAGL7D3\\SQLEXPRESS;Database=Stockss;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;";
+
+        public DataConfiguration(IDatabaseService dbService, ITableService tbService, IDataSelector dataSelector)
         {
-            this.DatabaseService = dbService;
-            this.TableService = tbService;
+            DatabaseService = dbService;
+            TableService = tbService;
+            DataSelector = dataSelector;
         }
     }
 }

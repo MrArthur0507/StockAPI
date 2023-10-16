@@ -1,0 +1,12 @@
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\bin\Debug\net6.0\Accounts.API.Services.deps.json
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\bin\Debug\net6.0\Accounts.API.Services.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\bin\Debug\net6.0\Accounts.API.Services.pdb
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\Accounts.API.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\Accounts.API.Services.AssemblyInfoInputs.cache
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\Accounts.API.Services.AssemblyInfo.cs
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\Accounts.API.Services.csproj.CoreCompileInputs.cache
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\Accounts.API.Services.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\refint\Accounts.API.Services.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\Accounts.API.Services.pdb
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\ref\Accounts.API.Services.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API.Services\obj\Debug\net6.0\Accounts.API.Services.csproj.AssemblyReference.cache

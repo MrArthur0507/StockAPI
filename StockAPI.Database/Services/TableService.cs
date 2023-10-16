@@ -16,15 +16,23 @@ namespace StockAPI.Database.Services
         }
         public void CreateTable<T>(string connectionString)
         {
-            string tableName = typeof(T).Name;
-            var columns = GetColumnsFromType<T>();
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                string query = $"CREATE TABLE {tableName} ({string.Join(", ", columns)})";
-                SqlCommand command = new SqlCommand(query, connection);
-                command.ExecuteNonQuery();
+                string tableName = typeof(T).Name;
+                var columns = GetColumnsFromType<T>();
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = $"CREATE TABLE {tableName} ({string.Join(", ", columns)})";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.ExecuteNonQuery();
+                }
             }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
         public void DeleteTable<T>(string connectionString)
         {
@@ -39,7 +47,7 @@ namespace StockAPI.Database.Services
         }
         public void InsertData<T>(T data,string connectionString)
         {
-            _inserter.InsertData<T>(data,connectionString);
+            _inserter.InsertData(data,connectionString);
         }
         private string[] GetColumnsFromType<T>()
         {
@@ -55,7 +63,10 @@ namespace StockAPI.Database.Services
         private string GetSqlTypeFromCSharpType(Type type)
         {
             var dictionary = _dictionary.GetSqlTypes();
-
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>))
+            {
+                return "nvarchar(255)";
+            }
             if (dictionary.ContainsKey(type))
             {
                 return dictionary[type];

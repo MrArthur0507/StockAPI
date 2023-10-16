@@ -20,6 +20,7 @@ namespace StockAPI.Database.Services
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
+                    Console.WriteLine(connection.Database);
                     connection.Open();
                     string query = $"CREATE DATABASE {connection.Database}";
                     SqlCommand command = new SqlCommand(query, connection);

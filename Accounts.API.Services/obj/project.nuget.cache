@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "s5fofVOaJGbPjm2t3HMfbHX3d5d3TudD/PqJiaZBmw+YLtOZaS15vYFW1lWX+OlALOGRsqjZ1IbCsH1lXT4kuA==",
+  "dgSpecHash": "BU/PQWJBGxHWLVAbNwcdpZVZHXnNmLcwas2g+2e4M2DM4tVgjTWeCmT1GAhV1Vau1Lf9EVZS3xPnTzHgLFRpkw==",
   "success": true,
   "projectFilePath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
+    "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\emils\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

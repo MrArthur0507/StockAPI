@@ -11,6 +11,7 @@ namespace StockAPI.Database.Interfaces
     {
         public IDatabaseService DatabaseService { get; }
         public ITableService TableService { get; }
+        public IDataSelector DataSelector { get; }
         string ConnectionString { get; }
     }
 }

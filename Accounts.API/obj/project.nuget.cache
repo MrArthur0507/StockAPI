@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "4VPm7DXJKZvDWMacwCuoQ4ojOydsc2l5NZ3j1TDHsRYdYBZhosZaG3gH2kcltFEgekk+hMFFHFw+AvlDuJdEaw==",
+  "dgSpecHash": "3e9zpzP0kX1UaQD4D59DV7OsUWP4m0uOzdEZ8kfUIMIProUL3Mzzj+9ahaZdWZweOJLdGwKjkWOvruN2gGpwGw==",
   "success": true,
   "projectFilePath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\Accounts.API\\Accounts.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
+    "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

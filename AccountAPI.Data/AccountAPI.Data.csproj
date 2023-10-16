@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\StockAPI.Database\StockAPI.Database.csproj" />
+  </ItemGroup>
+
 </Project>

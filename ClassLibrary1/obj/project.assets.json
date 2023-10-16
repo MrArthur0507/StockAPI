@@ -24,12 +24,10 @@
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
-          "build/Microsoft.Extensions.ApiDescription.Server.props": {},
-          "build/Microsoft.Extensions.ApiDescription.Server.targets": {}
+          "build/_._": {}
         },
         "buildMultiTargeting": {
-          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.props": {},
-          "buildMultiTargeting/Microsoft.Extensions.ApiDescription.Server.targets": {}
+          "buildMultiTargeting/_._": {}
         }
       },
       "Microsoft.OpenApi/1.4.3": {
@@ -54,7 +52,7 @@
           "Swashbuckle.AspNetCore.SwaggerUI": "6.4.0"
         },
         "build": {
-          "build/Swashbuckle.AspNetCore.props": {}
+          "build/_._": {}
         }
       },
       "Swashbuckle.AspNetCore.Swagger/6.4.0": {
@@ -103,6 +101,23 @@
           "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
             "related": ".pdb;.xml"
           }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Analyzer.API/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.OpenApi": "7.0.0",
+          "Swashbuckle.AspNetCore": "6.4.0"
+        },
+        "compile": {
+          "bin/placeholder/Analyzer.API.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Analyzer.API.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -451,12 +466,16 @@
         "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Analyzer.API/1.0.0": {
+      "type": "project",
+      "path": "../Analyzer.API/Analyzer.API.csproj",
+      "msbuildProject": "../Analyzer.API/Analyzer.API.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "Microsoft.AspNetCore.OpenApi >= 7.0.0",
-      "Swashbuckle.AspNetCore >= 6.4.0"
+      "Analyzer.API >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -465,11 +484,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj",
-      "projectName": "Analyzer.API",
-      "projectPath": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\ClassLibrary1\\AnalysisLibrary.csproj",
+      "projectName": "AnalysisLibrary",
+      "projectPath": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\ClassLibrary1\\AnalysisLibrary.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\ClassLibrary1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -485,7 +504,11 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -497,16 +520,6 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.OpenApi": {
-            "target": "Package",
-            "version": "[7.0.0, )"
-          },
-          "Swashbuckle.AspNetCore": {
-            "target": "Package",
-            "version": "[6.4.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -519,9 +532,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

@@ -8,7 +8,8 @@ namespace StockAPI.Database.Interfaces
 {
     public interface IPasswordHasher
     {
-        public string HashPassword(string password, out byte[] salt);
-        public bool VerifyPassword(string password, string hash, byte[] salt);
+        public string HashPassword(string password, byte[] salt);
+        public bool VerifyPassword(string password, string hash,byte[] salt);
+        public byte[] GenerateSalt();
     }
 }

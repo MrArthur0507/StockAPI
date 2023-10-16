@@ -13,7 +13,8 @@ namespace AccountAPI.Data.Models.Interfaces
         public string Password { get; set; }
         public string Email { get; set; }
         public decimal Balance { get; set; }
-        public List<Stock> Stocks { get; set; }
+        public string Salt { get; set; }
+        //public ICollection<Stock> Stocks { get; set; }
 
     }
 }

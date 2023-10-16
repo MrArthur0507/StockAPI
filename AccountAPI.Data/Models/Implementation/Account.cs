@@ -13,13 +13,19 @@ namespace AccountAPI.Data.Models.Implementation
         public string Password { get; set; }
         public string Email { get; set; }
         public decimal Balance { get; set; }
-        public virtual List<Stock> Stocks { get; set; } = new List<Stock>();
-        public Account(string username,string password,string email,decimal balance) 
+        public string Salt { get; set; }
+       // public ICollection<Stock> Stocks { get; set; } = new List<Stock>();
+
+        public Account()
+        {
+        }
+        public Account(string username,string password,string email,decimal balance,string salt) 
         {
             Username = username;
             Password = password;
             Email = email;
             Balance = balance;
+            Salt = salt;
         }
     }
 }

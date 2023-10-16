@@ -325,7 +325,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "7.0.0"
+          "AccountAPI.Data": "1.0.0",
+          "Microsoft.Extensions.Configuration": "7.0.0",
+          "StockAPI.Database": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Accounts.API.Services.dll": {}

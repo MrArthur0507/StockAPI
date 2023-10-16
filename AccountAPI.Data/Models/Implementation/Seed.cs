@@ -20,8 +20,8 @@ namespace AccountAPI.Data.Models.Implementation
         }
         public void SeedWithData()
         {
-            CreateStocks();
-            CreateAccounts();
+           // CreateStocks();
+           // CreateAccounts();
         }
         private void CreateStocks() 
         {
@@ -37,10 +37,18 @@ namespace AccountAPI.Data.Models.Implementation
                 _dataManager.InsertData(stock);
             }
         }
-        private void CreateAccounts()
+       /* private void CreateAccounts()
         {
-           string hashedPass= _hasher.HashPassword("password2132143213145",out byte[] salt);
-            Console.WriteLine(_hasher.VerifyPassword("password2132143213145", hashedPass, salt));
-        }
+            Console.WriteLine("It enters here");
+            List<Account> accounts = new List<Account>()
+            { new Account("test1",_hasher.HashPassword("123456",out byte[] salt),"test1@abv.bg",200M),
+            new Account("test2",_hasher.HashPassword("A12356",out salt),"test2@abv.bg",200M),
+            };
+            foreach (var account in accounts)
+            {
+                Console.WriteLine("it enters in foreach");
+                _dataManager.InsertData(account);
+            }
+        }*/
     }
 }

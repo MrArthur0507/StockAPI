@@ -5,6 +5,8 @@ using StockAPI.Database.Services;
 using AccountAPI;
 using AccountAPI.Data.Models.Interfaces;
 using AccountAPI.Data.Models.Implementation;
+using Accounts.API.Services.Interfaces;
+using Accounts.API.Services.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,7 @@ builder.Services.AddSingleton<IDataSelector, DataSelector>();
 builder.Services.AddSingleton<IDataConfiguration, DataConfiguration>();
 builder.Services.AddSingleton<IDataManager, DataManager>();
 builder.Services.AddSingleton<ISeed, Seed>();
+builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

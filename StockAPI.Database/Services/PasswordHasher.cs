@@ -23,9 +23,18 @@ namespace StockAPI.Database.Services
             _hashAlgorithm = HashAlgorithmName.SHA512;
         }
 
-        public string HashPassword(string password, out byte[] salt)
+        public string HashPassword(string password, byte[] salt)
         {
-            return Hashing(password, out salt);
+            return Hashing(password,salt);
+        }
+        public byte[] GenerateSalt()
+        {
+            byte[] salt = new byte[16];
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(salt);
+            }
+            return salt;
         }
 
         public bool VerifyPassword(string password, string hash, byte[] salt)
@@ -34,9 +43,8 @@ namespace StockAPI.Database.Services
             return CryptographicOperations.FixedTimeEquals(hashToCompare, Convert.FromHexString(hash));
         }
 
-        private string Hashing(string password, out byte[] salt)
+        private string Hashing(string password,  byte[] salt)
         {
-            salt = new byte[_keySize];
             using var rng = RandomNumberGenerator.Create();
             rng.GetBytes(salt);
 
@@ -46,8 +54,6 @@ namespace StockAPI.Database.Services
                 _iterations,
                 _hashAlgorithm,
                 _keySize);
-
-            // Use a proper logging mechanism instead of Console.WriteLine for logging the hash.
             Console.WriteLine(Convert.ToHexString(hash));
             return Convert.ToHexString(hash);
         }

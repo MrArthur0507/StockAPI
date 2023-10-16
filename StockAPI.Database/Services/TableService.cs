@@ -63,7 +63,8 @@ namespace StockAPI.Database.Services
         private string GetSqlTypeFromCSharpType(Type type)
         {
             var dictionary = _dictionary.GetSqlTypes();
-            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>))
+            Console.WriteLine(Checking(type));
+            if (Checking(type))
             {
                 return "nvarchar(255)";
             }
@@ -72,6 +73,18 @@ namespace StockAPI.Database.Services
                 return dictionary[type];
             }
             throw new NotSupportedException($"Type {type} is not supported for SQL columns.");
+        }
+        private bool Checking(Type type)
+        {
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>) ||  type.IsClass)
+            {
+                return true;
+            }
+            else if (typeof(ICollection<>).IsAssignableFrom(type))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

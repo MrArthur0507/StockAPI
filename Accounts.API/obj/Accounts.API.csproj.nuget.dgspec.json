@@ -86,7 +86,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\VTU software engineering\\C#\\API\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
+                "projectPath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj"
+              },
+              "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
+                "projectPath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

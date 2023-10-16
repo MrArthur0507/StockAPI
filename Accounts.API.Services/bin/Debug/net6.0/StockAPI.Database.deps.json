@@ -6,14 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Accounts.API.Services/1.0.0": {
+      "StockAPI.Database/1.0.0": {
         "dependencies": {
-          "AccountAPI.Data": "1.0.0",
           "Microsoft.Extensions.Configuration": "7.0.0",
-          "StockAPI.Database": "1.0.0"
+          "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
-          "Accounts.API.Services.dll": {}
+          "StockAPI.Database.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration/7.0.0": {
@@ -125,28 +124,11 @@
           "System.Security.Principal.Windows": "4.7.0"
         }
       },
-      "System.Security.Principal.Windows/4.7.0": {},
-      "AccountAPI.Data/1.0.0": {
-        "dependencies": {
-          "StockAPI.Database": "1.0.0"
-        },
-        "runtime": {
-          "AccountAPI.Data.dll": {}
-        }
-      },
-      "StockAPI.Database/1.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration": "7.0.0",
-          "System.Data.SqlClient": "4.8.5"
-        },
-        "runtime": {
-          "StockAPI.Database.dll": {}
-        }
-      }
+      "System.Security.Principal.Windows/4.7.0": {}
     }
   },
   "libraries": {
-    "Accounts.API.Services/1.0.0": {
+    "StockAPI.Database/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -241,16 +223,6 @@
       "sha512": "sha512-ojD0PX0XhneCsUbAZVKdb7h/70vyYMDYs85lwEI+LngEONe/17A0cFaRFqZU+sOEidcVswYWikYOQ9PPfjlbtQ==",
       "path": "system.security.principal.windows/4.7.0",
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
-    },
-    "AccountAPI.Data/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "StockAPI.Database/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

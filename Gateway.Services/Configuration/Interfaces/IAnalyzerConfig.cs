@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    internal interface IAnalyzerConfig
+    public interface IAnalyzerConfig
     {
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    public interface IStockConfig
+    public interface IBaseConfig
     {
+        public string Host { get; set; }
     }
 }

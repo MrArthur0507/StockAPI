@@ -9,5 +9,10 @@ namespace Gateway.Services.Implementations
 {
     public class StockService : IStockService
     {
+        private readonly IConfigurationService _config;
+        public StockService(IConfigurationService config)
+        {
+            _config = config;
+        }
     }
 }

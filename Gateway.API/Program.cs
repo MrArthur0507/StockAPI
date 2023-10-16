@@ -1,3 +1,8 @@
+using Gateway.Services.Configuration.Classes;
+using Gateway.Services.Configuration.Interfaces;
+using Gateway.Services.Implementations;
+using Gateway.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,6 +26,8 @@ builder.Services.AddHttpClient("AccountsService", client =>
     client.BaseAddress = new Uri("AccountsApiUrl:XXXX");
 }
 );
+builder.Services.AddSingleton<IConfigurationService, ConfigurationService>();
+builder.Services.AddSingleton<IConfig, Config>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -10,14 +10,14 @@ namespace Gateway.Services.Configuration.Interfaces
     {
         public string GetAll { get; }
 
-        public string GetById { get; }
+        public string GetById { get; set; }
 
-        public string ProfitById { get; }
+        public string ProfitById { get; set; }
 
-        public string HistoryById { get; }
+        public string HistoryById { get; set; }
 
-        public string CreateAccount { get; }
+        public string CreateAccount { get; set; }
 
-        public string DeleteAccount { get; }
+        public string DeleteAccount { get; set; }
     }
 }

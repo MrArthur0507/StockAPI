@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Classes
 {
-    public class BaseConfig : IConfig
+    public class BaseConfig : IBaseConfig
     {
         public string Host { get; set; }
     }

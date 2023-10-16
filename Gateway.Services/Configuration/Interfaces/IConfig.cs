@@ -8,6 +8,10 @@ namespace Gateway.Services.Configuration.Interfaces
 {
     public interface IConfig
     {
-        public string Host { get; set; }
+        public IAccountConfig AccountConfig { get; set; }
+
+        public IAnalyzerConfig AnalyzerConfig { get; set; }
+
+        public IStockConfig StockConfig { get; set; }
     }
 }

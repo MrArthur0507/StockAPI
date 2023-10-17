@@ -7,6 +7,7 @@ using AccountAPI.Data.Models.Interfaces;
 using AccountAPI.Data.Models.Implementation;
 using Accounts.API.Services.Interfaces;
 using Accounts.API.Services.Implementation;
+using Accounts.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ builder.Services.AddSingleton<IDataSelector, DataSelector>();
 builder.Services.AddSingleton<IDataConfiguration, DataConfiguration>();
 builder.Services.AddSingleton<IDataManager, DataManager>();
 builder.Services.AddSingleton<ISeed, Seed>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -36,11 +38,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
+app.UseMiddleware<HeaderMiddleware>();
+app.UseMiddleware<StatusCodeMiddleware>();
 
 app.MapControllers();
-
 app.Run();
  void InitializeApplicationDbContext(WebApplication app)
 {

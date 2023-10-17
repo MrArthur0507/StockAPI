@@ -63,7 +63,6 @@ namespace StockAPI.Database.Services
         private string GetSqlTypeFromCSharpType(Type type)
         {
             var dictionary = _dictionary.GetSqlTypes();
-            Console.WriteLine(Checking(type));
             if (Checking(type))
             {
                 return "nvarchar(255)";

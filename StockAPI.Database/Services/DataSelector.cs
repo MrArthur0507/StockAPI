@@ -88,8 +88,6 @@ namespace StockAPI.Database.Services
                     {
                         var propertyName = reader.GetName(i);
                         var property = typeof(T).GetProperty(propertyName);
-
-                        // Check if the property exists
                         if (property != null && !reader.IsDBNull(i))
                         {
                             var value = reader.GetValue(i);

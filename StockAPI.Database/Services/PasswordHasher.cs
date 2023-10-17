@@ -29,7 +29,7 @@ namespace StockAPI.Database.Services
         }
         public byte[] GenerateSalt()
         {
-            byte[] salt = new byte[16];
+            byte[] salt = new byte[_keySize];
             using (var rng = new RNGCryptoServiceProvider())
             {
                 rng.GetBytes(salt);
@@ -54,7 +54,6 @@ namespace StockAPI.Database.Services
                 _iterations,
                 _hashAlgorithm,
                 _keySize);
-            Console.WriteLine(Convert.ToHexString(hash));
             return Convert.ToHexString(hash);
         }
     }

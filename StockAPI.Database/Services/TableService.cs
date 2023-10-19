@@ -1,6 +1,8 @@
 ﻿using StockAPI.Database.Data;
+using StockAPI.Database.Helpers;
 using StockAPI.Database.Interfaces;
 using System.Data.SqlClient;
+using System.Transactions;
 
 namespace StockAPI.Database.Services
 {
@@ -23,9 +25,14 @@ namespace StockAPI.Database.Services
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = $"CREATE TABLE {tableName} ({string.Join(", ", columns)})";
+                    string query = $"CREATE TABLE {tableName}s (Id NVARCHAR(255) PRIMARY KEY, {string.Join(", ", columns)})";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
+                    if (typeof(T).BaseType.Name == "BaseModel")
+                    {
+                        AddForeignKeyConstraint("Accounts", "Id", "Transactions", "Account", connection);
+                        AddForeignKeyConstraint("Stocks", "Id", "Transactions", "Stock", connection);
+                    }
                 }
             }
             catch(Exception ex)
@@ -55,6 +62,10 @@ namespace StockAPI.Database.Services
             return properties.Select(property =>
             {
                 string columnName = property.Name;
+                if (columnName=="Id")
+                {
+                    return "";
+                }
                 string columnType = GetSqlTypeFromCSharpType(property.PropertyType);
                 return $"{columnName} {columnType}";
             }).ToArray();
@@ -65,7 +76,8 @@ namespace StockAPI.Database.Services
             var dictionary = _dictionary.GetSqlTypes();
             if (Checking(type))
             {
-                return "nvarchar(255)";
+                Console.WriteLine("it enters");
+                return "NVARCHAR(255)";
             }
             if (dictionary.ContainsKey(type))
             {
@@ -75,7 +87,7 @@ namespace StockAPI.Database.Services
         }
         private bool Checking(Type type)
         {
-            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>) ||  type.IsClass)
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>) ||  type.BaseType.Name=="BaseModel")
             {
                 return true;
             }
@@ -84,6 +96,14 @@ namespace StockAPI.Database.Services
                 return true;
             }
             return false;
+        }
+        private void AddForeignKeyConstraint(string parentTable, string parentColumn, string childTable, string childColumn, SqlConnection connection)
+        {
+            string foreignKeyQuery = $"ALTER TABLE {childTable} " +
+                                     $"ADD CONSTRAINT FK_{childTable}_{parentTable} " +
+                                     $"FOREIGN KEY ({childColumn}) REFERENCES {parentTable}({parentColumn})";
+            SqlCommand foreignKeyCommand = new SqlCommand(foreignKeyQuery, connection);
+            foreignKeyCommand.ExecuteNonQuery();
         }
     }
 }

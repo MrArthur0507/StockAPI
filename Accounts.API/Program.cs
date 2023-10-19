@@ -8,9 +8,9 @@ using AccountAPI.Data.Models.Implementation;
 using Accounts.API.Services.Interfaces;
 using Accounts.API.Services.Implementation;
 using Accounts.API.Middlewares;
+using StockAPI.Database.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddSingleton<ITypeDictionary, TypeDictionary>();
 builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();

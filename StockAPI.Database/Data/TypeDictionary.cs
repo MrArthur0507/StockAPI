@@ -1,4 +1,5 @@
-﻿using StockAPI.Database.Interfaces;
+﻿using StockAPI.Database.Helpers;
+using StockAPI.Database.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace StockAPI.Database.Data
             { typeof(string), "NVARCHAR(255)" },
             { typeof(int), "INT" },
             { typeof(decimal), "DECIMAL(18,2)" },
+            { typeof(DateTime), "DATETIME" },
+            {typeof(DummyModel),"NVARCHAR(255)" }
         };
         public Dictionary<Type, string> GetSqlTypes()
         {

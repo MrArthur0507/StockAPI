@@ -14,14 +14,14 @@ namespace StockAPI.Database.Services
         {
             CreateDatabase(connectionString);
         }
-        private void CreateDatabase(string connectionString)
+      /*  private void CreateDatabase(string connectionString)
         {
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = $"CREATE DATABASE {connection.Database}";
+                    string query = $"USE master;CREATE DATABASE {connection.Database}";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.ExecuteNonQuery();
                 }
@@ -29,6 +29,27 @@ namespace StockAPI.Database.Services
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+            }
+        }*/
+      private void CreateDatabase(string connectionString)
+        {
+            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connectionString);
+            string dbName = builder.InitialCatalog;
+
+            string createDbQuery = $"CREATE DATABASE {dbName}";
+            using (SqlConnection connection = new SqlConnection($"Data Source={builder.DataSource};Initial Catalog=master;Integrated Security=True;"))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand(createDbQuery, connection);
+                    command.ExecuteNonQuery();
+                    Console.WriteLine($"Database {dbName} created successfully.");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }

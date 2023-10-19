@@ -1,4 +1,5 @@
 ﻿using AccountAPI.Data.Models.Interfaces;
+using StockAPI.Database.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AccountAPI.Data.Models.Implementation
 {
-    public class BaseModel : IBaseModel
+    public class BaseModel : DummyModel, IBaseModel
     {
         public Guid Id { get ; set ; }
         public BaseModel()

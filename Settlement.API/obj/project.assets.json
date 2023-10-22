@@ -107,6 +107,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Settlement.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Settlement.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Settlement.Services.dll": {}
+        }
       }
     }
   },
@@ -451,32 +461,38 @@
         "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "Settlement.Services/1.0.0": {
+      "type": "project",
+      "path": "../Settlement.Services/Settlement.Services.csproj",
+      "msbuildProject": "../Settlement.Services/Settlement.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0": [
       "Microsoft.AspNetCore.OpenApi >= 7.0.0",
+      "Settlement.Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bozhidar\\.nuget\\packages\\": {},
+    "C:\\Users\\Lubo\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Settlement.API\\Settlement.API.csproj",
+      "projectUniqueName": "C:\\Users\\Lubo\\OneDrive\\Desktop\\StockAPI\\StockAPI\\Settlement.API\\Settlement.API.csproj",
       "projectName": "Settlement.API",
-      "projectPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Settlement.API\\Settlement.API.csproj",
-      "packagesPath": "C:\\Users\\Bozhidar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Settlement.API\\obj\\",
+      "projectPath": "C:\\Users\\Lubo\\OneDrive\\Desktop\\StockAPI\\StockAPI\\Settlement.API\\Settlement.API.csproj",
+      "packagesPath": "C:\\Users\\Lubo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Lubo\\OneDrive\\Desktop\\StockAPI\\StockAPI\\Settlement.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bozhidar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Lubo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -485,12 +501,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Lubo\\OneDrive\\Desktop\\StockAPI\\StockAPI\\Settlement.Services\\Settlement.Services.csproj": {
+              "projectPath": "C:\\Users\\Lubo\\OneDrive\\Desktop\\StockAPI\\StockAPI\\Settlement.Services\\Settlement.Services.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -531,7 +552,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -34,3 +34,4 @@ C:\Users\Bozhidar\source\repos\StockAPI\Gateway.API\obj\Debug\net7.0\ref\Gateway
 C:\Users\Bozhidar\source\repos\StockAPI\Gateway.API\bin\Debug\net7.0\Gateway.Services.dll
 C:\Users\Bozhidar\source\repos\StockAPI\Gateway.API\bin\Debug\net7.0\Gateway.Services.pdb
 C:\Users\Bozhidar\source\repos\StockAPI\Gateway.API\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.API\bin\Debug\net7.0\config.json

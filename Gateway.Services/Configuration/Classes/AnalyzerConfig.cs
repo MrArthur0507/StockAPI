@@ -9,5 +9,11 @@ namespace Gateway.Services.Configuration.Classes
 {
     public class AnalyzerConfig : BaseConfig, IAnalyzerConfig
     {
+        public string CurrentProfit { get; set; }
+        public string DailyReturnProfit { get; set; }
+        public string PercentageChange { get; set; }
+        public string PortfolioRisk { get; set; }
+
+
     }
 }

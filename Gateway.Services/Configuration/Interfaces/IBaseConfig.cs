@@ -9,5 +9,6 @@ namespace Gateway.Services.Configuration.Interfaces
     public interface IBaseConfig
     {
         public string Host { get; set; }
+        
     }
 }

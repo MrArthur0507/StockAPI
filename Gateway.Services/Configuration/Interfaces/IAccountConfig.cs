@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    public interface IAccountConfig
+    public interface IAccountConfig : IBaseConfig
     {
         public string GetAll { get; }
 

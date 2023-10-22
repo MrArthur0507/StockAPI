@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    public interface IStockConfig : IBaseConfig
+    public interface IHttpClientFactory
     {
-        public string GetStockData { get; set; }
+        public HttpClient GetAccountClient();
+
+        public HttpClient GetAnalyzerClient();
+
+        public HttpClient GetStockClient();
     }
 }

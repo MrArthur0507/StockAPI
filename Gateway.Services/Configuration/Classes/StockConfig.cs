@@ -9,5 +9,6 @@ namespace Gateway.Services.Configuration.Classes
 {
     public class StockConfig : BaseConfig, IStockConfig
     {
+        public string GetStockData { get; set; }
     }
 }

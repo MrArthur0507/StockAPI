@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Classes
 {
-    public class AccountsConfig : BaseConfig, IAccountConfig
+    public class AccountsConfig : BaseConfig,IAccountConfig
     {
         public string GetAll { get; set; }
 

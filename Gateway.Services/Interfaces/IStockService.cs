@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Interfaces
 {
-    internal interface IStockService
+    public interface IStockService
     {
     }
 }

@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Interfaces
 {
-    internal interface IAccountsService
+    public interface IAccountsService
     {
+        public Task<string> GetPlayers();
     }
 }

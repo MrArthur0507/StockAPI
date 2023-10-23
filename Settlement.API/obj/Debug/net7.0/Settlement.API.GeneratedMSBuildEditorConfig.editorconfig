@@ -9,9 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Settlement.API
 build_property.RootNamespace = Settlement.API
+<<<<<<< HEAD
+build_property.ProjectDir = C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\Settlement.API\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\Settlement.API
+=======
 build_property.ProjectDir = C:\Users\User\Desktop\ProjectAPI\StockAPI\Settlement.API\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\ProjectAPI\StockAPI\Settlement.API
+>>>>>>> 7bd7faf7ee196c273f59fa28adedf250eb1a047d
 build_property._RazorSourceGeneratorDebug = 

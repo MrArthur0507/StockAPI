@@ -9,12 +9,10 @@ namespace Accounts.API.Controllers
     [Route("api/[controller]")]
     public class AccountController : Controller
     {
-        private readonly IDataManager _dataManager;
         private readonly IAuthenticationService _authenticationService;
         private readonly IAccountService _accountService;
-        public AccountController(IDataManager dataManager,IAuthenticationService service, IAccountService accountService)
+        public AccountController(IAuthenticationService service, IAccountService accountService)
         {
-            _dataManager = dataManager;
             _authenticationService = service;
             _accountService = accountService;
         }
@@ -38,7 +36,12 @@ namespace Accounts.API.Controllers
         [HttpPost("login")]
         public IActionResult Login(string email,string password)
         {
-            return StatusCode(_authenticationService.Login(email,password));
+            return Json(_authenticationService.Login(email,password));
+        }
+        [HttpGet("checkToken")]
+        public IActionResult CheckToken(string token)
+        {
+            return StatusCode(_authenticationService.CheckToken(token));
         }
     }
 }

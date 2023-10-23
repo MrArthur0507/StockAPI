@@ -8,6 +8,6 @@ namespace AccountAPI.Data.Models.Interfaces
 {
     public interface IBaseModel
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
     }
 }

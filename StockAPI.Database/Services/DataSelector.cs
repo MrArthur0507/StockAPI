@@ -91,6 +91,11 @@ namespace StockAPI.Database.Services
                         if (property != null && !reader.IsDBNull(i))
                         {
                             var value = reader.GetValue(i);
+                            if (property.PropertyType==typeof(Guid))
+                            {
+
+                                property.SetValue(item, value.ToString());
+                            }
                             property.SetValue(item, value);
                         }
                     }

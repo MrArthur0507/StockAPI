@@ -22,7 +22,7 @@ namespace StockAPI.Database.Services
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = $"INSERT INTO {tableName} ({columnNames}) VALUES ({values})";
+                string query = $"INSERT INTO {tableName}s ({columnNames}) VALUES ({values})";
                 SqlCommand command = new SqlCommand(query, connection);
                 foreach (var property in properties)
                 {

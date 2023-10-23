@@ -10,10 +10,10 @@ namespace AccountAPI.Data.Models.Implementation
 {
     public class BaseModel : DummyModel, IBaseModel
     {
-        public Guid Id { get ; set ; }
+        public string Id { get ; set ; }
         public BaseModel()
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString();
         }
     }
 }

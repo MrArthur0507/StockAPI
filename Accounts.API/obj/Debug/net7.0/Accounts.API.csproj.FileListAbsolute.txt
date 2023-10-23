@@ -46,3 +46,9 @@ D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Accoun
 D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\AccountAPI.Data.pdb
 D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Accounts.API.Services.pdb
 D:\VTU software engineering\C#\API\StockAPI\Accounts.API\obj\Debug\net7.0\Accounts.API.MvcApplicationPartsAssemblyInfo.cs
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\VTU software engineering\C#\API\StockAPI\Accounts.API\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

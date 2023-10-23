@@ -1,0 +1,12 @@
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\bin\Debug\net7.0\Gateway.Services.deps.json
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\bin\Debug\net7.0\Gateway.Services.dll
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\bin\Debug\net7.0\Gateway.Services.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\Gateway.Services.csproj.AssemblyReference.cache
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\Gateway.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\Gateway.Services.AssemblyInfoInputs.cache
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\Gateway.Services.AssemblyInfo.cs
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\Gateway.Services.csproj.CoreCompileInputs.cache
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\Gateway.Services.dll
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\refint\Gateway.Services.dll
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\Gateway.Services.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\Gateway.Services\obj\Debug\net7.0\ref\Gateway.Services.dll

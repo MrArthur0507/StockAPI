@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj": {}
+    "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Analyzer.API\\Analyzer.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj": {
+    "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Analyzer.API\\Analyzer.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj",
+        "projectUniqueName": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Analyzer.API\\Analyzer.API.csproj",
         "projectName": "Analyzer.API",
-        "projectPath": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\Analyzer.API.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\ProjectAPI\\StockAPI\\Analyzer.API\\obj\\",
+        "projectPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Analyzer.API\\Analyzer.API.csproj",
+        "packagesPath": "C:\\Users\\Bozhidar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Analyzer.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bozhidar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,0 +1,13 @@
+{
+  "AccountConfig": {
+    "GetAll": "/api/v1/players",
+    "GetById": null,
+    "ProfitById": null,
+    "HistoryById": null,
+    "CreateAccount": null,
+    "DeleteAccount": null,
+    "Host": "https://www.balldontlie.io"
+  },
+  "AnalyzerConfig": { "Host": null },
+  "StockConfig": { "Host": null }
+}

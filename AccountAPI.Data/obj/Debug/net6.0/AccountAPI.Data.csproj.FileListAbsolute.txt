@@ -16,3 +16,21 @@ D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\Acc
 D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\refint\AccountAPI.Data.dll
 D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.pdb
 D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\ref\AccountAPI.Data.dll
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.deps.json
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.runtimeconfig.json
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.exe
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\AccountAPI.Data.deps.json
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\AccountAPI.Data.dll
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\AccountAPI.Data.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.dll
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.csproj.AssemblyReference.cache
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.AssemblyInfoInputs.cache
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.AssemblyInfo.cs
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.csproj.CoreCompileInputs.cache
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.csproj.CopyComplete
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.dll
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\refint\AccountAPI.Data.dll
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\AccountAPI.Data\obj\Debug\net6.0\ref\AccountAPI.Data.dll

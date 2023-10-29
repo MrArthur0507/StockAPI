@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VTU software engineering\\C#\\API\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {}
+    "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {}
   },
   "projects": {
-    "D:\\VTU software engineering\\C#\\API\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
+    "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VTU software engineering\\C#\\API\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
+        "projectUniqueName": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
         "projectName": "AccountAPI.Data",
-        "projectPath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
-        "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-        "outputPath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\AccountAPI.Data\\obj\\",
+        "projectPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
+        "packagesPath": "C:\\Users\\Bozhidar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\AccountAPI.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bozhidar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
-                "projectPath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
+              "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
+                "projectPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
               }
             }
           }
@@ -59,21 +63,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
+    "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
+        "projectUniqueName": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
         "projectName": "StockAPI.Database",
-        "projectPath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
-        "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-        "outputPath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\StockAPI.Database\\obj\\",
+        "projectPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
+        "packagesPath": "C:\\Users\\Bozhidar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\StockAPI.Database\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bozhidar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -124,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

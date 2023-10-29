@@ -17,6 +17,7 @@ builder.Services.AddScoped<Gateway.Services.Configuration.Interfaces.IHttpClient
 builder.Services.AddSingleton<IConfigurationService, ConfigurationService>();
 builder.Services.AddSingleton<IConfig, Config>();
 builder.Services.AddScoped<IAccountsService, AccountService>();
+builder.Services.AddResponseCaching();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

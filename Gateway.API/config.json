@@ -1,12 +1,12 @@
 {
   "AccountConfig": {
-    "GetAll": "/api/v1/players",
-    "GetById": null,
+    "GetAll": "api/Account/getAll",
+    "GetById": "api/Account/getById",
     "ProfitById": null,
     "HistoryById": null,
-    "CreateAccount": null,
-    "DeleteAccount": null,
-    "Host": "https://www.balldontlie.io"
+    "CreateAccount": "api/Account/register",
+    "DeleteAccount": "/api/Account/login",
+    "Host": "http://localhost:5000"
   },
   "AnalyzerConfig": { "Host": null },
   "StockConfig": { "Host": null }

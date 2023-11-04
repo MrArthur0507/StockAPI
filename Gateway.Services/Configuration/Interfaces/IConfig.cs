@@ -8,6 +8,7 @@ namespace Gateway.Services.Configuration.Interfaces
 {
     public interface IConfig
     {
+        public string LogFilePath { get; set; }
         public IAccountConfig AccountConfig { get; set; }
 
         public IAnalyzerConfig AnalyzerConfig { get; set; }

@@ -26,8 +26,9 @@ namespace Gateway.API.Controllers
         [Route("getConfig")]
         public IActionResult GetConfig()
         {
-            // Only for testing purposes
+            
             IConfig settings = _configurationService.GetAppSettings();
+            
             return Ok(settings);
         }
 
@@ -44,18 +45,23 @@ namespace Gateway.API.Controllers
         [Route("getById")]
         public async Task<string> GetById(string id)
         {
-
             return await accountsService.GetById(id);
-
         }
 
         [HttpPost]
         [Route("create")]
-        public async Task<int> Register([FromQuery]string username, string password, string email, string balance)
+        public async Task<IActionResult> Register([FromQuery]string username, string password, string email, string balance)
+        {
+            
+            return StatusCode(await accountsService.Register(username, password, email, balance));
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<string> Login([FromQuery] string email, string password)
         {
 
-            return await accountsService.Register(username, password, email, balance);
-
+            return await accountsService.Login(email, password);
         }
     }
 }

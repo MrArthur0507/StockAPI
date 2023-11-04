@@ -16,6 +16,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<Gateway.Services.Configuration.Interfaces.IHttpClientFactory, HttpClientFactory>();
 builder.Services.AddSingleton<IConfigurationService, ConfigurationService>();
 builder.Services.AddSingleton<IConfig, Config>();
+builder.Services.AddSingleton<IRequestLogger, RequestLogger>();
 builder.Services.AddScoped<IAccountsService, AccountService>();
 builder.Services.AddResponseCaching();
 var app = builder.Build();

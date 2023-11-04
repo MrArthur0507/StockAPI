@@ -18,16 +18,14 @@ namespace Gateway.Services.Implementations
         
         public AccountService(IConfigurationService configurationService, HttpClient client) {
             _configService = configurationService;
-            _client = client;
             _config = _configService.GetAppSettings();
-            _client.BaseAddress = new Uri("http://localhost:5000");
+            _client = client;
+            _client.BaseAddress = new Uri(_config.AccountConfig.Host);
         }
         
         public async Task<string> GetAll()
         {
-           // _client.BaseAddress = new Uri("http://localhost:5000");
             HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + _config.AccountConfig.GetAll);
-            Console.Write(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
                 
@@ -40,9 +38,8 @@ namespace Gateway.Services.Implementations
 
         public async Task<string> GetById(string id)
         {
-           // _client.BaseAddress = new Uri("https://localhost:7168");
+           
             HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + _config.AccountConfig.GetById + "?id=" + id);
-            Console.Write(response.StatusCode);
             if (response.IsSuccessStatusCode)
             {
 
@@ -64,6 +61,19 @@ namespace Gateway.Services.Implementations
 
 
             return (int)response.StatusCode;
+        }
+
+        public async Task<string> Login(string email, string password)
+        {
+            var parameters = new Dictionary<string, string> { { "email", email }, { "password", password }};
+
+            var encodedContent = new FormUrlEncodedContent(parameters);
+
+
+            HttpResponseMessage response = await _client.PostAsync($"{_client.BaseAddress}{_config.AccountConfig.Login}", encodedContent);
+            string json = await response.Content.ReadAsStringAsync();
+
+            return json;
         }
     }
 }

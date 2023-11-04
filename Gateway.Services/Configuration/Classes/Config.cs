@@ -9,6 +9,7 @@ namespace Gateway.Services.Configuration.Classes
 {
     public class Config : IConfig
     {
+        public string LogFilePath { get; set; }
         public IAccountConfig AccountConfig { get; set; } = new AccountsConfig();
 
         public IAnalyzerConfig AnalyzerConfig { get; set; } = new AnalyzerConfig();

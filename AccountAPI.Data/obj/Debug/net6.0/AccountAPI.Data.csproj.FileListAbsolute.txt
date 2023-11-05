@@ -16,3 +16,21 @@ D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\Acc
 D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\refint\AccountAPI.Data.dll
 D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.pdb
 D:\VTU software engineering\C#\API\StockAPI\AccountAPI.Data\obj\Debug\net6.0\ref\AccountAPI.Data.dll
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.deps.json
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.runtimeconfig.json
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.exe
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\AccountAPI.Data.deps.json
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\AccountAPI.Data.dll
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\AccountAPI.Data.pdb
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.dll
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\bin\Debug\net6.0\StockAPI.Database.pdb
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.csproj.AssemblyReference.cache
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.AssemblyInfoInputs.cache
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.AssemblyInfo.cs
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.csproj.CoreCompileInputs.cache
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.csproj.CopyComplete
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.dll
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\refint\AccountAPI.Data.dll
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\AccountAPI.Data.pdb
+C:\Users\Lubo\OneDrive\Desktop\StockAPI\StockAPI\AccountAPI.Data\obj\Debug\net6.0\ref\AccountAPI.Data.dll

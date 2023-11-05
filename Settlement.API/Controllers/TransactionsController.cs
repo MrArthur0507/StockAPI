@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Settlement.API.Services;
+using SettlementServices;
 
 namespace Settlement.API.Controllers
 {
@@ -8,16 +8,36 @@ namespace Settlement.API.Controllers
     [ApiController]
     public class TransactionsController : ControllerBase
     {
-        private readonly TransactionService _transactionService;
+        private readonly ApiAccountService _apiAccountService;
+        private readonly ApiStockService _apiStockService;
 
-        public TransactionsController(TransactionService transactionService)
+        public TransactionsController(ApiAccountService apiAccountService, ApiStockService apiStockService)
         {
-            _transactionService = transactionService;
+            _apiAccountService = apiAccountService;
+            _apiStockService = apiStockService;
         }
 
-        public IActionResult Transaction(int senderId, int recieverId, decimal stockTotalPrice, int quantity)
+
+        [HttpPatch]
+        public async Task<IActionResult> Transaction(string accountId, string stockName)
         {
-            return BadRequest("Transaction failed");
+            try
+            {
+                await _apiAccountService.GetAccountByIdAsync(accountId);
+                await _apiStockService.GetStockByName(stockName);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
+
+            return BadRequest("Not enough credit to buy the stock!");
+
+
+            
+
+
         }
     }
 }

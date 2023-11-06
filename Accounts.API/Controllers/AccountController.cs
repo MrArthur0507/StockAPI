@@ -1,5 +1,6 @@
 ﻿using AccountAPI.Data.Models.Implementation;
 using Accounts.API.Services.Interfaces;
+using Accounts.API.Services.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using StockAPI.Database.Data;
 using StockAPI.Database.Interfaces;
@@ -18,13 +19,13 @@ namespace Accounts.API.Controllers
         }
         [HttpGet]
         [Route("getAll")]
-        public List<Account> GetAllAccounts()
+        public List<User> GetAllAccounts()
         {
             return _accountService.GetAllAccount();
         }
         [HttpGet]
         [Route("getById")]
-        public Account GetAccountById(string id)
+        public User GetAccountById(string id)
         {
             return _accountService.GetAccountById(id);
         }

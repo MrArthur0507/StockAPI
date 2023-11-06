@@ -1,5 +1,6 @@
 ﻿using AccountAPI.Data.Models.Implementation;
 using Accounts.API.Services.Interfaces;
+using Accounts.API.Services.ViewModels;
 using Microsoft.AspNetCore.Http;
 using StockAPI.Database.Interfaces;
 using System;
@@ -21,13 +22,22 @@ namespace Accounts.API.Services.Implementation
             _apiService = apiService;
         }
 
-        public List<Account> GetAllAccount()
+        public List<User> GetAllAccount()
         {
-            return _dataManager.SelectData<Account>("Account");
+            var accounts = _dataManager.SelectData<Account>("Accounts");
+            List<User> result = new List<User>();
+            foreach (var account in accounts)
+            {
+                result.Add(new User(account.Username, account.Email, account.Balance));
+            }
+
+            return result;
         }
-        public Account GetAccountById(string id) 
+        public User GetAccountById(string id) 
         {
-            return _dataManager.SelectByID<Account>("Account",id);
+            var account = _dataManager.SelectByID<Account>("Accounts", id);
+
+            return new User(account.Username,account.Email,account.Balance);
         }
         public int AddMoney(string userId, string baseCurrency, decimal amount)
         {

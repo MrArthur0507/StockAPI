@@ -14,5 +14,6 @@ namespace StockAPI.Database.Interfaces
         public void InsertData<T>(T data);
         public List<T> SelectData<T>(string table);
         public T SelectByID<T>(string table, string id);
+        public void UpdateData<T>(T data, string primaryKey);
     }
 }

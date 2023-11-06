@@ -12,5 +12,8 @@ namespace Accounts.API.Services.Interfaces
 
         public List<Account> GetAllAccount();
         public Account GetAccountById(string id);
+
+        public int AddMoney(string userId, string baseCurrency, decimal amount);
+        public void Test(string id);
     }
 }

@@ -41,5 +41,10 @@ namespace StockAPI.Database.Data
         {
             return _configuration.DataSelector.SelectByID<T>(table, id,connectionString);
         }
+        public void UpdateData<T>(T data, string primaryKey)
+        {
+            _configuration.TableService.UpdateData(data, connectionString, primaryKey);
+        }
     }
+
 }

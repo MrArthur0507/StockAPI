@@ -43,5 +43,16 @@ namespace Accounts.API.Controllers
         {
             return StatusCode(_authenticationService.CheckToken(token));
         }
+        [HttpGet("changeName")]
+        public IActionResult ChangeName(string id)
+        {
+            _accountService.Test(id);
+            return Ok();
+        }
+        [HttpPost("addMoney")]
+        public IActionResult AddMoney(string id, string baseCurrency, decimal amount)
+        {
+            return StatusCode(_accountService.AddMoney(id, baseCurrency, amount));
+        }
     }
 }

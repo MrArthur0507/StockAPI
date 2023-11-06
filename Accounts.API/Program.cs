@@ -15,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<ITypeDictionary, TypeDictionary>();
 builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
+builder.Services.AddSingleton<IApiService, ApiService>();
 builder.Services.AddSingleton<IDataInserter, DataInserter>();
 builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
 builder.Services.AddSingleton<ITableService, TableService>();
@@ -41,6 +42,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<IPRestrictionMiddleware>();
 app.UseAuthorization();
 app.UseMiddleware<HeaderMiddleware>();
 app.UseMiddleware<StatusCodeMiddleware>();

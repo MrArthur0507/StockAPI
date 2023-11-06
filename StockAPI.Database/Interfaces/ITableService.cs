@@ -11,5 +11,6 @@ namespace StockAPI.Database.Interfaces
         public void CreateTable<T>(string connectionString);
         public void DeleteTable<T>(string connectionString);
         public void InsertData<T>(T data, string connectionString);
+        public void UpdateData<T>(T data, string connectionString, string primaryKey);
     }
 }

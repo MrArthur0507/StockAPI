@@ -1,1 +1,11 @@
 .vs/
+./Accounts.API/bin/
+./Accounts.API/obj/
+./Analyzer.API/bin/
+./Analyzer.API/obj/
+./Gateway.API/bin/
+./Gateway.API/obj/
+./Stock.API/bin/
+./Stock.API/obj/
+./StockAPI.Database/bin/
+./StockAPI.Database/obj/

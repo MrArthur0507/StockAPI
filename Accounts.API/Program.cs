@@ -9,6 +9,10 @@ using Accounts.API.Services.Interfaces;
 using Accounts.API.Services.Implementation;
 using Accounts.API.Middlewares;
 using StockAPI.Database.Helpers;
+using StockApiRepDB.Interfaces;
+using StockApiRepDB.Services;
+using StockApiRepDB.Data;
+using StockApiRepDB;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -24,9 +28,12 @@ builder.Services.AddSingleton<IDataConfiguration, DataConfiguration>();
 builder.Services.AddSingleton<IDataManager, DataManager>();
 builder.Services.AddSingleton<ISeed, Seed>();
 builder.Services.AddScoped<IAccountService, AccountService>();
-
 builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+//Services for the repository pattern db
+builder.Services.AddSingleton<IRepDataService, DataService>();
+builder.Services.AddSingleton<IUnitOfWork,UnitOfWork>();
+builder.Services.AddSingleton<IRepDataManager, RepDataManager>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -49,12 +56,22 @@ app.UseMiddleware<StatusCodeMiddleware>();
 
 app.MapControllers();
 app.Run();
- void InitializeApplicationDbContext(WebApplication app)
+/*
+ * THIS TOO!
+ * void InitializeApplicationDbContext(WebApplication app)
 {
-    var dataManager = app.Services.GetRequiredService<IDataManager>();
-    var seed = app.Services.GetRequiredService<ISeed>();
+   var dataManager = app.Services.GetRequiredService<IDataManager>();
+   var seed = app.Services.GetRequiredService<ISeed>();
 
-    var context = new ApplicationDbContext(dataManager,seed);
+   var context = new ApplicationDbContext(dataManager,seed);
+   context.Start();
+
+}*/
+void InitializeApplicationDbContext(WebApplication app)
+{
+
+    var dataManager = app.Services.GetRequiredService<IRepDataManager>();
+    var context = new RepAppDbContext(dataManager);
     context.Start();
-    // Optionally, you can perform additional operations with the context here
+
 }

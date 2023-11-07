@@ -607,6 +607,20 @@
         "runtime": {
           "bin/placeholder/StockAPI.Database.dll": {}
         }
+      },
+      "StockApiRepDB/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AccountAPI.Data": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "compile": {
+          "bin/placeholder/StockApiRepDB.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/StockApiRepDB.dll": {}
+        }
       }
     }
   },
@@ -1746,6 +1760,11 @@
       "type": "project",
       "path": "../StockAPI.Database/StockAPI.Database.csproj",
       "msbuildProject": "../StockAPI.Database/StockAPI.Database.csproj"
+    },
+    "StockApiRepDB/1.0.0": {
+      "type": "project",
+      "path": "../StockApiRepDB/StockApiRepDB.csproj",
+      "msbuildProject": "../StockApiRepDB/StockApiRepDB.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -1754,6 +1773,7 @@
       "Accounts.API.Services >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.0",
       "StockAPI.Database >= 1.0.0",
+      "StockApiRepDB >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.4.0"
     ]
   },
@@ -1792,6 +1812,9 @@
             },
             "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
               "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
+            },
+            "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\StockApiRepDB.csproj": {
+              "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\StockApiRepDB.csproj"
             }
           }
         }

@@ -12,6 +12,7 @@
           "Accounts.API.Services": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.0",
           "StockAPI.Database": "1.0.0",
+          "StockApiRepDB": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -299,6 +300,15 @@
         "runtime": {
           "StockAPI.Database.dll": {}
         }
+      },
+      "StockApiRepDB/1.0.0": {
+        "dependencies": {
+          "AccountAPI.Data": "1.0.0",
+          "System.Data.SqlClient": "4.8.5"
+        },
+        "runtime": {
+          "StockApiRepDB.dll": {}
+        }
       }
     }
   },
@@ -571,6 +581,11 @@
       "sha512": ""
     },
     "StockAPI.Database/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "StockApiRepDB/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

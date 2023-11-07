@@ -106,3 +106,5 @@ D:\VTU software engineering\C#\StockAPI\Accounts.API\obj\Debug\net7.0\scopedcss\
 D:\VTU software engineering\C#\StockAPI\Accounts.API\obj\Debug\net7.0\Accounts.API.csproj.CopyComplete
 D:\VTU software engineering\C#\StockAPI\Accounts.API\obj\Debug\net7.0\Accounts.API.genruntimeconfig.cache
 D:\VTU software engineering\C#\StockAPI\Accounts.API\obj\Debug\net7.0\ref\Accounts.API.dll
+D:\VTU software engineering\C#\StockAPI\Accounts.API\bin\Debug\net7.0\StockApiRepDB.dll
+D:\VTU software engineering\C#\StockAPI\Accounts.API\bin\Debug\net7.0\StockApiRepDB.pdb

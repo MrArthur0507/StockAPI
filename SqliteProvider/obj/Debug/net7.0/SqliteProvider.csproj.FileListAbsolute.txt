@@ -1,0 +1,15 @@
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\bin\Debug\net7.0\SqliteProvider.deps.json
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\bin\Debug\net7.0\SqliteProvider.dll
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\bin\Debug\net7.0\SqliteProvider.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.csproj.AssemblyReference.cache
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.AssemblyInfoInputs.cache
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.AssemblyInfo.cs
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.csproj.CoreCompileInputs.cache
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.dll
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\refint\SqliteProvider.dll
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\ref\SqliteProvider.dll
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\bin\Debug\net7.0\Gateway.Services.dll
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\bin\Debug\net7.0\Gateway.Services.pdb
+C:\Users\Bozhidar\source\repos\StockAPI\SqliteProvider\obj\Debug\net7.0\SqliteProvider.csproj.CopyComplete

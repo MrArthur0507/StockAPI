@@ -2,6 +2,7 @@
 using Gateway.Services.Configuration.Interfaces;
 using Gateway.Services.Implementations;
 using Gateway.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -24,6 +25,7 @@ namespace Gateway.API.Controllers
 
         [HttpGet]
         [Route("getConfig")]
+        [Authorize]
         public IActionResult GetConfig()
         {
             

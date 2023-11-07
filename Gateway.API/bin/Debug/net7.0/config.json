@@ -1,5 +1,6 @@
 {
   "LogFilePath": "log.txt",
+  "SqliteDbPath" :  "iplog.db",
   "AccountConfig": {
     "GetAll": "api/Account/getAll",
     "GetById": "api/Account/getById",

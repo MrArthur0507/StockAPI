@@ -11,10 +11,4 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\AccountAPI.Data\AccountAPI.Data.csproj" />
-    <ProjectReference Include="..\Accounts.API.Services\Accounts.API.Services.csproj" />
-    <ProjectReference Include="..\StockAPI.Database\StockAPI.Database.csproj" />
-  </ItemGroup>
-
 </Project>

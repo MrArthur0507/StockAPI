@@ -36,6 +36,9 @@ bld/
 # Visual Studio 2015/2017 cache/options directory
 .vs/
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4c7a8688902c8248ef1c607a0850c2ecde831b24
 ./Accounts.API/bin/
 ./Accounts.API/obj/
 ./Analyzer.API/bin/
@@ -45,6 +48,7 @@ bld/
 ./Stock.API/bin/
 ./Stock.API/obj/
 ./StockAPI.Database/bin/
+<<<<<<< HEAD
 ./StockAPI.Database/obj/
 =======
 # Uncomment if you have tasks that create the project's static files in wwwroot
@@ -374,3 +378,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 >>>>>>> d681e5529dc32b00776188eeab45e01439dd808b
+=======
+./StockAPI.Database/obj/
+>>>>>>> 4c7a8688902c8248ef1c607a0850c2ecde831b24

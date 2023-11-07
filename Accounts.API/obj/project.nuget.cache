@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "OYtW2+V/NIPmWDgtTFkJsj8zLtP2hZntCSLG+PzLliUuo/Osyjxb154UO0pc9b5kFLG6zlxHg5tiLOlMSWrptQ==",
+=======
+  "dgSpecHash": "U/ZA6Q3t22TkFoOlnH0KxLQBfWv79mkKMyZ/UhYmc8mrdmBrQ3WgG8iNMdJ9Omq2IBZQ3T8NXTvazLH5j+owDQ==",
+>>>>>>> 4c7a8688902c8248ef1c607a0850c2ecde831b24
   "success": true,
   "projectFilePath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\Accounts.API.csproj",
   "expectedPackageFiles": [

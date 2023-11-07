@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.API.Services", "..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountAPI.Data", "..\AccountAPI.Data\AccountAPI.Data.csproj", "{BC36F592-3317-4EAA-8D82-91F3C097E9E7}"
 EndProject
+<<<<<<< HEAD
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockApiRepDB", "..\StockApiRepDB\StockApiRepDB.csproj", "{92FC6A90-0759-4FC3-AEFC-52EAC49641DE}"
+=======
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockApiRepDB", "..\StockApiRepDB\StockApiRepDB.csproj", "{92FC6A90-0759-4FC3-AEFC-52EAC49641DE}"
+>>>>>>> 4c7a8688902c8248ef1c607a0850c2ecde831b24
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

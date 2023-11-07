@@ -8,6 +8,12 @@ namespace Gateway.Services.Interfaces
 {
     public interface IAccountsService
     {
-        public Task<string> GetPlayers();
+        public Task<string> GetAll();
+
+        public Task<string> GetById(string id);
+
+        public Task<int> Register(string username, string password, string email, string balance);
+
+        public Task<string> Login(string username, string password);
     }
 }

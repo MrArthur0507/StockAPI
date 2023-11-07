@@ -19,11 +19,11 @@ namespace Accounts.API.Services.Implementation
 
         public List<Account> GetAllAccount()
         {
-            return _dataManager.SelectData<Account>("Account");
+            return _dataManager.SelectData<Account>("Accounts");
         }
         public Account GetAccountById(string id) 
         {
-            return _dataManager.SelectByID<Account>("Account",id);
+            return _dataManager.SelectByID<Account>("Accounts",id);
         }
     }
 }

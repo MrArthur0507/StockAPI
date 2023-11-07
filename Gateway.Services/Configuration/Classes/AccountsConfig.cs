@@ -19,7 +19,7 @@ namespace Gateway.Services.Configuration.Classes
         public string HistoryById { get; set; }
 
         public string CreateAccount { get; set; }
-
+        public string Login { get; set; }
         public string DeleteAccount { get; set; }
     }
 }

@@ -1025,11 +1025,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\Accounts.API.csproj",
+      "projectUniqueName": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API\\Accounts.API.csproj",
       "projectName": "Accounts.API",
-      "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\Accounts.API.csproj",
+      "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API\\Accounts.API.csproj",
       "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-      "outputPath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\obj\\",
+      "outputPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1049,17 +1049,22 @@
           "projectReferences": {}
 =======
           "projectReferences": {
-            "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
-              "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj"
+            "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
+              "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj"
             },
-            "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj": {
-              "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj"
+            "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj": {
+              "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj"
             },
+<<<<<<< HEAD
             "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
               "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
             },
             "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\StockApiRepDB.csproj": {
               "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\StockApiRepDB.csproj"
+=======
+            "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
+              "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
+>>>>>>> develop
             }
           }
 >>>>>>> 4c7a8688902c8248ef1c607a0850c2ecde831b24

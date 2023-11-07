@@ -1,12 +1,16 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "OYtW2+V/NIPmWDgtTFkJsj8zLtP2hZntCSLG+PzLliUuo/Osyjxb154UO0pc9b5kFLG6zlxHg5tiLOlMSWrptQ==",
 =======
   "dgSpecHash": "U/ZA6Q3t22TkFoOlnH0KxLQBfWv79mkKMyZ/UhYmc8mrdmBrQ3WgG8iNMdJ9Omq2IBZQ3T8NXTvazLH5j+owDQ==",
 >>>>>>> 4c7a8688902c8248ef1c607a0850c2ecde831b24
+=======
+  "dgSpecHash": "wx7OfYdBjDfwC50dc98O475XEq5vXRyMmfP8LBPbyF7CA8cqIo4m+PT0qFHC1a4kfIskwWSJ1Visvpv8pLZBOw==",
+>>>>>>> develop
   "success": true,
-  "projectFilePath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\Accounts.API.csproj",
+  "projectFilePath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API\\Accounts.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.0\\microsoft.aspnetcore.openapi.7.0.0.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

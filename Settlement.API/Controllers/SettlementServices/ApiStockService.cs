@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Settlement.Data.Models;
+using Settlement.API.Controllers.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

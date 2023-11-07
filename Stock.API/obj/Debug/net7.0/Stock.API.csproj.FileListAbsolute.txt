@@ -31,3 +31,6 @@ D:\UniApiProject\Stock.API\obj\Debug\net7.0\refint\Stock.API.dll
 D:\UniApiProject\Stock.API\obj\Debug\net7.0\Stock.API.pdb
 D:\UniApiProject\Stock.API\obj\Debug\net7.0\Stock.API.genruntimeconfig.cache
 D:\UniApiProject\Stock.API\obj\Debug\net7.0\ref\Stock.API.dll
+D:\API\Stock.API\obj\Debug\net7.0\Stock.API.dll
+D:\API\Stock.API\obj\Debug\net7.0\refint\Stock.API.dll
+D:\API\Stock.API\obj\Debug\net7.0\Stock.API.pdb

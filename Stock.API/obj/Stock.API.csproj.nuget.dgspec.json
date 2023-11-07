@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UniApiProject\\Stock.API\\Stock.API.csproj": {}
+    "D:\\API\\Stock.API\\Stock.API.csproj": {}
   },
   "projects": {
-    "D:\\UniApiProject\\Stock.API\\Stock.API.csproj": {
+    "D:\\API\\Stock.API\\Stock.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UniApiProject\\Stock.API\\Stock.API.csproj",
+        "projectUniqueName": "D:\\API\\Stock.API\\Stock.API.csproj",
         "projectName": "Stock.API",
-        "projectPath": "D:\\UniApiProject\\Stock.API\\Stock.API.csproj",
-        "packagesPath": "C:\\Users\\presl\\.nuget\\packages\\",
-        "outputPath": "D:\\UniApiProject\\Stock.API\\obj\\",
+        "projectPath": "D:\\API\\Stock.API\\Stock.API.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "D:\\API\\Stock.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\presl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,6 +47,10 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.12, )"
+            },
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[7.0.13, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",

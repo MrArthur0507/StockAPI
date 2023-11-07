@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gCqIJ/TN5Z7LL/q3Hy6Jfl08a6nMSkTqScQChlDa7ylL/IxCCl0XQIpoDn7sPGsXVmKImMyMozX0uDCfSAfZJQ==",
+  "dgSpecHash": "A657knJNrt6bFSgGXAwhugAm82ZkGAzEPtnR6JJbUGY6EnwCVqv1Cvxu7nBU3oay8975oBMJxKALPXpySWChqg==",
   "success": true,
-  "projectFilePath": "D:\\VTU software engineering\\C#\\API\\StockAPI\\Accounts.API\\Accounts.API.csproj",
+  "projectFilePath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\Accounts.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",

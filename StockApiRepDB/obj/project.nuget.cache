@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XeU4OjtNdm5A4SoRATY1udYDmhKdbaSgAt2RevUHdxTO/NCVLu+V/k62QCDCPRtVyAOkXIttYiLpRCCOR91Eww==",
+  "dgSpecHash": "7bHffpFm/dDhXsbZM4LUi5XsDBceYrdjHaifms+Z9bvf2INtcMY2huvhkrGlxEFjFit+fFw2D1Z4cDz9Hw7/Ww==",
   "success": true,
-  "projectFilePath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
+  "projectFilePath": "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\StockApiRepDB.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

@@ -221,6 +221,19 @@
           }
         }
       },
+      "AccountAPI.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "StockAPI.Database": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AccountAPI.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AccountAPI.Data.dll": {}
+        }
+      },
       "StockAPI.Database/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -657,6 +670,11 @@
         "version.txt"
       ]
     },
+    "AccountAPI.Data/1.0.0": {
+      "type": "project",
+      "path": "../AccountAPI.Data/AccountAPI.Data.csproj",
+      "msbuildProject": "../AccountAPI.Data/AccountAPI.Data.csproj"
+    },
     "StockAPI.Database/1.0.0": {
       "type": "project",
       "path": "../StockAPI.Database/StockAPI.Database.csproj",
@@ -665,7 +683,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "StockAPI.Database >= 1.0.0"
+      "AccountAPI.Data >= 1.0.0",
+      "System.Data.SqlClient >= 4.8.5"
     ]
   },
   "packageFolders": {
@@ -674,11 +693,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
-      "projectName": "AccountAPI.Data",
-      "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
+      "projectUniqueName": "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\StockApiRepDB.csproj",
+      "projectName": "StockApiRepDB",
+      "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\StockApiRepDB.csproj",
       "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-      "outputPath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\obj\\",
+      "outputPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockApiRepDB\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -695,8 +714,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
-              "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
+            "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
+              "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj"
             }
           }
         }
@@ -710,6 +729,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "System.Data.SqlClient": {
+            "target": "Package",
+            "version": "[4.8.5, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

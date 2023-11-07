@@ -9,17 +9,9 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Accounts.API
 build_property.RootNamespace = Accounts.API
-<<<<<<< HEAD
-build_property.ProjectDir = D:\VTU software engineering\C#\API\StockAPI\Accounts.API\
+build_property.ProjectDir = D:\VTU software engineering\C#\StockAPI\Accounts.API\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\VTU software engineering\C#\API\StockAPI\Accounts.API
-=======
-build_property.ProjectDir = C:\Users\User\Desktop\ProjectAPI\StockAPI\Accounts.API\
-build_property.RazorLangVersion = 7.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\ProjectAPI\StockAPI\Accounts.API
->>>>>>> main
+build_property.MSBuildProjectDirectory = D:\VTU software engineering\C#\StockAPI\Accounts.API
 build_property._RazorSourceGeneratorDebug = 

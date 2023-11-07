@@ -460,24 +460,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bozhidar\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Stock.API\\Stock.API.csproj",
+      "projectUniqueName": "D:\\API\\Stock.API\\Stock.API.csproj",
       "projectName": "Stock.API",
-      "projectPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Stock.API\\Stock.API.csproj",
-      "packagesPath": "C:\\Users\\Bozhidar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bozhidar\\source\\repos\\StockAPI\\Stock.API\\obj\\",
+      "projectPath": "D:\\API\\Stock.API\\Stock.API.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\API\\Stock.API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bozhidar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -531,7 +526,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

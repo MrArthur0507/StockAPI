@@ -656,11 +656,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
+      "projectUniqueName": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
       "projectName": "StockAPI.Database",
-      "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
+      "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
       "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-      "outputPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\obj\\",
+      "outputPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",

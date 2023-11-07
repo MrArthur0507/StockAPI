@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj": {}
+    "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj": {}
   },
   "projects": {
-    "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
+    "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
+        "projectUniqueName": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
         "projectName": "AccountAPI.Data",
-        "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
+        "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
         "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-        "outputPath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\obj\\",
+        "outputPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
-                "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
+              "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
+                "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
               }
             }
           }
@@ -63,14 +63,14 @@
         }
       }
     },
-    "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj": {
+    "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj",
+        "projectUniqueName": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj",
         "projectName": "Accounts.API.Services",
-        "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj",
+        "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API.Services\\Accounts.API.Services.csproj",
         "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-        "outputPath": "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API.Services\\obj\\",
+        "outputPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\Accounts.API.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -87,11 +87,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
-                "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj"
+              "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj": {
+                "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj"
               },
-              "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
-                "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
+              "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
+                "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj"
               }
             }
           }
@@ -151,14 +151,14 @@
         }
       }
     },
-    "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
+    "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
+        "projectUniqueName": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
         "projectName": "StockAPI.Database",
-        "projectPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
+        "projectPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\StockAPI.Database.csproj",
         "packagesPath": "C:\\Users\\emils\\.nuget\\packages\\",
-        "outputPath": "D:\\VTU software engineering\\C#\\StockAPI\\StockAPI.Database\\obj\\",
+        "outputPath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\StockAPI.Database\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\emils\\AppData\\Roaming\\NuGet\\NuGet.Config",

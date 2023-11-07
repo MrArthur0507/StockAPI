@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3kTuX5Gsz8QPoDb0+o9wPbScztRIxJen6NswOuaR/0VTK5pSRRzelD3ieiXJkZwDnf8ATeIepVJYcM8lyTZVHw==",
+  "dgSpecHash": "uWRCzOeQru14K3ZjmRHuoZRvvuymgyKLzzd1kVKxIvhljdAPqUDNONrGFP29jMnH9/bR7/9WaywS2TD7dmwqcQ==",
   "success": true,
-  "projectFilePath": "D:\\VTU software engineering\\C#\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
+  "projectFilePath": "D:\\VTU software engineering\\C#\\NewStockApi\\StockAPI\\AccountAPI.Data\\AccountAPI.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration\\7.0.0\\microsoft.extensions.configuration.7.0.0.nupkg.sha512",
     "C:\\Users\\emils\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",

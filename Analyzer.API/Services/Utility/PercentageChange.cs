@@ -15,8 +15,13 @@ namespace Analyzer.API.Services.Utility
             var startPrices=new Dictionary<string, decimal>();
             foreach(var item in portfolio)
             {
-                decimal startPrice = _stockService.GetPriceAtDate(item.Symbol, endDate);
-                startPrices[item.Symbol] = startPrice;
+				if (string.IsNullOrEmpty(item.Symbol) || item.Quantity <= 0)
+                {
+					throw new ArgumentException("Invalid portfolio item.");
+
+				}
+				decimal startPrice = _stockService.GetPriceAtDate(item.Symbol, endDate);
+				startPrices[item.Symbol] = startPrice;
             }
             decimal currentTotalValue = portfolio.Sum(item =>
             {
@@ -24,8 +29,8 @@ namespace Analyzer.API.Services.Utility
                 return currentPrice;
             });
             decimal initialTotalValue = portfolio.Sum(item => startPrices[item.Symbol] * item.Quantity);
-            decimal percentageChange=((currentTotalValue - initialTotalValue)/currentTotalValue*100);
-            return percentageChange;
+			decimal percentageChange = ((currentTotalValue - initialTotalValue) / initialTotalValue) * 100;
+			return percentageChange;
         }
     }
 }

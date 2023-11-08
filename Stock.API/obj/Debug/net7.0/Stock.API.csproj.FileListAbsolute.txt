@@ -31,3 +31,8 @@ D:\UniApiProject\Stock.API\obj\Debug\net7.0\refint\Stock.API.dll
 D:\UniApiProject\Stock.API\obj\Debug\net7.0\Stock.API.pdb
 D:\UniApiProject\Stock.API\obj\Debug\net7.0\Stock.API.genruntimeconfig.cache
 D:\UniApiProject\Stock.API\obj\Debug\net7.0\ref\Stock.API.dll
+D:\UniApiProject\Stock.API\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\UniApiProject\Stock.API\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\UniApiProject\Stock.API\bin\Debug\net7.0\Newtonsoft.Json.dll
+D:\UniApiProject\Stock.API\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+D:\UniApiProject\Stock.API\bin\Debug\net7.0\Swashbuckle.AspNetCore.Annotations.dll

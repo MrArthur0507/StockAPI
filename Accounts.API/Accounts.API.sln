@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.API", "Accounts.AP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockAPI.Database", "..\StockAPI.Database\StockAPI.Database.csproj", "{6D349ADC-9115-4303-8C6E-03BBE924F706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Accounts.API.Services", "..\Accounts.API.Services\Accounts.API.Services.csproj", "{FC11E6C1-D25C-4284-B77A-A9AF64ACF32D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.API.Services", "..\Accounts.API.Services\Accounts.API.Services.csproj", "{FC11E6C1-D25C-4284-B77A-A9AF64ACF32D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountAPI.Data", "..\AccountAPI.Data\AccountAPI.Data.csproj", "{BC36F592-3317-4EAA-8D82-91F3C097E9E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountAPI.Data", "..\AccountAPI.Data\AccountAPI.Data.csproj", "{BC36F592-3317-4EAA-8D82-91F3C097E9E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockApiRepDB", "..\StockApiRepDB\StockApiRepDB.csproj", "{92FC6A90-0759-4FC3-AEFC-52EAC49641DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{BC36F592-3317-4EAA-8D82-91F3C097E9E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC36F592-3317-4EAA-8D82-91F3C097E9E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC36F592-3317-4EAA-8D82-91F3C097E9E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92FC6A90-0759-4FC3-AEFC-52EAC49641DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92FC6A90-0759-4FC3-AEFC-52EAC49641DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92FC6A90-0759-4FC3-AEFC-52EAC49641DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92FC6A90-0759-4FC3-AEFC-52EAC49641DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

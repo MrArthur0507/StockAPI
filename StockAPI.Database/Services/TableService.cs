@@ -70,7 +70,10 @@ namespace StockAPI.Database.Services
                 return $"{columnName} {columnType}";
             }).ToArray();
         }
-
+        public void UpdateData<T>(T data, string connectionString, string primaryKey)
+        {
+            _inserter.UpdateData(data, connectionString, primaryKey);
+        }
         private string GetSqlTypeFromCSharpType(Type type)
         {
             var dictionary = _dictionary.GetSqlTypes();

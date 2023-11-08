@@ -43,5 +43,23 @@ namespace StockAPI.Database.Services
                 command.ExecuteNonQuery();
             }
         }
+        public void UpdateData<T>(T data, string connectionString, string primaryKey)
+        {
+            string tableName = typeof(T).Name + "s";
+            var properties = typeof(T).GetProperties().Where(prop => prop.CanRead && prop.Name != "Id");
+            string columnNames = string.Join(", ", properties.Select(prop => prop.Name + " = @" + prop.Name));
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = $"UPDATE {tableName} SET {columnNames} WHERE Id = '{primaryKey}'";
+                SqlCommand command = new SqlCommand(query, connection);
+                foreach (var property in properties)
+                {
+                    var parameter = new SqlParameter($"@{property.Name}", property.GetValue(data));
+                    command.Parameters.Add(parameter);
+                }
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

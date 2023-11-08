@@ -14,5 +14,7 @@ namespace Gateway.Services.Implementations
         {
             _config = config;
         }
+
+        
     }
 }

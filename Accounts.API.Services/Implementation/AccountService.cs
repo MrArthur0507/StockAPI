@@ -57,6 +57,7 @@ namespace Accounts.API.Services.Implementation
             var user = _dataManager.SelectByID<Account>("Accounts", id);
             user.Username = "Novo ime";
             _dataManager.UpdateData(user, id);
+
         }
     }
 }

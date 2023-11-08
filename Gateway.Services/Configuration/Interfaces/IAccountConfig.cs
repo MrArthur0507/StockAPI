@@ -18,6 +18,7 @@ namespace Gateway.Services.Configuration.Interfaces
 
         public string CreateAccount { get; set; }
 
+        public string Login { get; set; }
         public string DeleteAccount { get; set; }
     }
 }

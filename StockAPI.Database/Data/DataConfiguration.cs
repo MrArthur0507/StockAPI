@@ -17,6 +17,7 @@ namespace StockAPI.Database.Data
         public IDataSelector DataSelector { get; set; }
         public string ConnectionString => "Server=DESKTOP-JAGL7D3\\SQLEXPRESS;Initial Catalog=StockTestingNew;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;";
 
+
         public DataConfiguration(IDatabaseService dbService, ITableService tbService, IDataSelector dataSelector)
         {
             DatabaseService = dbService;

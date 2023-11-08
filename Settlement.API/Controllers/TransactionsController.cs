@@ -5,6 +5,15 @@ using SettlementServices;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Data.SqlClient;
 using System.Data;
+using StockAPI.Database.Interfaces;
+using AccountAPI.Data.Models.Implementation;
+using Stocks.services;
+using Stocks.utils;
+using Stocks.Enums;
+using Stocks.Interfaces;
+using AccountAPI.Data.Models.Interfaces;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 
 namespace Settlement.API.Controllers
 {
@@ -14,66 +23,37 @@ namespace Settlement.API.Controllers
     {
         private readonly ApiAccountService _apiAccountService;
         private readonly ApiStockService _apiStockService;
+        private readonly IDataManager _dataManager;
+        private readonly URL_Maker _stockService;
 
-        public TransactionsController(ApiAccountService apiAccountService, ApiStockService apiStockService)
+        public TransactionsController(ApiAccountService apiAccountService, ApiStockService apiStockService,
+            IDataManager dataManager, URL_Maker stockService)
         {
             _apiAccountService = apiAccountService;
             _apiStockService = apiStockService;
+            _dataManager = dataManager;
+
+            _stockService = stockService;
         }
 
-
-        [HttpPatch]
-        public async Task<IActionResult> Transaction(string accountId, string stockName)
+        [HttpPost]
+        public async Task<IActionResult> MakeTransaction(string accountId, string stockName, TimeSeries timeSeries, Interval interval)
         {
-            try
-            {
-                await _apiAccountService.GetAccountByIdAsync(accountId);
-                await _apiStockService.GetStockByName(stockName);
+            var account = _dataManager.SelectByID<Account>("Accounts", accountId);
+            var stockJsonString = _stockService.GetURL_WithBaseStock(new Stocks.Models.Stock(timeSeries, stockName, interval));
+
+            Stock stock = JsonConvert.DeserializeObject<Stock>(stockJsonString);
 
 
-                string connectionString = "Server=(Local)\\SQLEXPRESS01;Database=StockApiAccounts;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
+            //timeSeries : INTRADAY
+            //stockName: MSFT
+            //interval: 60
 
-                    // Your SQL operations will go here.
-                
-
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.Text;
-
-                    // Define your SQL query
-                    string sqlQuery = "INSERT INTO YourTable (Column1, Column2) VALUES (@Value1, @Value2)";
-                    command.CommandText = sqlQuery;
-
-                    // Add parameters to the query to prevent SQL injection
-
-
-                    //command.Parameters.AddWithValue("@Value1", value1);
-                    //command.Parameters.AddWithValue("@Value2", value2);
-
-                    // Execute the SQL command
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    // Check rowsAffected to see if the operation was successful
-                }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            var newTransaction = new AccountAPI.Data.Models.Implementation.Transaction();
+            _dataManager.InsertData(newTransaction);
             
-
-            return BadRequest("Not enough credit to buy the stock!");
-
-
-            
-
-
+            _dataManager.UpdateData(account, accountId);
+            return Ok(newTransaction);
         }
     }
 }

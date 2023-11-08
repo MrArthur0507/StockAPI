@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using SettlementContracts;
-using Settlement.Data.Models;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 

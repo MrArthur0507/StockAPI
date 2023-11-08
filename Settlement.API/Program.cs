@@ -1,6 +1,11 @@
+using AccountAPI.Data.Models.Implementation;
+using AccountAPI.Data.Models.Interfaces;
 using Settlement.Services;
 using SettlementContracts;
 using SettlementServices;
+using StockAPI.Database.Data;
+using StockAPI.Database.Interfaces;
+using StockAPI.Database.Services;
 using System.Transactions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +18,20 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IApiConnectionService, ApiAccountConnectionService>();
 builder.Services.AddScoped<IApiConnectionService, ApiStockConnectionService>();
+
+
+//Database Services
+builder.Services.AddSingleton<ITypeDictionary, TypeDictionary>();
+builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
+builder.Services.AddSingleton<IDataInserter, DataInserter>();
+builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
+builder.Services.AddSingleton<ITableService, TableService>();
+builder.Services.AddSingleton<IDataSelector, DataSelector>();
+builder.Services.AddSingleton<IDataConfiguration, DataConfiguration>();
+builder.Services.AddSingleton<IDataManager, DataManager>();
+builder.Services.AddSingleton<ISeed, Seed>();
+//
+
 
 var app = builder.Build();
 

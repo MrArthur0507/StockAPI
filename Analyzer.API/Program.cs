@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ICurrentProfit, CurrentProfit>();
+builder.Services.AddScoped<IPercentageChange, PercentageChange>();
+//builder.Services.AddScoped<IPortfolioRisk, PortfolioRisk>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

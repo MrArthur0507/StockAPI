@@ -5,32 +5,33 @@ namespace Analyzer.API.Services.Utility
 {
     internal class PercentageChange : IPercentageChange
     {
-       private readonly IStockService _stockService;
-        public PercentageChange(IStockService stockService)
+        
+
+        public decimal GetPriceAtDate(string symbol, DateTime date)
         {
-            _stockService = stockService;
+            return 0;
         }
         public decimal GetPercentageChange(List<PortfolioItem> portfolio, DateTime starDate, DateTime endDate)
         {
-            var startPrices=new Dictionary<string, decimal>();
-            foreach(var item in portfolio)
+            var startPrices = new Dictionary<string, decimal>();
+            foreach (var item in portfolio)
             {
-				if (string.IsNullOrEmpty(item.Symbol) || item.Quantity <= 0)
+                if (string.IsNullOrEmpty(item.Symbol) || item.Quantity <= 0)
                 {
-					throw new ArgumentException("Invalid portfolio item.");
+                    throw new ArgumentException("Invalid portfolio item.");
 
-				}
-				decimal startPrice = _stockService.GetPriceAtDate(item.Symbol, endDate);
-				startPrices[item.Symbol] = startPrice;
+                }
+                decimal startPrice = GetPriceAtDate(item.Symbol, endDate);
+                startPrices[item.Symbol] = startPrice;
             }
             decimal currentTotalValue = portfolio.Sum(item =>
             {
-                decimal currentPrice = _stockService.GetPriceAtDate(item.Symbol, endDate);
+                decimal currentPrice = GetPriceAtDate(item.Symbol, endDate);
                 return currentPrice;
             });
             decimal initialTotalValue = portfolio.Sum(item => startPrices[item.Symbol] * item.Quantity);
-			decimal percentageChange = ((currentTotalValue - initialTotalValue) / initialTotalValue) * 100;
-			return percentageChange;
+            decimal percentageChange = ((currentTotalValue - initialTotalValue) / initialTotalValue) * 100;
+            return percentageChange;
         }
     }
 }

@@ -60,7 +60,7 @@ namespace Gateway.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<string> Login([FromQuery] string email, string password)
+        public async Task<HttpResponseMessage> Login([FromQuery] string email, string password)
         {
 
             return await accountsService.Login(email, password);

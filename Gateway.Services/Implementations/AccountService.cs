@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,7 @@ namespace Gateway.Services.Implementations
             return (int)response.StatusCode;
         }
 
-        public async Task<string> Login(string email, string password)
+        public async Task<HttpResponseMessage> Login(string email, string password)
         {
             var parameters = new Dictionary<string, string> { { "email", email }, { "password", password }};
 
@@ -71,9 +72,23 @@ namespace Gateway.Services.Implementations
 
 
             HttpResponseMessage response = await _client.PostAsync($"{_client.BaseAddress}{_config.AccountConfig.Login}", encodedContent);
+            Console.WriteLine(response);
             string json = await response.Content.ReadAsStringAsync();
+            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
+            {
+                
+                foreach (var cookieValue in cookieValues)
+                {
+                    
+                    string jwtToken = cookieValue;
 
-            return json;
+                    
+                    Console.WriteLine($"JWT Token: {jwtToken}");
+                }
+            }
+
+
+            return response;
         }
     }
 }

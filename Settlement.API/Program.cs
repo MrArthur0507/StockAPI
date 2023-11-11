@@ -1,11 +1,13 @@
 using AccountAPI.Data.Models.Implementation;
 using AccountAPI.Data.Models.Interfaces;
+using Settlement.API.Controllers.SettlementServices;
 using Settlement.Services;
 using SettlementContracts;
 using SettlementServices;
 using StockAPI.Database.Data;
 using StockAPI.Database.Interfaces;
 using StockAPI.Database.Services;
+using Stocks.utils;
 using System.Transactions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,8 +18,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IApiConnectionService, ApiAccountConnectionService>();
-builder.Services.AddScoped<IApiConnectionService, ApiStockConnectionService>();
+builder.Services.AddScoped<ApiAccountService>();
+builder.Services.AddScoped<ApiStockService>();
+builder.Services.AddScoped<URL_Maker>();
+builder.Services.AddScoped<StockDataService>();
+
 
 
 //Database Services

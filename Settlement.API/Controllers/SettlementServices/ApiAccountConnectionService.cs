@@ -17,7 +17,7 @@ namespace Settlement.Services
         public ApiAccountConnectionService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7168/api/Account");
+            _httpClient.BaseAddress = new Uri("http://localhost:5000/");
         }
 
     }

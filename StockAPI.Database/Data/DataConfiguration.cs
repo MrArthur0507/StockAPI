@@ -15,7 +15,7 @@ namespace StockAPI.Database.Data
         public ITableService TableService { get; set; }
 
         public IDataSelector DataSelector { get; set; }
-        public string ConnectionString => "Server=(Local)\\SQLEXPRESS01;Database=StockApiAccounts;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
+        public string ConnectionString => "Server=(Local)\\SQLEXPRESS01;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
 
 
         public DataConfiguration(IDatabaseService dbService, ITableService tbService, IDataSelector dataSelector)

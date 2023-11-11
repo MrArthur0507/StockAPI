@@ -17,7 +17,7 @@ namespace SettlementServices
             try
             {
                 ApiAccountConnectionService connectionService = new ApiAccountConnectionService();
-                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"https://localhost:7168/api/Account/getById/{id}");
+                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"http://localhost:5000/api/Account/getById?id={id}");
 
                 if (response.IsSuccessStatusCode)
                 {

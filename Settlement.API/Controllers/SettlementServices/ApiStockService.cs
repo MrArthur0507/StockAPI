@@ -10,18 +10,18 @@ namespace SettlementServices
 {
     public class ApiStockService
     {
-        public async Task<Stock> GetStockByName(string name)
+        public async Task<String> GetStockByName(Stocks.Models.Stock stock)
         {
             try
             {
                 ApiStockConnectionService connectionService = new ApiStockConnectionService();
-                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"");
+                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"http://localhost:5000/api/stocks?TimeSeries={stock.TimeSeries}&Symbol={stock.Symbol}&Interval={stock.Interval}");
 
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    Stock account = JsonConvert.DeserializeObject<Stock>(jsonResponse);
-                    return account;
+                    //string account = JsonConvert.DeserializeObject<String>(jsonResponse);
+                    return jsonResponse;
                 }
                 else
                 {

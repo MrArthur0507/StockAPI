@@ -14,7 +14,7 @@ namespace SettlementServices
         public ApiStockConnectionService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("http://localhost:5000");
+            _httpClient.BaseAddress = new Uri("https://localhost:5002");
         }
     }
 }

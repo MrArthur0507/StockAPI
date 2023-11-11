@@ -15,7 +15,7 @@ namespace SettlementServices
             try
             {
                 ApiStockConnectionService connectionService = new ApiStockConnectionService();
-                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"http://localhost:5000/api/stocks?TimeSeries={stock.TimeSeries}&Symbol={stock.Symbol}&Interval={stock.Interval}");
+                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"https://localhost:5002/api/stocks?TimeSeries={stock.TimeSeries}&Symbol={stock.Symbol}&Interval={stock.Interval}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -25,7 +25,7 @@ namespace SettlementServices
                 }
                 else
                 {
-                    throw new Exception($"Failed to retrieve account. Status code: {response.StatusCode}");
+                    throw new Exception($"Failed to retrieve stock. Status code: {response.StatusCode}");
 
                 }
             }

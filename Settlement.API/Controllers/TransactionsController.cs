@@ -46,39 +46,34 @@ namespace Settlement.API.Controllers
             //4d39f99a-e8e8-4fb3-a1f7-7747e9cf9660
 
 
-            //var account = _dataManager.SelectByID<Account>("Accounts", accountId);
+            var account = await _apiAccountService.GetAccountByIdAsync(accountId);
 
-
-            
             var stock = await _apiStockService.GetStockByName(new Stocks.Models.Stock(timeSeries, stockName, interval));
 
-            //var account = await _apiAccountService.GetAccountByIdAsync(accountId);
-
-
-            //Getting the Stock
-            //var stockJsonString = _stockService.GetURL_WithBaseStock(new Stocks.Models.Stock(timeSeries, stockName, interval));
 
             var client = new HttpClient();
 
 
-                
-            //HttpResponseMessage response = await client.GetAsync("");
+
+            //HttpResponseMessage response = await client.GetAsync(stock);
             //response.EnsureSuccessStatusCode();
 
 
             //string jsonString = await response.Content.ReadAsStringAsync();
-            //JObject data = JsonConvert.DeserializeObject<JObject>(jsonString);
-            //JObject timeSeriesDaily = data["Time Series (Daily)"] as JObject;
-            //JObject DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-1).ToString("yyyy-MM-dd")}"] as JObject;
-            
 
 
-            //StockData stockData= new StockData(); 
-            //stockData.Open = DailyStock.Value<double>("1. open");
-            //stockData.High = DailyStock.Value<double>("2. high");
-            //stockData.Low = DailyStock.Value<double>("3. low");
-            //stockData.Close = DailyStock.Value<double>("4. close");
-            //stockData.Volume = DailyStock.Value<long>("5. volume");
+            JObject data = JsonConvert.DeserializeObject<JObject>(stock);
+            JObject timeSeriesDaily = data["Time Series (Daily)"] as JObject;
+            JObject DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-1).ToString("yyyy-MM-dd")}"] as JObject;
+
+
+
+            StockData stockData = new StockData();
+            stockData.Open = DailyStock.Value<double>("1. open");
+            stockData.High = DailyStock.Value<double>("2. high");
+            stockData.Low = DailyStock.Value<double>("3. low");
+            stockData.Close = DailyStock.Value<double>("4. close");
+            stockData.Volume = DailyStock.Value<long>("5. volume");
 
 
 

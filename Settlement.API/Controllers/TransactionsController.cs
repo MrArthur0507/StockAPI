@@ -41,7 +41,7 @@ namespace Settlement.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MakeTransaction(string accountId, string stockName, TimeSeries timeSeries, Interval interval)
+        public async Task<IActionResult> MakeTransaction(string accountId, string stockName, TimeSeries timeSeries, Interval interval, int quantity)
         {
             //4d39f99a-e8e8-4fb3-a1f7-7747e9cf9660
 
@@ -64,7 +64,7 @@ namespace Settlement.API.Controllers
 
             JObject data = JsonConvert.DeserializeObject<JObject>(stock);
             JObject timeSeriesDaily = data["Time Series (Daily)"] as JObject;
-            JObject DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-1).ToString("yyyy-MM-dd")}"] as JObject;
+            JObject DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-2).ToString("yyyy-MM-dd")}"] as JObject;
 
 
 
@@ -81,6 +81,9 @@ namespace Settlement.API.Controllers
             //stockName: MSFT
             //interval: 60
 
+
+
+
             //var newTransaction = new AccountAPI.Data.Models.Implementation.Transaction();
             //_dataManager.InsertData(newTransaction);
 
@@ -88,6 +91,47 @@ namespace Settlement.API.Controllers
 
             //_dataManager.UpdateData(account, accountId);
             //return Ok(newTransaction);
+
+
+
+            string connectionString = "Server=(Local)\\SQLEXPRESS01;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Your SQL operations will go here.
+
+
+                using (SqlCommand command = new SqlCommand())
+                {
+                    command.Connection = connection;
+                    command.CommandType = CommandType.Text;
+
+                    // Define your SQL query
+                    string sqlQuery = "INSERT INTO Transactions (Account, Stock, Date, Price, Quantity, Id) VALUES (@AccountId, @StockName, @Date, @Price, @Quantity, @Id)";
+                    command.CommandText = sqlQuery;
+
+
+
+                    command.Parameters.AddWithValue("@AccountId", account.Id);
+                    command.Parameters.AddWithValue("@StockName", stockName);
+                    command.Parameters.AddWithValue("@Date", DateTime.Now);
+                    command.Parameters.AddWithValue("@Price", stockData.Close);
+                    command.Parameters.AddWithValue("Quantity", quantity);
+                    //command.Parameters.AddWithValue("@Id", );
+
+
+
+                    // Execute the SQL command
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    // Check rowsAffected to see if the operation was successful
+                }
+            }
+
+        
+
+    
 
             return Ok(stock);
         }

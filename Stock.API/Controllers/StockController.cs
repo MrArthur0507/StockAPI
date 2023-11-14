@@ -29,7 +29,7 @@ namespace Stocks.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetStockData([FromQuery] Stock stock)
+        public async Task<IActionResult> GetStockData([FromQuery] Models.Stock stock)
         {
             // first pass the stock to the IsStockIsPresentInDb method
             // there we check if there is such a stock in the db

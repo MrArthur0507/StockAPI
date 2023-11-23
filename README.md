@@ -3,7 +3,8 @@
 ## Table of Contents
 
 - [Setup](#Setup)
-- [Usage](#Usage) -[Routes](#Routes)
+- [Usage](#Usage)
+- [Routes](#Routes)
 
 ## Setup
 
@@ -38,7 +39,7 @@ builder.Services.AddSingleton<ISeed, Seed>();
 
 ## Routes
 
-<h1>Change the value of params or check examples</h1>
+<h4 style="color:red;">Change the value of params or check <a href="#examples">examples</a></h4>
 <ol>
 <li>https://localhost:7168/api/Account/getAll</li>
 <p>Get all users</p>
@@ -53,4 +54,16 @@ builder.Services.AddSingleton<ISeed, Seed>();
 <li>https://localhost:7168/api/Transaction/getTransactionByStock?stockId=STOCKNAME</li>
 <p>Gives ifnormation about the stock</p>
 
+</ol>
+
+## Examples
+
+<h4 style="color:red;">Change the values with your values!!! </h4>
+<ol>
+<li>https://localhost:7168/api/Account/getAll </li>
+<li>https://localhost:7168/api/Account/getById?Id=0cd5758f-1f1b-48a4-b08f-0a6ab7c89a36</li>
+<li>https://localhost:7168/api/Account/addMoney?id=3dfd3a3c-abba-4e67-97a1-d2554d81e5a8&baseCurrency=BGN&amount=25</li>
+<li>https://localhost:7168/api/Transaction/createTransaction?AccountId=98c1ce17-8c8d-4997-97ab-5c6f59be08bd&StockName=OpenAI&Date=2023-11-20&Price=25&Quantity=5</li>
+<li>https://localhost:7168/api/Transaction/getTransactionForUser?userId=b18ce351-e9fd-467d-8511-b088acc7f81b</li>
+<li>https://localhost:7168/api/Transaction/getTransactionByStock?stockId=OpenAI</li>
 </ol>

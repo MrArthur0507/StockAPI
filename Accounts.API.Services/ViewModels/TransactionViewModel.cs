@@ -1,38 +1,35 @@
-﻿using System;
+﻿using AccountAPI.Data.Models.Implementation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AccountAPI.Data.Models.Implementation
+namespace Accounts.API.Services.ViewModels
 {
-    public class Transaction:BaseModel
+    public class TransactionViewModel
     {
         [Required]
         public string AccountId { get; set; }
-        public Account Account { get; set; }
         [Required]
-
         public string StockName { get; set; }
-        [Required]
         public DateTime Date { get; set; }
         [Required]
         public decimal Price { get; set; }
         [Required]
         public int Quantity { get; set; }
-        public Transaction()
+        public TransactionViewModel()
         {
-
         }
-        public Transaction(string accountId, string stock, DateTime date, decimal price, int quantity)
+
+        public TransactionViewModel(string accountId, string stock,DateTime date, decimal price, int quantity)
         {
             AccountId = accountId;
-            StockName= stock;
+            StockName = stock;
             Date = date;
             Price = price;
             Quantity = quantity;
-            Account = null;
         }
     }
 }

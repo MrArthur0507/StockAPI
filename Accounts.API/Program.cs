@@ -30,6 +30,7 @@ builder.Services.AddSingleton<ISeed, Seed>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<ITransactionService,TransactionService>();
 //Services for the repository pattern db
 builder.Services.AddSingleton<IRepDataService, DataService>();
 builder.Services.AddSingleton<IUnitOfWork,UnitOfWork>();
@@ -56,9 +57,7 @@ app.UseMiddleware<StatusCodeMiddleware>();
 
 app.MapControllers();
 app.Run();
-/*
- * THIS TOO!
- * void InitializeApplicationDbContext(WebApplication app)
+  void InitializeApplicationDbContext(WebApplication app)
 {
    var dataManager = app.Services.GetRequiredService<IDataManager>();
    var seed = app.Services.GetRequiredService<ISeed>();
@@ -66,12 +65,5 @@ app.Run();
    var context = new ApplicationDbContext(dataManager,seed);
    context.Start();
 
-}*/
-void InitializeApplicationDbContext(WebApplication app)
-{
-
-    var dataManager = app.Services.GetRequiredService<IRepDataManager>();
-    var context = new RepAppDbContext(dataManager);
-    context.Start();
 
 }

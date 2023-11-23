@@ -33,6 +33,7 @@ namespace AccountAPI.Data.Models
            _dataManager.CreateTable<Stock>();
            _dataManager.CreateTable<Account>();
            _dataManager.CreateTable<Transaction>();
+           _dataManager.CreateTable<Notification>();
         }
     }
 }

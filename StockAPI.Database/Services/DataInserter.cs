@@ -16,7 +16,7 @@ namespace StockAPI.Database.Services
         {
 
             string tableName = typeof(T).Name;
-            var properties = typeof(T).GetProperties().Where(prop => prop.CanRead);
+            var properties = typeof(T).GetProperties().Where(prop => prop.CanRead && prop.PropertyType.BaseType.Name != "BaseModel");
             string columnNames = string.Join(", ", properties.Select(prop => prop.Name));
             string values = string.Join(", ", properties.Select(prop => $"@{prop.Name}"));
             using (SqlConnection connection = new SqlConnection(connectionString))

@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    public interface IHttpClientFactory
+    public interface IApiEmailValidator
     {
-        public HttpClient GetAccountClient();
-
-        public HttpClient GetAnalyzerClient();
-
-        public HttpClient GetStockClient();
+        public Task<bool> Validate(string email);
     }
 }

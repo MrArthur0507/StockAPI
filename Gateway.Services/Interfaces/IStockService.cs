@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Stocks.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Gateway.Services.Interfaces
 {
     public interface IStockService
     {
+        public Task<string> GetStockData(Stock stock);
     }
 }

@@ -1,6 +1,7 @@
-﻿using Gateway.Services.Configuration.Interfaces;
-using Gateway.Services.Interfaces;
+﻿
+using Gateway.Domain.Models.DbRelated;
 using Microsoft.Data.Sqlite;
+using SqliteProvider.Implementations;
 using SqliteProvider.Interfaces;
 using SqliteProvider.Models;
 using System;
@@ -13,16 +14,16 @@ namespace SqliteProvider.Repositories
 {
     public class RequestRepository : IRequestRepository
     {
-        private readonly IConfigurationService _configService;
-        private readonly IConfig config;
-        public RequestRepository(IConfigurationService configurationService) {
+        private readonly ISqliteProviderConfiguration _configService;
+        private readonly SqliteProviderSettings config;
+        public RequestRepository(ISqliteProviderConfiguration configurationService) {
             _configService = configurationService;
-            config = _configService.GetAppSettings();
+            config = _configService.GetSettings();
         }
         public void AddRequest(string ip, DateTime dateTime)
         {
             
-            using (SqliteConnection connection = new SqliteConnection($"Data Source = {config.SqliteDbPath}"))
+            using (SqliteConnection connection = new SqliteConnection($"Data Source = {config.ConnectionString}"))
                 {
                     connection.Open();
                     SqliteCommand command = connection.CreateCommand();
@@ -38,7 +39,7 @@ namespace SqliteProvider.Repositories
         public List<Request> GetAllRequests()
         {
             List<Request> requests = new List<Request>();
-            using (SqliteConnection connection = new SqliteConnection($"Data Source = {config.SqliteDbPath}"))
+            using (SqliteConnection connection = new SqliteConnection($"Data Source = {config.ConnectionString}"))
             {
                     connection.Open();
 
@@ -66,7 +67,7 @@ namespace SqliteProvider.Repositories
 
         public long GetRequestCountForIpAddressInTimeFrame(string ipAddress, DateTime timeSpan)
         {
-            using (SqliteConnection connection = new SqliteConnection($"Data Source = {config.SqliteDbPath}"))
+            using (SqliteConnection connection = new SqliteConnection($"Data Source = {config.ConnectionString}"))
             {
                 connection.Open();
 

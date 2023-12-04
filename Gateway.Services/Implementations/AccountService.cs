@@ -1,9 +1,11 @@
 ﻿using Gateway.Services.Configuration.Interfaces;
 using Gateway.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text;
@@ -14,13 +16,16 @@ namespace Gateway.Services.Implementations
     public class AccountService : IAccountsService
     {
         private readonly IConfigurationService _configService;
+        private readonly IHttpClientFactory _clientFactory;
+        private readonly IFinalEmailValidator _emailValidator;
         private IConfig _config;
-        private readonly HttpClient _client;
-        
-        public AccountService(IConfigurationService configurationService, HttpClient client) {
+        private HttpClient _client;
+        public AccountService(IConfigurationService configurationService, IHttpClientFactory clientFactory, IFinalEmailValidator emailValidator) {
             _configService = configurationService;
             _config = _configService.GetAppSettings();
-            _client = client;
+            _clientFactory = clientFactory;
+            _emailValidator = emailValidator;
+            _client = _clientFactory.CreateClient();
             _client.BaseAddress = new Uri(_config.AccountConfig.Host);
         }
         
@@ -52,6 +57,11 @@ namespace Gateway.Services.Implementations
 
         public async Task<int> Register(string username, string password, string email, string balance)
         {
+            if (!await _emailValidator.IsValidEmail(email))
+            {
+                return StatusCodes.Status403Forbidden;
+            }
+            
             var parameters = new Dictionary<string, string> { { "username", username }, { "password", password },
                 {"email", email }, {"balance", balance } };
             

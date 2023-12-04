@@ -1,9 +1,13 @@
+using Gateway.API.Jobs;
 using Gateway.API.Middlewares;
 using Gateway.Services.Configuration.Classes;
 using Gateway.Services.Configuration.Interfaces;
 using Gateway.Services.Implementations;
 using Gateway.Services.Interfaces;
 using Microsoft.IdentityModel.Tokens;
+using Quartz;
+using Quartz.Impl;
+using Quartz.Spi;
 using SqliteProvider.Implementations;
 using SqliteProvider.Interfaces;
 using SqliteProvider.Repositories;
@@ -18,17 +22,36 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
-builder.Services.AddScoped<Gateway.Services.Configuration.Interfaces.IHttpClientFactory, HttpClientFactory>();
 builder.Services.AddSingleton<IConfigurationService, ConfigurationService>();
 builder.Services.AddSingleton<IConfig, Config>();
 builder.Services.AddSingleton<IRequestLogger, RequestLogger>();
 builder.Services.AddScoped<IAccountsService, AccountService>();
-builder.Services.AddSingleton<IDbInit, DbInit>();
+builder.Services.AddScoped<IStockService, StockService>();
 builder.Services.AddSingleton<ITableInit, TableInit>();
-builder.Services.AddScoped<IDatabaseService, DatabaseService>(sr => new DatabaseService("Data Source = iplog.db"));
+builder.Services.AddSingleton<ISqliteProviderConfiguration, SqliteProviderConfiguration>();
+builder.Services.AddSingleton<IDbInit, DbInit>();
+builder.Services.AddScoped<IEmailRepository, EmailRepository>();
+builder.Services.AddScoped<IApiEmailDeserializer, ApiEmailDeserializer>();
 builder.Services.AddScoped<IRequestRepository, RequestRepository>();
-
+builder.Services.AddScoped<IApiEmailValidator, ApiEmailValidator>();
+builder.Services.AddScoped<IFinalEmailValidator, FinalEmailValidator>();
 builder.Services.AddResponseCaching();
+builder.Services.AddSingleton<IRequestQueueService, RequestQueueService>();
+//builder.Services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+builder.Services.AddQuartz(q =>
+{
+    
+    var jobKey = new JobKey("SaveRequestInfoJob");
+    q.AddJob<SaveRequestInfoJob>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("SaveRequestInfoJob-trigger")
+        .WithCronSchedule("0/5 * * * * ?"));
+
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 builder.Services.AddAuthentication().AddJwtBearer(
     options =>
     {
@@ -38,7 +61,7 @@ builder.Services.AddAuthentication().AddJwtBearer(
             ValidateIssuer = false,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY5Nzg2OTYyMCwiaWF0IjoxNjk3ODY5NjIwfQ.yE7D6Lj12wX7qUYNTXVYqJhMdPsU7TA9C8WVG4mCCY4")),
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration.GetValue<string>("SymmetricKey"))),
         };
     });
 var app = builder.Build();
@@ -56,15 +79,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<RequestQueueMiddleware>();
 app.UseHttpsRedirection();
 app.UseMiddleware<RequestLimitMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-
-
-
 app.Run();
 
 

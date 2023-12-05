@@ -25,18 +25,6 @@ builder.Services.AddScoped<StockDataService>();
 
 
 
-//Database Services
-builder.Services.AddSingleton<ITypeDictionary, TypeDictionary>();
-builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
-builder.Services.AddSingleton<IDataInserter, DataInserter>();
-builder.Services.AddSingleton<IDatabaseService, DatabaseService>();
-builder.Services.AddSingleton<ITableService, TableService>();
-builder.Services.AddSingleton<IDataSelector, DataSelector>();
-builder.Services.AddSingleton<IDataConfiguration, DataConfiguration>();
-builder.Services.AddSingleton<IDataManager, DataManager>();
-builder.Services.AddSingleton<ISeed, Seed>();
-//
-
 
 var app = builder.Build();
 

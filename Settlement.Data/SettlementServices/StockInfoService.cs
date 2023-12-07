@@ -1,11 +1,13 @@
 ﻿using Settlement.API.Controllers.SettlementServices;
 using SettlementServices;
-using Stocks.Enums;
-using Stocks.utils;
+using Settlement.Infrastructure.Models.StockModels;
+using Settlement.Infrastructure.Models.StockModels;
+using Settlement.Infrastructure.SettlementServices.StockServices;
+using Settlement.API.Controllers.SettlementContracts;
 
 namespace Settlement.Infrastructure.SettlementServices
 {
-    public class StockInfoService
+    public class StockInfoService : IStockInfoService
     {
         private readonly URL_Maker _stockService;
         private readonly StockDataService _stockDataService;

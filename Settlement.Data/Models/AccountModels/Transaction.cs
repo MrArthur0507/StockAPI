@@ -1,4 +1,4 @@
-﻿namespace Settlement.Infrastructure.Models
+﻿namespace Settlement.Infrastructure.Models.AccountModels
 {
     public class Transaction : BaseModel
     {

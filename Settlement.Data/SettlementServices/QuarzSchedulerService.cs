@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Quartz;
 using Quartz.Impl;
+using SettlementContracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SettlementServices
 {
-    public class QuarzSchedulerService
+    public class QuarzSchedulerService : IQuarzScheduler
     {
         public async Task<IActionResult> QuarzScheduler()
         {

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
-using Settlement.Infrastructure.Models;
+using Settlement.API.Controllers.SettlementContracts;
+using Settlement.Infrastructure.Models.AccountModels;
 using Settlement.Services;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace SettlementServices
 {
-    public class ApiAccountService
+    public class ApiAccountService : IApiAccountService
     {
         public async Task<Account> GetAccountByIdAsync(string id)
         {

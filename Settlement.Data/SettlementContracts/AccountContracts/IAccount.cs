@@ -1,5 +1,4 @@
-﻿
-namespace Settlement.API.Controllers.SettlementContracts
+﻿namespace Settlement.Infrastructure.SettlementContracts.AccountContracts
 {
     public interface IAccount : IBaseModel
     {

@@ -7,14 +7,16 @@ using System.Data.SqlClient;
 using System.Data;
 using StockAPI.Database.Interfaces;
 using Stocks.services;
-using Stocks.utils;
-using Stocks.Enums;
+//using Stocks.utils;
+//using Stocks.Enums;
 using Stocks.Interfaces;
 using AccountAPI.Data.Models.Interfaces;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 using Settlement.API.Controllers.SettlementServices;
 using Settlement.Infrastructure.SettlementServices;
+
+using Settlement.Infrastructure.Models.StockModels;
 
 namespace Settlement.API.Controllers
 {

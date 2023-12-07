@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using Settlement.Infrastructure.Models;
+using Settlement.Infrastructure.Models.SettlementModels;
+using Settlement.API.Controllers.SettlementContracts;
 
-namespace Settlement.API.Controllers.SettlementServices
+namespace SettlementServices
 {
-    public class GetStockPriceService
+    public class GetStockPriceService : IGetStockPriceService
     {
         public async Task<double> GetStockPrice(string stock)
         {

@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Settlement.Infrastructure.Models;
+using Settlement.API.Controllers.SettlementContracts;
 
 namespace SettlementServices
 {
-    public class ApiStockService
+    public class ApiStockService : IApiStockService
     {
         public async Task<String> GetStockByName(Stocks.Models.Stock stock)
         {

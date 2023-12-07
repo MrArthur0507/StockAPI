@@ -2,5 +2,6 @@
 {
     public interface IGetStockPriceService
     {
+        public Task<double> GetStockPrice(string stock);
     }
 }

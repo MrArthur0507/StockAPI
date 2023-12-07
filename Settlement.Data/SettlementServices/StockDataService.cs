@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
-using Settlement.Infrastructure.Models;
+using Settlement.API.Controllers.SettlementContracts;
+using Settlement.Infrastructure.Models.SettlementModels;
 using System.Net.Http;
 
 namespace Settlement.API.Controllers.SettlementServices
 {
-    public class StockDataService
+    public class StockDataService : IStockDataService
     {
         //private readonly HttpClient _httpClient;
 

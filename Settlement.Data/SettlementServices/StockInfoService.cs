@@ -1,9 +1,9 @@
-﻿using SettlementServices;
+﻿using Settlement.API.Controllers.SettlementServices;
+using SettlementServices;
 using Stocks.Enums;
 using Stocks.utils;
-using System.Text;
 
-namespace Settlement.API.Controllers.SettlementServices
+namespace Settlement.Infrastructure.SettlementServices
 {
     public class StockInfoService
     {

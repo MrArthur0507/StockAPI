@@ -1,6 +1,4 @@
-﻿using Settlement.API.Controllers.Data.Models;
-
-namespace Settlement.API.Controllers.SettlementServices.Models
+﻿namespace Settlement.Infrastructure.Models
 {
     public class Transaction : BaseModel
     {

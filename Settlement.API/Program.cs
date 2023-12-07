@@ -1,6 +1,7 @@
 using AccountAPI.Data.Models.Implementation;
 using AccountAPI.Data.Models.Interfaces;
 using Settlement.API.Controllers.SettlementServices;
+using Settlement.Infrastructure.SettlementServices;
 using Settlement.Services;
 using SettlementContracts;
 using SettlementServices;
@@ -22,6 +23,10 @@ builder.Services.AddScoped<ApiAccountService>();
 builder.Services.AddScoped<ApiStockService>();
 builder.Services.AddScoped<URL_Maker>();
 builder.Services.AddScoped<StockDataService>();
+builder.Services.AddScoped<AccountInfoService>();
+builder.Services.AddScoped<StockInfoService>();
+builder.Services.AddScoped<GetStockPriceService>();
+builder.Services.AddScoped<SqliteService>();
 
 
 

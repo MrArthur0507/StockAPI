@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
-using Settlement.API.Controllers.Data.Models;
+//using Settlement.API.Controllers.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Settlement.Infrastructure.Models;
 
 namespace SettlementServices
 {

@@ -1,7 +1,6 @@
 ﻿using Settlement.API.Controllers.SettlementContracts;
-using Settlement.API.Controllers.SettlementServices.Models;
 
-namespace Settlement.API.Controllers.Data.Models
+namespace Settlement.Infrastructure.Models
 {
     public class Account : BaseModel, IAccount
     {

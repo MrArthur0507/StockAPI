@@ -1,7 +1,7 @@
 ﻿using Settlement.API.Controllers.SettlementContracts;
-using StockAPI.Database.Helpers;
 
-namespace Settlement.API.Controllers.SettlementServices.Models
+
+namespace Settlement.Infrastructure.Models
 {
     public class BaseModel : IBaseModel
     {

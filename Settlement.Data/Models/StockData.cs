@@ -1,12 +1,12 @@
-﻿namespace Settlement.API.Controllers.SettlementServices.Models
+﻿namespace Settlement.Infrastructure.Models
 {
     public class StockData
     {
 
         public StockData() { }
-        public StockData(DateTime date, double Open, double High, double Low, double Close, long Volume) 
+        public StockData(DateTime date, double Open, double High, double Low, double Close, long Volume)
         {
-            this.Date = date;
+            Date = date;
             this.Open = Open;
             this.High = High;
             this.Low = Low;

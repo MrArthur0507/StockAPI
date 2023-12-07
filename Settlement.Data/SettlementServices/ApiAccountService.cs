@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Settlement.API.Controllers.Data.Models;
+using Settlement.Infrastructure.Models;
 using Settlement.Services;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace SettlementServices
 {

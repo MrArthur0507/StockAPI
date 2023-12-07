@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using Settlement.API.Controllers.SettlementServices.Models;
+using Settlement.Infrastructure.Models;
 
 namespace Settlement.API.Controllers.SettlementServices
 {

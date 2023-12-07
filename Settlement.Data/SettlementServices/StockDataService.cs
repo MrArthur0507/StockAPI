@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Settlement.API.Controllers.SettlementServices.Models;
+using Settlement.Infrastructure.Models;
 using System.Net.Http;
 
 namespace Settlement.API.Controllers.SettlementServices

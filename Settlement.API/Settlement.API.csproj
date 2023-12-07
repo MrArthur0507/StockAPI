@@ -24,6 +24,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AccountAPI.Data\AccountAPI.Data.csproj" />
+    <ProjectReference Include="..\Accounts.API\Accounts.API.csproj" />
+    <ProjectReference Include="..\Settlement.Data\Settlement.Infrastructure.csproj" />
     
     <ProjectReference Include="..\Stock.API\Stock.API.csproj" />
     <ProjectReference Include="..\StockAPI.Database\StockAPI.Database.csproj" />

@@ -1,9 +1,7 @@
 ﻿namespace Settlement.API.Controllers.SettlementServices;
 
-using AccountAPI.Data.Models.ApiModels;
-using AccountAPI.Data.Models.Implementation;
 using Microsoft.Data.Sqlite;
-using Settlement.API.Controllers.Data.Models;
+using Settlement.Infrastructure.Models;
 using System;
 using System.Data.SQLite;
 using System.IO;
@@ -23,7 +21,7 @@ public class SqliteService
     private string filePath = "SettlementTransactions.db";
 
     
-    public async Task AddTransaction(AccountAPI.Data.Models.Implementation.Account account,  double price, int quantity, string stockName)
+    public async Task AddTransaction(Account account,  double price, int quantity, string stockName)
     {
         using (SqliteConnection connection = new SqliteConnection($"Data Source = {filePath}"))
         {
@@ -95,60 +93,4 @@ public class SqliteService
             }
         }
     }
-
-
-
-
-
-
-
-
-
-    //private string connectionString;
-
-    //public SqliteService(string dbFilePath)
-    //{
-    //    // Set your SQLite connection string
-    //    connectionString = $"Data Source={dbFilePath};Version=3;";
-    //}
-
-    //public void ExportDataToTextFile(string textFilePath)
-    //{
-
-    //    using (SQLiteConnection connection = new SQLiteConnection(connectionString))
-    //    {
-    //        connection.Open();
-
-    //        using (SQLiteCommand command = new SQLiteCommand("SELECT * FROM YourTableName", connection))
-    //        {
-    //            using (SQLiteDataReader reader = command.ExecuteReader())
-    //            {
-    //                // Create or overwrite the text file
-    //                using (StreamWriter writer = new StreamWriter(textFilePath))
-    //                {
-    //                    // Write column headers
-    //                    for (int i = 0; i < reader.FieldCount; i++)
-    //                    {
-    //                        writer.Write(reader.GetName(i));
-    //                        if (i < reader.FieldCount - 1)
-    //                            writer.Write(",");
-    //                    }
-    //                    writer.WriteLine();
-
-    //                    // Write data
-    //                    while (reader.Read())
-    //                    {
-    //                        for (int i = 0; i < reader.FieldCount; i++)
-    //                        {
-    //                            writer.Write(reader[i]);
-    //                            if (i < reader.FieldCount - 1)
-    //                                writer.Write(",");
-    //                        }
-    //                        writer.WriteLine();
-    //                    }
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
 }

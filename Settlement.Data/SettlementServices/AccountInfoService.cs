@@ -1,13 +1,15 @@
 ﻿using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
-using Settlement.API.Controllers.SettlementServices.Models;
-using SettlementServices;
+using Settlement.Infrastructure.Models;
+using Settlement.Infrastructure.SettlementServices;
 using Stocks.Enums;
 using System.Security.Cryptography.X509Certificates;
-using StockAPI.Database.Interfaces;
 using Stocks.utils;
+using Settlement.Infrastructure.Models;
+using System.Threading.Tasks;
 
-namespace Settlement.API.Controllers.SettlementServices
+
+namespace SettlementServices
 {
     public class AccountInfoService
     {
@@ -19,7 +21,7 @@ namespace Settlement.API.Controllers.SettlementServices
         }
 
 
-        public async Task<Data.Models.Account> GetAccount(string accountId)
+        public async Task<Account> GetAccount(string accountId)
         {
             var account = await _apiAccountService.GetAccountByIdAsync(accountId);
             return account;

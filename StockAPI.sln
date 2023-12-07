@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Accounts.API.Services", "Ac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockApiRepDB", "StockApiRepDB\StockApiRepDB.csproj", "{0F7BDB3F-CD56-4728-9A91-294C45498838}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settlement.Infrastructure", "Settlement.Data\Settlement.Infrastructure.csproj", "{9D363845-FA84-4DB6-9189-EC3E1283816E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{0F7BDB3F-CD56-4728-9A91-294C45498838}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7BDB3F-CD56-4728-9A91-294C45498838}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F7BDB3F-CD56-4728-9A91-294C45498838}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D363845-FA84-4DB6-9189-EC3E1283816E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D363845-FA84-4DB6-9189-EC3E1283816E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D363845-FA84-4DB6-9189-EC3E1283816E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D363845-FA84-4DB6-9189-EC3E1283816E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

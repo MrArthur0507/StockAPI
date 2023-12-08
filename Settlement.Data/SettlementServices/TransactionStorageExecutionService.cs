@@ -1,4 +1,5 @@
-﻿using Settlement.Infrastructure.Models.SettlementModels;
+﻿using Settlement.Infrastructure.Models.AccountModels;
+using Settlement.Infrastructure.Models.SettlementModels;
 using Settlement.Services;
 using SettlementServices;
 using System;
@@ -10,7 +11,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
-using System.Transactions;
+
 
 namespace Settlement.Infrastructure.SettlementServices
 {
@@ -39,11 +40,11 @@ namespace Settlement.Infrastructure.SettlementServices
                     {
                         string sqlQuery = "INSERT INTO Transactions (Account, Stock, Date, Price, Quantity, Id) VALUES (@AccountId, @StockName, @Date, @Price, @Quantity, @Id)";
                         command.CommandText = sqlQuery;
-                        command.Parameters.AddWithValue("@AccountId", transaction.account.Id);
-                        command.Parameters.AddWithValue("@StockName", stockName);
-                        command.Parameters.AddWithValue("@Date", DateTime.Now);
-                        command.Parameters.AddWithValue("@Price", stockData.Close);
-                        command.Parameters.AddWithValue("Quantity", quantity);
+                        command.Parameters.AddWithValue("@AccountId", transaction.Account);
+                        command.Parameters.AddWithValue("@StockName", transaction.Stock);
+                        command.Parameters.AddWithValue("@Date", transaction.Date);
+                        command.Parameters.AddWithValue("@Price", transaction.Price);
+                        command.Parameters.AddWithValue("Quantity", transaction.Quantity);
                     }
                     
                     

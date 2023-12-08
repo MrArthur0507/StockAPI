@@ -1,6 +1,7 @@
 using AccountAPI.Data.Models.Implementation;
 using AccountAPI.Data.Models.Interfaces;
 using Settlement.API.Controllers.SettlementServices;
+using Settlement.Infrastructure.Middlewares;
 using Settlement.Infrastructure.SettlementServices;
 using Settlement.Services;
 using SettlementContracts;
@@ -47,5 +48,24 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//public void Configure(IApplicationBuilder app)
+//{
+//    // Other middleware components...
+
+//    // Use the custom CreditCheckMiddleware
+//    app.UseMiddleware<CreditCheckMiddleware>();
+
+//    // Endpoint routing middleware
+//    app.UseRouting();
+
+//    // Endpoint middleware
+//    app.UseEndpoints(endpoints =>
+//    {
+//        endpoints.MapControllerRoute(
+//            name: "default",
+//            pattern: "{controller=Home}/{action=Index}/{id?}");
+//    });
+//}
 
 app.Run();

@@ -2,6 +2,7 @@
 
 using Microsoft.Data.Sqlite;
 using Settlement.Infrastructure.Models.AccountModels;
+using Settlement.Infrastructure.Models.SettlementModels;
 using System;
 using System.IO;
 
@@ -24,7 +25,7 @@ public class SqliteService
 
     public async Task GetTransactions()
     {
-        List<Transaction> transactions =  new List<Transaction>();
+        List<TransactionStorage> transactions =  new List<TransactionStorage>();
         using (SqliteConnection connection = new SqliteConnection(filePath)) 
         {
             connection.Open();
@@ -52,9 +53,9 @@ public class SqliteService
                             decimal price = reader.GetDecimal(reader.GetOrdinal("Price"));
                             DateTime transactionDate = reader.GetDateTime(reader.GetOrdinal("TransactionDate"));
 
-                            Transaction transaction = new Transaction();
-                            transaction.Id = transactionId;
-                            transaction.Account = accountId;
+                            TransactionStorage transaction = new TransactionStorage();
+                            //transaction.Id = transactionId;
+                            transaction.AccountId = accountId;
                             transaction.Stock = stockName;
                             transaction.Quantity = quantity;
                             transaction.Price = price;

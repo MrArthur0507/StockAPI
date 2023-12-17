@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gateway.Domain.Models.DbRelated;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,8 @@ namespace SqliteProvider.Repositories
 {
     public interface IEmailRepository
     {
-        public int IsEmailValid(string email);
+        public Task<bool> IsEmailBlacklisted(string email);
+
+        public Task AddEmailToBlacklist(EmailValid emailValid);
     }
 }

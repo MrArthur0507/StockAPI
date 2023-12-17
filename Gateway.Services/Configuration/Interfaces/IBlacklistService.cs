@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    public interface IFinalEmailValidator
+    public interface IBlacklistService
     {
-        public Task<bool> IsValidEmail(string email);
+        Task<bool> IsEmailValid(string email);
     }
 }

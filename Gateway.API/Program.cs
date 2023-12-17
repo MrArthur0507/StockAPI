@@ -14,7 +14,7 @@ using SqliteProvider.Repositories;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
-
+//builder.WebHost.ConfigureKestrel(options => options.ListenLocalhost(5001));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -27,20 +27,21 @@ builder.Services.AddSingleton<IConfig, Config>();
 builder.Services.AddSingleton<IRequestLogger, RequestLogger>();
 builder.Services.AddScoped<IAccountsService, AccountService>();
 builder.Services.AddScoped<IStockService, StockService>();
+builder.Services.AddScoped<IBlacklistService, BlacklistService>();
+builder.Services.AddScoped<IApiEmailValidatorRequestor,ApiEmailValidatorRequestor>();
 builder.Services.AddSingleton<ITableInit, TableInit>();
 builder.Services.AddSingleton<ISqliteProviderConfiguration, SqliteProviderConfiguration>();
 builder.Services.AddSingleton<IDbInit, DbInit>();
+builder.Services.AddScoped<IAccountAPIService, AccountAPIService>();
 builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IApiEmailDeserializer, ApiEmailDeserializer>();
 builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 builder.Services.AddScoped<IApiEmailValidator, ApiEmailValidator>();
-builder.Services.AddScoped<IFinalEmailValidator, FinalEmailValidator>();
 builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<IRequestQueueService, RequestQueueService>();
-//builder.Services.AddSingleton<ISchedulerFactory, StdSchedulerFactory>();
+builder.Services.AddScoped<IRequestLimitService, RequestLimitService>();
 builder.Services.AddQuartz(q =>
 {
-    
     var jobKey = new JobKey("SaveRequestInfoJob");
     q.AddJob<SaveRequestInfoJob>(opts => opts.WithIdentity(jobKey));
 
@@ -50,7 +51,6 @@ builder.Services.AddQuartz(q =>
         .WithCronSchedule("0/5 * * * * ?"));
 
 });
-
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 builder.Services.AddAuthentication().AddJwtBearer(
     options =>
@@ -79,9 +79,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseMiddleware<RequestQueueMiddleware>();
 app.UseHttpsRedirection();
-app.UseMiddleware<RequestLimitMiddleware>();
+app.UseMiddleware<RequestLogMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

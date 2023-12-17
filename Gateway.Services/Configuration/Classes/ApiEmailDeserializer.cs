@@ -13,15 +13,10 @@ namespace Gateway.Services.Configuration.Classes
     {
         public EmailValid Deserialize(string json)
         {
-            try
-            {
-                return JsonConvert.DeserializeObject<EmailValid>(json);
-            }
-            catch (JsonException ex)
-            {
-                
-                throw new Exception("Error deserializing JSON response", ex);
-            }
+            EmailValid email = JsonConvert.DeserializeObject<EmailValid>(json);
+            return email;
+            
+            
         }
     }
 }

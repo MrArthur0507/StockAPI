@@ -18,7 +18,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Gateway.Services\Gateway.Services.csproj" />
     <ProjectReference Include="..\SqliteProvider\SqliteProvider.csproj" />
-    <ProjectReference Include="..\Stock.API\Stock.API.csproj" />
   </ItemGroup>
 
 </Project>

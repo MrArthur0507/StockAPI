@@ -14,6 +14,6 @@ namespace Gateway.Services.Interfaces
 
         public Task<int> Register(string username, string password, string email, string balance);
 
-        public Task<HttpResponseMessage> Login(string username, string password);
+        public Task<string> Login(string username, string password);
     }
 }

@@ -30,7 +30,6 @@ namespace SqliteProvider.Implementations
                             command.ExecuteNonQuery();
                         }
 
-                        
                         transaction.Commit();
                     }
                     catch (Exception ex)

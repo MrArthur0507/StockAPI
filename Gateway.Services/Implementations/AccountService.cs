@@ -15,90 +15,28 @@ namespace Gateway.Services.Implementations
 {
     public class AccountService : IAccountsService
     {
-        private readonly IConfigurationService _configService;
-        private readonly IHttpClientFactory _clientFactory;
-        private readonly IFinalEmailValidator _emailValidator;
-        private IConfig _config;
-        private HttpClient _client;
-        public AccountService(IConfigurationService configurationService, IHttpClientFactory clientFactory, IFinalEmailValidator emailValidator) {
-            _configService = configurationService;
-            _config = _configService.GetAppSettings();
-            _clientFactory = clientFactory;
-            _emailValidator = emailValidator;
-            _client = _clientFactory.CreateClient();
-            _client.BaseAddress = new Uri(_config.AccountConfig.Host);
-        }
-        
-        public async Task<string> GetAll()
+        private readonly IAccountAPIService _accountApiService;
+
+        private readonly IBlacklistService _blacklistService;
+        public AccountService(IAccountAPIService accountApiService, IBlacklistService blacklistService)
         {
-            HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + _config.AccountConfig.GetAll);
-            if (response.IsSuccessStatusCode)
-            {
-                
-                string jsonResponse = await response.Content.ReadAsStringAsync();
-                
-                return jsonResponse;
-            }
-            return "Error";
+            _accountApiService = accountApiService;
+            _blacklistService = blacklistService;
         }
 
-        public async Task<string> GetById(string id)
-        {
-           
-            HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + _config.AccountConfig.GetById + "?id=" + id);
-            if (response.IsSuccessStatusCode)
-            {
+        public async Task<string> GetAll() => await _accountApiService.GetAll();
 
-                string jsonResponse = await response.Content.ReadAsStringAsync();
-                return jsonResponse;
-            }
-            return "Failed";
-        }
+        public async Task<string> GetById(string id) => await _accountApiService.GetById(id);
 
         public async Task<int> Register(string username, string password, string email, string balance)
         {
-            if (!await _emailValidator.IsValidEmail(email))
+            if (await _blacklistService.IsEmailValid(email))
             {
-                return StatusCodes.Status403Forbidden;
+                return await _accountApiService.Register(username, password, email, balance); 
             }
-            
-            var parameters = new Dictionary<string, string> { { "username", username }, { "password", password },
-                {"email", email }, {"balance", balance } };
-            
-            var encodedContent = new FormUrlEncodedContent(parameters);
-
-            
-            HttpResponseMessage response = await _client.PostAsync($"{_client.BaseAddress}{_config.AccountConfig.CreateAccount}",encodedContent);
-
-
-            return (int)response.StatusCode;
+            return 401;
         }
 
-        public async Task<HttpResponseMessage> Login(string email, string password)
-        {
-            var parameters = new Dictionary<string, string> { { "email", email }, { "password", password }};
-
-            var encodedContent = new FormUrlEncodedContent(parameters);
-
-
-            HttpResponseMessage response = await _client.PostAsync($"{_client.BaseAddress}{_config.AccountConfig.Login}", encodedContent);
-            Console.WriteLine(response);
-            string json = await response.Content.ReadAsStringAsync();
-            if (response.Headers.TryGetValues("Set-Cookie", out var cookieValues))
-            {
-                
-                foreach (var cookieValue in cookieValues)
-                {
-                    
-                    string jwtToken = cookieValue;
-
-                    
-                    Console.WriteLine($"JWT Token: {jwtToken}");
-                }
-            }
-
-
-            return response;
-        }
+        public async Task<string> Login(string email, string password) => await _accountApiService.Login(email, password);
     }
 }

@@ -9,10 +9,7 @@ namespace SqliteProvider.Repositories
 {
     public interface IRequestRepository
     {
-        public void AddRequest(string ip, DateTime requestTime);
-
-        public List<Request> GetAllRequests();
-
-        public long GetRequestCountForIpAddressInTimeFrame(string ipAddress, DateTime timeOneMinuteAgo);
+        public Task<long> GetRequestCountForIp(string ipAddress, DateTime since);
+        public Task AddRequest(string ipAddress, DateTime time);
     }
 }

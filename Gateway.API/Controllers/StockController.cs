@@ -20,11 +20,11 @@ namespace Gateway.API.Controllers
         [Route("getStockData")]
 
         
-        public async Task<string> GetStockData(Stocks.Models.Stock stock)
+        public async Task<string> GetStockData()
         {
-            var stockResponse = await _stockService.GetStockData(stock);
+            //var stockResponse = await _stockService.GetStockData(stock);
 
-            return stockResponse;
+            return "Ok";
         }
     }
 }

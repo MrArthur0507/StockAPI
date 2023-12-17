@@ -19,14 +19,14 @@ namespace Gateway.API.Middlewares
             DateTime timeOneMinuteAgo = DateTime.Now.AddMinutes(-1);
             _requestRepository.AddRequest(ipAddress, DateTime.Now);
 
-            long requestCount = _requestRepository.GetRequestCountForIpAddressInTimeFrame(ipAddress, timeOneMinuteAgo);
-            Console.WriteLine(requestCount);
-            if (requestCount >= 10)
-            {
-                context.Response.StatusCode = 429;
-                await context.Response.WriteAsync("Too many requests from this IP. Try again later");
-                return;
-            }
+          //  long requestCount = _requestRepository.GetRequestCountForIpAddressInTimeFrame(ipAddress, timeOneMinuteAgo);
+            //Console.WriteLine(requestCount);
+            //if (requestCount >= 10)
+            //{
+            //    context.Response.StatusCode = 429;
+            //    await context.Response.WriteAsync("Too many requests from this IP. Try again later");
+            //    return;
+            //}
 
             await _next(context);
         }

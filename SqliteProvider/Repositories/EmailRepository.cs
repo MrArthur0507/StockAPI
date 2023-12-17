@@ -13,41 +13,50 @@ namespace SqliteProvider.Repositories
     {
         private readonly ISqliteProviderConfiguration _configurationService;
         private SqliteProviderSettings _config;
-        public EmailRepository(ISqliteProviderConfiguration configurationService) {
+        public EmailRepository(ISqliteProviderConfiguration configurationService)
+        {
             _configurationService = configurationService;
             _config = _configurationService.GetSettings();
         }
-        public int IsEmailValid(string email)
+        public async Task<bool> IsEmailBlacklisted(string email)
         {
             using (SqliteConnection connection = new SqliteConnection($"Data Source = {_config.ConnectionString}"))
             {
                 connection.Open();
-                string query = "SELECT IsValid FROM Emails WHERE Email = @email";
-                SqliteCommand command = connection.CreateCommand();
-                command.CommandText = query;
-                command.Parameters.AddWithValue("@email", email);
-                object result = Convert.ToInt32(command.ExecuteScalar());
-                if (result != null)
+
+
+                using (SqliteCommand command = new SqliteCommand(
+                    "SELECT IsValid FROM Emails WHERE Email = @Email;",
+                    connection))
                 {
-                    return Convert.ToInt32(result);
-                } else
-                {
-                    return 3;
+                    command.Parameters.AddWithValue("@Email", email);
+                    object result = await command.ExecuteScalarAsync();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return (long)result == 1;
+                    }
+
+                    return false;
                 }
             }
         }
 
-        public void AddEmail(string email, bool isValid)
+        public async Task AddEmailToBlacklist(EmailValid emailValid)
         {
             using (SqliteConnection connection = new SqliteConnection($"Data Source = {_config.ConnectionString}"))
             {
-                string query = "INSERT INTO Emails (Email, IsValid) VALUES (@Email, @IsValid)";
-                SqliteCommand command = connection.CreateCommand(); 
-                command.Parameters.AddWithValue("@Email", email);
-                command.Parameters.AddWithValue("@IsValid", isValid);
-                command.CommandText = query;
                 connection.Open();
-                command.ExecuteNonQuery();
+
+
+                using (SqliteCommand command = new SqliteCommand(
+                    "INSERT OR IGNORE INTO Emails (Email, IsValid) VALUES (@Email, @IsValid);",
+                    connection))
+                {
+                    command.Parameters.AddWithValue("@Email", emailValid.Email);
+                    command.Parameters.AddWithValue("@IsValid", emailValid.IsValid ? 1 : 0);
+                    await command.ExecuteNonQueryAsync();
+                }
             }
         }
     }

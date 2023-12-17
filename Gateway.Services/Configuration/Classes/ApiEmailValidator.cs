@@ -11,32 +11,30 @@ namespace Gateway.Services.Configuration.Classes
 {
     public class ApiEmailValidator : IApiEmailValidator
     {
-        private readonly IHttpClientFactory _clientFactory;
-        private HttpClient client;
-        IConfiguration configuration;
+        private readonly IApiEmailValidatorRequestor _apiEmailValidationRequester;
         private readonly IApiEmailDeserializer _apiEmailDeserializer;
-        public ApiEmailValidator(IHttpClientFactory clientFactory, IConfiguration configuration, IApiEmailDeserializer apiEmailDeserializer)
+
+        public ApiEmailValidator(IApiEmailValidatorRequestor apiEmailValidationRequester, IApiEmailDeserializer apiEmailDeserializer)
         {
-            _clientFactory = clientFactory;
-            this.configuration= configuration;
-            client = _clientFactory.CreateClient();
-            _apiEmailDeserializer= apiEmailDeserializer;
+            _apiEmailValidationRequester = apiEmailValidationRequester;
+            _apiEmailDeserializer = apiEmailDeserializer;
         }
 
         public async Task<bool> Validate(string email)
         {
-            client.BaseAddress = new Uri(configuration.GetValue<string>("EmailValidatorAPIUrl"));
-            HttpResponseMessage response = await client.GetAsync($"/?email={email}&token={configuration.GetValue<string>("EmailValidatorAPIKey")}");
-            string json = await response.Content.ReadAsStringAsync();
-            EmailValid emailValid = _apiEmailDeserializer.Deserialize(json);
-            if (emailValid.IsValid = true)
-            {
-                Console.WriteLine(json);
-                return true;
+            string json = await _apiEmailValidationRequester.MakeRequest(email);
 
+            if (json != null)
+            {
+                EmailValid emailValid = _apiEmailDeserializer.Deserialize(json);
+
+                if (emailValid != null && emailValid.IsValid)
+                {
+                    return true;
+                }
             }
+
             return false;
-            
         }
     }
 }

@@ -16,5 +16,7 @@ namespace Accounts.API.Services.Interfaces
 
         public int AddMoney(string userId, string baseCurrency, decimal amount);
         public void Test(string id);
+
+        public List<GetNotificationViewModel> GetAllNotification(string id);
     }
 }

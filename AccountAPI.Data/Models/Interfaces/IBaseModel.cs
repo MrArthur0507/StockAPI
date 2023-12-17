@@ -9,5 +9,6 @@ namespace AccountAPI.Data.Models.Interfaces
     public interface IBaseModel
     {
         public string Id { get; set; }
+        //public bool IsDeleted { get; set; }
     }
 }

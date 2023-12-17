@@ -11,9 +11,11 @@ namespace AccountAPI.Data.Models.Implementation
     public class BaseModel : DummyModel, IBaseModel
     {
         public string Id { get ; set ; }
+        public bool IsDeleted { get ; set ; }
         public BaseModel()
         {
             Id = Guid.NewGuid().ToString();
+            IsDeleted = false;
         }
     }
 }

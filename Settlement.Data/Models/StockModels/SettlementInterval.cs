@@ -1,6 +1,6 @@
 ﻿namespace Settlement.Infrastructure.Models.StockModels
 {
-    public enum Interval
+    public enum SettlementInterval
     {
         OneMin = 1,
         FiveMin = 5,

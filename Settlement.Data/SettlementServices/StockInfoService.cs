@@ -20,7 +20,7 @@ namespace Settlement.Infrastructure.SettlementServices
             _apiStockService = apiStockService;
         }
 
-        public async Task<string> GetStock(string stockName, TimeSeries timeSeries, Interval interval, int quantity)
+        public async Task<string> GetStock(string stockName, SettlementTimeSeries timeSeries, SettlementInterval interval, int quantity)
         {
             var stock = await _apiStockService.GetStockByName(new Stocks.Models.Stock(timeSeries, stockName, interval));
             return stock;

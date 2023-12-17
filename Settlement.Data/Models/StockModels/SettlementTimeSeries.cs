@@ -1,8 +1,9 @@
-﻿using System.Runtime.Serialization;
+﻿using Swashbuckle.AspNetCore.Annotations;
+using System.Runtime.Serialization;
 
 namespace Settlement.Infrastructure.Models.StockModels
 {
-    public enum TimeSeries
+    public enum SettlementTimeSeries
     {
         [EnumMember(Value = "INTRADAY")]
         INTRADAY,

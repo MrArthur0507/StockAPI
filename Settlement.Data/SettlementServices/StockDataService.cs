@@ -7,13 +7,6 @@ namespace Settlement.API.Controllers.SettlementServices
 {
     public class StockDataService : IStockDataService
     {
-        //private readonly HttpClient _httpClient;
-
-        //public StockDataService(HttpClient httpClient)
-        //{
-        //    _httpClient = httpClient;
-        //}
-
 
         public async Task<StockData> GetStockDataAsync(string urlString, string symbol)
         {

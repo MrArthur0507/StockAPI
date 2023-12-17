@@ -1,16 +1,19 @@
-using AccountAPI.Data.Models.Implementation;
-using AccountAPI.Data.Models.Interfaces;
+
 using Settlement.API.Controllers.SettlementServices;
-using Settlement.Infrastructure.Middlewares;
 using Settlement.Infrastructure.SettlementServices;
 using Settlement.Services;
 using SettlementContracts;
 using SettlementServices;
-using StockAPI.Database.Data;
-using StockAPI.Database.Interfaces;
-using StockAPI.Database.Services;
-using Stocks.utils;
+
 using System.Transactions;
+
+using Microsoft.Extensions.DependencyInjection;
+using Quartz;
+using Quartz.Impl;
+using Quartz.Spi;
+using Settlement.Infrastructure.SettlementServices.StockServices;
+using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Any;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +22,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{});
 builder.Services.AddScoped<ApiAccountService>();
 builder.Services.AddScoped<ApiStockService>();
 builder.Services.AddScoped<URL_Maker>();
@@ -28,7 +32,22 @@ builder.Services.AddScoped<AccountInfoService>();
 builder.Services.AddScoped<StockInfoService>();
 builder.Services.AddScoped<GetStockPriceService>();
 builder.Services.AddScoped<SqliteService>();
+builder.Services.AddScoped<CheckAccountCreditsService>();
 
+
+builder.Services.AddQuartz(q =>
+{
+
+    var jobKey = new JobKey("QuartzJobService");
+    q.AddJob<QuartzJobService>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("QuartzJobService-trigger")
+        .WithCronSchedule("0 0 0 * * ?"));
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
 
 
@@ -48,24 +67,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-//public void Configure(IApplicationBuilder app)
-//{
-//    // Other middleware components...
-
-//    // Use the custom CreditCheckMiddleware
-//    app.UseMiddleware<CreditCheckMiddleware>();
-
-//    // Endpoint routing middleware
-//    app.UseRouting();
-
-//    // Endpoint middleware
-//    app.UseEndpoints(endpoints =>
-//    {
-//        endpoints.MapControllerRoute(
-//            name: "default",
-//            pattern: "{controller=Home}/{action=Index}/{id?}");
-//    });
-//}
 
 app.Run();

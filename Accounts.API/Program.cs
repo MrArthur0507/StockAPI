@@ -42,7 +42,7 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("ChangeUserRoleJob-trigger")
-        .WithCronSchedule("0 0 0/24 * * ?"));
+        .WithCronSchedule("0 0 0 * *  ?"));
 
 });
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);

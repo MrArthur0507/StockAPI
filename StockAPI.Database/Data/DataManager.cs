@@ -25,6 +25,10 @@ namespace StockAPI.Database.Data
         {
             _configuration.TableService.CreateTable<T>(connectionString);
         }
+        public void AddCoinstraints()
+        {
+            _configuration.TableService.AddForeignKeys(connectionString);
+        }
         public void DeleteTable<T>()
         {
             _configuration.TableService.DeleteTable<T>(connectionString);

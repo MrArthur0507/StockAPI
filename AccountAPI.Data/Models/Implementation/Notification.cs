@@ -12,11 +12,12 @@ namespace AccountAPI.Data.Models.Implementation
 
         public string Message { get; set; }
         public Account Account { get; set; }
+        public string AccountId { get; set; }
         public Notification() { }
-        public Notification(string message, Account account)
+        public Notification(string message, string accountId)
         {
             Message = message;
-            Account = account;
+            AccountId = accountId;
         }
     }
 }

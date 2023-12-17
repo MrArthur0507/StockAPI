@@ -5,6 +5,7 @@
 - [Setup](#Setup)
 - [Usage](#Usage)
 - [Routes](#Routes)
+- [Examples](#Examples)
 
 ## Setup
 

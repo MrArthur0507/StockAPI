@@ -30,7 +30,7 @@ namespace StockAPI.Database.Services
                     command.ExecuteNonQuery();
                     if (typeof(T).BaseType.Name == "BaseModel")
                     {
-                        AddForeignKeys(connection);
+                        //AddForeignKeys(connection);
                     }
                     }
             }
@@ -82,37 +82,29 @@ namespace StockAPI.Database.Services
             }
             throw new NotSupportedException($"Type {type} is not supported for SQL columns.");
         }
-        private void AddForeignKeys(SqlConnection connection)
+        public void AddForeignKeys(string connectionString)
         {
-            // AddForeignKeyConstraint("Accounts", "Id", "Transactions", "Account", connection);
-            // AddForeignKeyConstraint("Stocks", "Id", "Transactions", "Stock", connection);
-            // AddForeignKeyConstraint("Accounts", "Id", "Notifications", "Account", connection);
-            try
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                AddForeignKeyConstraint("Accounts", "Id", "Transactions", "Account", connection);
+                connection.Open();
+                try
+                {
+                    AddForeignKeyConstraint("Accounts", "Id", "Transactions", "AccountId", connection);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                try
+                {
+                    AddForeignKeyConstraint("Accounts", "Id", "Notifications", "AccountId", connection);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
-            catch(Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            try
-            {
-
-                AddForeignKeyConstraint("Stocks", "Id", "Transactions", "Stock", connection);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            try
-            {
-
-                AddForeignKeyConstraint("Accounts", "Id", "Notifications", "Account", connection);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            
         }
         private bool Checking(Type type)
         {

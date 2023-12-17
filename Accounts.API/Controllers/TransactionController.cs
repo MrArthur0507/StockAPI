@@ -33,5 +33,26 @@ namespace Accounts.API.Controllers
         {
             return Json(_transactionService.GetAllTransactionsByStock(stockId));
         }
+        [HttpGet("/get-existing-pdf")]
+        public IActionResult GetExistingPdf()
+        {
+            string filePath = "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\transactions\\20231124_b18ce351-e9fd-467d-8511-b088acc7f81b_TransactionDetails.pdf";
+
+            // Call the service method
+            var serviceResponse = _transactionService.GetExistingPdf(filePath);
+
+            if (serviceResponse.IsSuccess)
+            {
+                return new FileContentResult(serviceResponse.PdfContent, "application/pdf")
+                {
+                    FileDownloadName = serviceResponse.FileName
+                };
+            }
+            else
+            {
+                Console.WriteLine($"Error: {serviceResponse.ErrorMessage}");
+                return BadRequest(); // or return a custom error response
+            }
+        }
     }
 }

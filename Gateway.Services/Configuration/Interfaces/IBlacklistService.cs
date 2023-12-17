@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    public interface IHttpClientFactory
+    public interface IBlacklistService
     {
-        public HttpClient GetAccountClient();
-
-        public HttpClient GetAnalyzerClient();
-
-        public HttpClient GetStockClient();
+        Task<bool> IsEmailValid(string email);
     }
 }

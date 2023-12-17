@@ -11,6 +11,9 @@
     "DeleteAccount": "/api/Account/login",
     "Host": "http://localhost:5000"
   },
-  "AnalyzerConfig": { "Host": null },
+  "AnalyzerConfig": {
+    "Host": "http://localhost:5000",
+    "GetStockData": "api/stocks"
+  },
   "StockConfig": { "Host": null }
 }

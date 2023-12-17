@@ -15,11 +15,29 @@ namespace SqliteProvider.Implementations
             using (SqliteConnection connection = new SqliteConnection($"Data Source = {connectionString}"))
             {
                 connection.Open();
-                string query = "CREATE TABLE IF NOT EXISTS Requests (Id INTEGER PRIMARY KEY AUTOINCREMENT, VisitorIp TEXT, RequestTime DATETIME)";
-                 using (SqliteCommand command = connection.CreateCommand())
+
+                using (SqliteTransaction transaction = connection.BeginTransaction())
                 {
-                    command.CommandText = query;
-                    command.ExecuteNonQuery();
+                    try
+                    {
+                        string query = "CREATE TABLE IF NOT EXISTS Requests (Id INTEGER PRIMARY KEY AUTOINCREMENT, VisitorIp TEXT, RequestTime DATETIME);" +
+                                        "CREATE TABLE IF NOT EXISTS Emails (Id INTEGER PRIMARY KEY AUTOINCREMENT, Email TEXT, IsValid INTEGER)";
+
+                        using (SqliteCommand command = connection.CreateCommand())
+                        {
+                            command.Transaction = transaction;
+                            command.CommandText = query;
+                            command.ExecuteNonQuery();
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        
+                        transaction.Rollback();
+                        Console.WriteLine($"Transaction rolled back. Error: {ex.Message}");
+                    }
                 }
             }
         }

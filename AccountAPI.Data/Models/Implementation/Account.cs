@@ -13,6 +13,7 @@ namespace AccountAPI.Data.Models.Implementation
         public string Password { get; set; }
         public string Email { get; set; }
         public decimal Balance { get; set; }
+        public string UserType { get; set; }
         public string Salt { get; set; }
        // public ICollection<Stock> Stocks { get; set; } = new List<Stock>();
 
@@ -26,6 +27,7 @@ namespace AccountAPI.Data.Models.Implementation
             Email = email;
             Balance = balance;
             Salt = salt;
+            UserType = "Normal";
         }
     }
 }

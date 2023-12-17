@@ -55,5 +55,15 @@ namespace Accounts.API.Controllers
         {
             return StatusCode(_accountService.AddMoney(id, baseCurrency, amount));
         }
+        [HttpPost("getAllNotifications")]
+        public IActionResult GetNotifications(string id)
+        {
+            if (id!=null)
+            {
+                var res = _accountService.GetAllNotification(id);
+                return Ok(new {Data=res});
+            }
+            return BadRequest("invalid user id");
+        }
     }
 }

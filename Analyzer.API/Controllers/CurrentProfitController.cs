@@ -1,13 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Analyzer.API.Services.Contracts;
+using System.Threading.Tasks;
 
-namespace Analyzer.API.Controllers
+[Route("api/[controller]")]
+[ApiController]
+public class BalanceController : ControllerBase
 {
-	public class CurrentProfitController : Controller
+	private readonly ICurrentProfit _currentProfit;
+
+	public BalanceController(ICurrentProfit currentProfit)
 	{
-		[HttpGet("analyzer/current-profit")]
-		public IActionResult Index()
-		{
-			return View();
-		}
+		_currentProfit = currentProfit;
+	}
+
+	[HttpGet("{userId}")]
+	public async Task<ActionResult<decimal>> GetBalance(string userId)
+	{
+		var balance = await _currentProfit.GetCurrentProfit(userId);
+		return balance;
 	}
 }

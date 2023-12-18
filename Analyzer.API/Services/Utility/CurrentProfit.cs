@@ -1,28 +1,30 @@
-﻿using Analyzer.API.Models;
+﻿
+using Analyzer.API.Models;
 using Analyzer.API.Services.Contracts;
-
+using Newtonsoft.Json;
 namespace Analyzer.API.Services.Utility
 {
-	public class CurrentProfit : ICurrentProfit
+	public class CurrentProfit: ICurrentProfit
 	{
-		public decimal GetCurrentProfit(List<PortfolioItem> portfolio, decimal initialInvestment)
+		private readonly HttpClient _httpClient;
+		public CurrentProfit(HttpClient httpClient)
 		{
-			decimal currentTotalValue = 0;
-			foreach (var item in portfolio)
+			_httpClient = httpClient;
+		}
+		public async Task<decimal> GetCurrentProfit(string userId)
+		{
+			using (var client = new HttpClient())
 			{
-				decimal currentPrice = GetStockPriceBySymbol(item.Symbol);
+				string apiUrl = $" http://localhost:5000/api/Account/getById?Id={userId}";
+				var response = await _httpClient.GetAsync(apiUrl);
+				response.EnsureSuccessStatusCode();
 
-				decimal currentValue = currentPrice * item.Quantity;
-				currentTotalValue += currentValue;
+				var content = await response.Content.ReadAsStringAsync();
+				var account = JsonConvert.DeserializeObject<User>(content);
+
+				return account.Balance;
 			}
-
-			decimal currentProfit = currentTotalValue - initialInvestment;
-			return currentProfit;
 		}
 
-		private decimal GetStockPriceBySymbol(string symbol)
-		{
-			return 0; 
-		}
 	}
 }

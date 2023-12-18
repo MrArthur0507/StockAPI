@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Interfaces
 {
-    public interface IStockService
+    public interface IStockAPIService
     {
         public Task<string> GetStockData(Stock stock);
     }

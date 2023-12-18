@@ -1,4 +1,5 @@
-﻿using Gateway.Services.Implementations;
+﻿using Gateway.Domain.Models.ApiRelated.Classes;
+using Gateway.Services.Implementations;
 using Gateway.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,11 +21,11 @@ namespace Gateway.API.Controllers
         [Route("getStockData")]
 
         
-        public async Task<string> GetStockData()
+        public async Task<string> GetStockData([FromQuery]Stock stock)
         {
-            //var stockResponse = await _stockService.GetStockData(stock);
+            var stockResponse = await _stockService.GetStockData(stock);
 
-            return "Ok";
+            return stockResponse;
         }
     }
 }

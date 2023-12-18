@@ -1,4 +1,5 @@
 ﻿using Gateway.Services.Configuration.Interfaces;
+using Gateway.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -23,9 +24,9 @@ namespace Gateway.Services.Configuration.Classes
         {
             using (HttpClient client = _clientFactory.CreateClient())
             {
-                client.BaseAddress = new Uri(_configuration.GetValue<string>("EmailValidatorAPIUrl"));
+                client.BaseAddress = new Uri(_configuration.GetRequiredSection("EmailValidatorAPIUrl").Value);
 
-                HttpResponseMessage response = await client.GetAsync($"/?email={email}&token={_configuration.GetValue<string>("EmailValidatorAPIKey")}");
+                HttpResponseMessage response = await client.GetAsync($"/?email={email}&token={_configuration.GetRequiredSection("EmailValidatorAPIKey").Value}");
 
                 if (response.IsSuccessStatusCode)
                 {

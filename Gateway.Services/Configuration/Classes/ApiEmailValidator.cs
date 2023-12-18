@@ -1,6 +1,5 @@
 ﻿using Gateway.Domain.Models.DbRelated;
 using Gateway.Services.Configuration.Interfaces;
-using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;

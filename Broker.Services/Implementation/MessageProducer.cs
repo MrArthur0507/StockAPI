@@ -1,9 +1,12 @@
 ﻿using Broker.Services.Interfaces;
+using Gateway.Domain.Models.DbRelated;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Broker.Services.Implementation
@@ -23,7 +26,9 @@ namespace Broker.Services.Implementation
 
         public void SendMessage(string message)
         {
-            var body = Encoding.UTF8.GetBytes(message);
+            EmailValid email = new EmailValid { Email = "mrarthur0507@gmail.com", IsValid = true };
+            string json = JsonSerializer.Serialize(email);
+            var body = Encoding.UTF8.GetBytes(json);
 
             _channel.BasicPublish(exchange: "", routingKey: _queueName, basicProperties: null, body: body);
         }

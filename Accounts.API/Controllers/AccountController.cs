@@ -30,9 +30,9 @@ namespace Accounts.API.Controllers
             return _accountService.GetAccountById(id);
         }
         [HttpPost("register")]
-        public IActionResult Register(string username,string password,string email,decimal balance )
+        public IActionResult Register(string username,string password,string email )
         {
-            return StatusCode(_authenticationService.Register(username, password,email, balance));
+            return StatusCode(_authenticationService.Register(username, password,email));
         }
         [HttpPost("login")]
         public IActionResult Login(string email,string password)

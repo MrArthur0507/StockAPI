@@ -12,7 +12,7 @@ namespace AccountAPI.Data.Models.Implementation
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
-        public decimal Balance { get; set; }
+        public decimal Balance { get; set; } 
         public string UserType { get; set; }
         public string Salt { get; set; }
        // public ICollection<Stock> Stocks { get; set; } = new List<Stock>();
@@ -20,12 +20,12 @@ namespace AccountAPI.Data.Models.Implementation
         public Account()
         {
         }
-        public Account(string username,string password,string email,decimal balance,string salt) 
+        public Account(string username,string password,string email,string salt) 
         {
             Username = username;
             Password = password;
             Email = email;
-            Balance = balance;
+            Balance = 0;
             Salt = salt;
             UserType = "Normal";
         }

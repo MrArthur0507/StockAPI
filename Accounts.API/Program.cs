@@ -20,6 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<ITypeDictionary, TypeDictionary>();
+builder.Services.AddSingleton<ILoggerLogic, LoggerLogic>();
+builder.Services.AddSingleton<IStockLogger, StockLogger>();
 builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
 builder.Services.AddSingleton<IApiService, ApiService>();
 builder.Services.AddSingleton<IDataInserter, DataInserter>();

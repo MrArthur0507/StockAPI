@@ -3,11 +3,11 @@ using System.Text;
 
 namespace Gateway.API.Middlewares
 {
-    public class RequestLogMiddleware
+    public class RequestLimitingMiddleware
     {
         private readonly RequestDelegate _next;
        
-        public RequestLogMiddleware(RequestDelegate next)
+        public RequestLimitingMiddleware(RequestDelegate next)
         {
             _next = next;
             

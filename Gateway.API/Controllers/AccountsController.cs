@@ -66,5 +66,21 @@ namespace Gateway.API.Controllers
             Response.Headers.Add("Authorization", $"Bearer {await accountsService.Login(email, password)}");
             return Ok(await accountsService.Login(email, password));
         }
+
+        [HttpPost]
+        [Route("addMoney")]
+        public async Task<string> AddMoney(string id, string baseCurrency, string amount)
+        {
+            
+            return await accountsService.AddMoney(id,baseCurrency, amount);
+        }
+
+        [HttpGet]
+        [Route("getNotifications")]
+        public async Task<string> GetNotifications(string id)
+        {
+
+            return await accountsService.GetNotifications(id);
+        }
     }
 }

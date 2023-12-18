@@ -16,5 +16,7 @@ namespace Gateway.Services.Configuration.Interfaces
         public IAnalyzerConfig AnalyzerConfig { get; set; }
 
         public IStockConfig StockConfig { get; set; }
+
+        public ITransactionConfig TransactionConfig { get; set; }
     }
 }

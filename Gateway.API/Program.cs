@@ -25,21 +25,36 @@ builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IConfigurationService, ConfigurationService>();
 builder.Services.AddSingleton<IConfig, Config>();
 builder.Services.AddSingleton<IRequestLogger, RequestLogger>();
-builder.Services.AddScoped<IAccountsService, AccountService>();
+
+// Services for other apis
+builder.Services.AddScoped<ITransactionAPIService, TransactionAPIService>();
+builder.Services.AddScoped<ITransactionService, TransactionService>();
 builder.Services.AddScoped<IStockService, StockService>();
+builder.Services.AddScoped<IStockAPIService, StockAPIService>();
+builder.Services.AddScoped<IAccountAPIService, AccountAPIService>();
+builder.Services.AddScoped<IAccountsService, AccountService>();
+builder.Services.AddScoped<ISettlementAPIService, SettlementAPIService>();
+builder.Services.AddScoped<ISettlementService, SettlementService>();
+//
+
+//Services for sqlite provider
+builder.Services.AddSingleton<ITableInit, TableInit>();
+builder.Services.AddSingleton<ISqliteProviderConfiguration, SqliteProviderConfiguration>();
+builder.Services.AddSingleton<IDbInit, DbInit>();
+//
+
 builder.Services.AddScoped<IBlacklistService, BlacklistService>();
 builder.Services.AddScoped<IApiEmailValidatorRequestor,ApiEmailValidatorRequestor>();
 builder.Services.AddSingleton<ITableInit, TableInit>();
 builder.Services.AddSingleton<ISqliteProviderConfiguration, SqliteProviderConfiguration>();
 builder.Services.AddSingleton<IDbInit, DbInit>();
-builder.Services.AddScoped<IAccountAPIService, AccountAPIService>();
 builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IApiEmailDeserializer, ApiEmailDeserializer>();
 builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 builder.Services.AddScoped<IApiEmailValidator, ApiEmailValidator>();
-builder.Services.AddScoped<IStockAPIService, StockAPIService>();
+
 builder.Services.AddResponseCaching();
-builder.Services.AddSingleton<IRequestQueueService, RequestQueueService>();
+builder.Services.AddSingleton<IRequestInfoStorageService, RequestInfoStorageService>();
 builder.Services.AddScoped<IRequestLimitService, RequestLimitService>();
 builder.Services.AddSingleton<IMessageConsumer, MessageConsumer>();
 builder.Services.AddQuartz(q =>
@@ -82,7 +97,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
-app.UseMiddleware<RequestLogMiddleware>();
+app.UseMiddleware<RequestLoggingMiddleware>();
+app.UseMiddleware<RequestLimitingMiddleware>();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();

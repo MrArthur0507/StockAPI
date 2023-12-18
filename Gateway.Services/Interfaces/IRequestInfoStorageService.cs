@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Interfaces
 {
-    public interface IRequestQueueService
+    public interface IRequestInfoStorageService
     {
-        public void Enqueue(RequestInfo requestInfo);
+        void AddProcessedRequest(RequestInfo requestInfo);
+        IEnumerable<RequestInfo> GetProcessedRequests();
 
-        public List<RequestInfo> DequeueAll();
+        public void ClearList();
     }
 }

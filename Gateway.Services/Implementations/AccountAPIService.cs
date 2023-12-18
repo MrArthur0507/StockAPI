@@ -8,44 +8,33 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Implementations
 {
-    public class AccountAPIService : IAccountAPIService
+    public class AccountAPIService : BaseAPIService, IAccountAPIService
     {
-        private readonly IConfigurationService _configService;
-        private readonly IHttpClientFactory _clientFactory;
-        private IConfig _config;
-        private HttpClient _client;
-
         public AccountAPIService(IConfigurationService configurationService, IHttpClientFactory clientFactory)
+            : base(clientFactory, configurationService)
         {
-            _configService = configurationService;
-            _config = _configService.GetAppSettings();
-            _clientFactory = clientFactory;
-            _client = _clientFactory.CreateClient();
-            _client.BaseAddress = new Uri(_config.AccountConfig.Host);
+            client = _clientFactory.CreateClient();
+            client.BaseAddress = new Uri(config.AccountConfig.Host);
         }
 
         public async Task<string> GetAll()
         {
-            HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + _config.AccountConfig.GetAll);
+            HttpResponseMessage response = await GetAsync(client.BaseAddress + config.AccountConfig.GetAll);
             return await HandleResponse(response);
         }
 
         public async Task<string> GetById(string id)
         {
-            HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress + _config.AccountConfig.GetById + "?id=" + id);
+            HttpResponseMessage response = await GetAsync(client.BaseAddress + config.AccountConfig.GetById + "?id=" + id);
             return await HandleResponse(response);
         }
 
         public async Task<int> Register(string username, string password, string email, string balance)
         {
-            
-
             var parameters = new Dictionary<string, string> { { "username", username }, { "password", password },
             {"email", email }, {"balance", balance } };
 
-            var encodedContent = new FormUrlEncodedContent(parameters);
-
-            HttpResponseMessage response = await _client.PostAsync($"{_client.BaseAddress}{_config.AccountConfig.CreateAccount}", encodedContent);
+            HttpResponseMessage response = await PostAsync($"{client.BaseAddress}{config.AccountConfig.CreateAccount}", parameters);
 
             return (int)response.StatusCode;
         }
@@ -54,9 +43,9 @@ namespace Gateway.Services.Implementations
         {
             var parameters = new Dictionary<string, string> { { "email", email }, { "password", password } };
 
-            var encodedContent = new FormUrlEncodedContent(parameters);
+            
 
-            HttpResponseMessage response = await _client.PostAsync($"{_client.BaseAddress}{_config.AccountConfig.Login}", encodedContent);
+            HttpResponseMessage response = await PostAsync($"{client.BaseAddress}{config.AccountConfig.Login}", parameters);
             
             return GetJwtToken(response);
         }
@@ -70,14 +59,6 @@ namespace Gateway.Services.Implementations
             return null;
         }
 
-        private async Task<string> HandleResponse(HttpResponseMessage response)
-        {
-            if (response.IsSuccessStatusCode)
-            {
-                return await response.Content.ReadAsStringAsync();
-            }
-
-            return "Error";
-        }
+        
     }
 }

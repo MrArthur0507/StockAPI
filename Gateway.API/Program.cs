@@ -37,9 +37,11 @@ builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IApiEmailDeserializer, ApiEmailDeserializer>();
 builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 builder.Services.AddScoped<IApiEmailValidator, ApiEmailValidator>();
+builder.Services.AddScoped<IStockAPIService, StockAPIService>();
 builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<IRequestQueueService, RequestQueueService>();
 builder.Services.AddScoped<IRequestLimitService, RequestLimitService>();
+builder.Services.AddSingleton<IMessageConsumer, MessageConsumer>();
 builder.Services.AddQuartz(q =>
 {
     var jobKey = new JobKey("SaveRequestInfoJob");

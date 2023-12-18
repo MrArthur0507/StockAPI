@@ -8,6 +8,6 @@ namespace Broker.Services.Interfaces
 {
     public interface IMessageProducer
     {
-        public void SendMessage(string message);
+        void SendMessage(string queueName, string message);
     }
 }

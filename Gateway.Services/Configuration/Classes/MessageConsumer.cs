@@ -17,7 +17,7 @@ namespace Gateway.Services.Configuration.Classes
 
         public MessageConsumer()
         {
-            var rabbitMqService = new RabbitMQService();
+            var rabbitMqService = new RabbitMQConnectionFactory();
             _channel = rabbitMqService.CreateModel();
 
             _channel.QueueDeclare(queue: _queueName, durable: false, exclusive: false, autoDelete: false, arguments: null);

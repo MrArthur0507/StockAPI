@@ -1,4 +1,5 @@
-﻿using Gateway.Services.Interfaces;
+﻿using Gateway.Domain.Models.ApiRelated.Classes;
+using Gateway.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,16 @@ namespace Gateway.Services.Implementations
 {
     public class StockService : IStockService
     {
-        private readonly IConfigurationService _config;
-        public StockService(IConfigurationService config)
+        private readonly IStockAPIService _stockAPIService;
+        public StockService(IStockAPIService stockAPIService)
         {
-            _config = config;
+            _stockAPIService = stockAPIService;
+        }
+
+        public async Task<string> GetStockData(Stock stock)
+        {
+
+            return await _stockAPIService.GetStockData(stock);
         }
     }
 }

@@ -30,9 +30,9 @@ namespace AccountAPI.Data.Models
         }
         private void CreateTables()
         {
-           _dataManager.CreateTable<Stock>();
            _dataManager.CreateTable<Account>();
            _dataManager.CreateTable<Transaction>();
+           _dataManager.CreateTable<Notification>();
         }
     }
 }

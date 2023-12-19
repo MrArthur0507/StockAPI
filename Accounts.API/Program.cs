@@ -13,11 +13,15 @@ using StockApiRepDB.Interfaces;
 using StockApiRepDB.Services;
 using StockApiRepDB.Data;
 using StockApiRepDB;
+using Quartz;
+using Accounts.API.Jobs;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<ITypeDictionary, TypeDictionary>();
+builder.Services.AddSingleton<ILoggerLogic, LoggerLogic>();
+builder.Services.AddSingleton<IStockLogger, StockLogger>();
 builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
 builder.Services.AddSingleton<IApiService, ApiService>();
 builder.Services.AddSingleton<IDataInserter, DataInserter>();
@@ -30,6 +34,22 @@ builder.Services.AddSingleton<ISeed, Seed>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IAuthorizationService, AuthorizationService>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+builder.Services.AddScoped<ITransactionService,TransactionService>();
+builder.Services.AddScoped<INotificationService,NotificationService>();
+builder.Services.AddQuartz(q =>
+{
+    var jobKey = new JobKey("ChangeUserRoleJob");
+    q.AddJob<ChangeUserRole>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("ChangeUserRoleJob-trigger")
+        .WithCronSchedule("0 0 0 * *  ?"));
+
+});
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
+
 //Services for the repository pattern db
 builder.Services.AddSingleton<IRepDataService, DataService>();
 builder.Services.AddSingleton<IUnitOfWork,UnitOfWork>();
@@ -56,22 +76,12 @@ app.UseMiddleware<StatusCodeMiddleware>();
 
 app.MapControllers();
 app.Run();
-/*
- * THIS TOO!
- * void InitializeApplicationDbContext(WebApplication app)
+  void InitializeApplicationDbContext(WebApplication app)
 {
    var dataManager = app.Services.GetRequiredService<IDataManager>();
    var seed = app.Services.GetRequiredService<ISeed>();
-
    var context = new ApplicationDbContext(dataManager,seed);
    context.Start();
-
-}*/
-void InitializeApplicationDbContext(WebApplication app)
-{
-
-    var dataManager = app.Services.GetRequiredService<IRepDataManager>();
-    var context = new RepAppDbContext(dataManager);
-    context.Start();
+  
 
 }

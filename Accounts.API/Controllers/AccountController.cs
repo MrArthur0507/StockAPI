@@ -30,9 +30,9 @@ namespace Accounts.API.Controllers
             return _accountService.GetAccountById(id);
         }
         [HttpPost("register")]
-        public IActionResult Register(string username,string password,string email,decimal balance )
+        public IActionResult Register(string username,string password,string email )
         {
-            return StatusCode(_authenticationService.Register(username, password,email, balance));
+            return StatusCode(_authenticationService.Register(username, password,email));
         }
         [HttpPost("login")]
         public IActionResult Login(string email,string password)
@@ -54,6 +54,16 @@ namespace Accounts.API.Controllers
         public IActionResult AddMoney(string id, string baseCurrency, decimal amount)
         {
             return StatusCode(_accountService.AddMoney(id, baseCurrency, amount));
+        }
+        [HttpPost("getAllNotifications")]
+        public IActionResult GetNotifications(string id)
+        {
+            if (id!=null)
+            {
+                var res = _accountService.GetAllNotification(id);
+                return Ok(new {Data=res});
+            }
+            return BadRequest("invalid user id");
         }
     }
 }

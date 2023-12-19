@@ -57,7 +57,14 @@ namespace Accounts.API.Services.Implementation
             var user = _dataManager.SelectByID<Account>("Accounts", id);
             user.Username = "Novo ime";
             _dataManager.UpdateData(user, id);
-
+        }
+        public List<GetNotificationViewModel> GetAllNotification(string id)
+        {
+            var result = _dataManager.SelectData<Notification>("Notifications").Where(n=>n.AccountId==id).Select(n=> new GetNotificationViewModel
+            {
+                Message=n.Message,
+            }).ToList();
+            return result;
         }
     }
 }

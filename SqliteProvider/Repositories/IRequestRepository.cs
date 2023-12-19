@@ -1,4 +1,5 @@
-﻿using SqliteProvider.Models;
+﻿using Gateway.Domain.Models.DbRelated;
+using SqliteProvider.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,9 @@ namespace SqliteProvider.Repositories
 {
     public interface IRequestRepository
     {
-        public void AddRequest(string ip, DateTime requestTime);
+        public Task<long> GetRequestCountForIp(string ipAddress, DateTime since);
+        public Task AddRequest(string ipAddress, DateTime time);
 
-        public List<Request> GetAllRequests();
-
-        public long GetRequestCountForIpAddressInTimeFrame(string ipAddress, DateTime timeOneMinuteAgo);
+        public Task AddDetailedRequest(RequestInfo requestInfo);
     }
 }

@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace Gateway.Services.Configuration.Interfaces
 {
-    public interface IHttpClientFactory
+    public interface IMessageConsumer
     {
-        public HttpClient GetAccountClient();
-
-        public HttpClient GetAnalyzerClient();
-
-        public HttpClient GetStockClient();
+        public void StartListening();
     }
 }

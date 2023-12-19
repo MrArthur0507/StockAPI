@@ -1,12 +1,7 @@
-﻿using Analyzer.API.Models;
-
-namespace Analyzer.API.Services.Contracts
+﻿namespace Analyzer.API.Services.Contracts
 {
 	public interface ICurrentProfit
 	{
-		decimal GetCurrentProfit(List<PortfolioItem> portfolio, decimal initialInvestment);
-		
-		
-		
+		Task<decimal> GetCurrentProfit(string userId);
 	}
 }

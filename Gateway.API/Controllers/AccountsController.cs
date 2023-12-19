@@ -60,10 +60,27 @@ namespace Gateway.API.Controllers
 
         [HttpPost]
         [Route("login")]
-        public async Task<string> Login([FromQuery] string email, string password)
+        public async Task<IActionResult> Login([FromQuery] string email, string password)
+        {
+            Response.Headers.Add("Set-Cookie", await accountsService.Login(email, password));
+            Response.Headers.Add("Authorization", $"Bearer {await accountsService.Login(email, password)}");
+            return Ok(await accountsService.Login(email, password));
+        }
+
+        [HttpPost]
+        [Route("addMoney")]
+        public async Task<string> AddMoney(string id, string baseCurrency, string amount)
+        {
+            
+            return await accountsService.AddMoney(id,baseCurrency, amount);
+        }
+
+        [HttpGet]
+        [Route("getNotifications")]
+        public async Task<string> GetNotifications(string id)
         {
 
-            return await accountsService.Login(email, password);
+            return await accountsService.GetNotifications(id);
         }
     }
 }

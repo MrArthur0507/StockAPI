@@ -16,16 +16,18 @@ namespace Accounts.API.Services.Implementation
     public class AuthenticationService: IAuthenticationService
     {
         private readonly IDataManager _dataManager;
-
         private readonly IPasswordHasher _passwordHasher;
         private readonly IAuthorizationService _authorizationService;
-        public AuthenticationService(IDataManager dataManager, IPasswordHasher passwordHasher, IAuthorizationService authorizationService)
+        private readonly IStockLogger _stockLogger;
+
+        public AuthenticationService(IDataManager dataManager, IPasswordHasher passwordHasher, IAuthorizationService authorizationService, IStockLogger stockLogger)
         {
             _dataManager = dataManager;
             _passwordHasher = passwordHasher;
             _authorizationService = authorizationService;
+            _stockLogger = stockLogger;
         }
-        public int Register(string username, string password, string email, decimal balance)
+        public int Register(string username, string password, string email)
         {
             var accounts = _dataManager.SelectData<Account>("Accounts");
             if (accounts.Any(acc => acc.Username == username))
@@ -34,8 +36,10 @@ namespace Accounts.API.Services.Implementation
             }
             var salt = _passwordHasher.GenerateSalt();
             string hashPass = _passwordHasher.HashPassword(password,salt);
-            var newAccount = new Account(username, hashPass, email, balance,Convert.ToBase64String(salt));
+            var newAccount = new Account(username, hashPass, email,Convert.ToBase64String(salt));
             _dataManager.InsertData(newAccount);
+            User user = new User(newAccount.Username, newAccount.Email, newAccount.Balance);
+            _stockLogger.SaveRegInFile(user);
             return (int)HttpStatusCode.Created;
         }
         public User Login(string email,string password) 
@@ -49,7 +53,9 @@ namespace Accounts.API.Services.Implementation
                 {
                     string token = _authorizationService.GenerateJwtToken(currentAcc.Username);
                     _authorizationService.SaveTokenInSessionStorage(token);
-                    return new User(currentAcc.Username, currentAcc.Email, currentAcc.Balance);
+                    User user = new User(currentAcc.Username, currentAcc.Email, currentAcc.Balance);
+                    _stockLogger.SaveLoginInFile(user);
+                    return user;
                 }
                 return null;
             }

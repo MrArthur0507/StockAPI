@@ -1,5 +1,5 @@
-﻿using Gateway.Services.Configuration.Interfaces;
-using Gateway.Services.Interfaces;
+﻿
+using Gateway.Domain.Models.DbRelated;
 using SqliteProvider.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,12 +12,12 @@ namespace SqliteProvider.Implementations
     public class DbInit : IDbInit
     {
         private readonly ITableInit _tableInit;
-        private readonly IConfigurationService _configService;
-        private readonly IConfig _config;
-        public DbInit(ITableInit tableInit, IConfigurationService configurationService) {
+        private readonly ISqliteProviderConfiguration _sqliteProviderConfiguration;
+        private readonly SqliteProviderSettings _settings;
+        public DbInit(ITableInit tableInit, ISqliteProviderConfiguration configurationService) {
             _tableInit= tableInit;
-            _configService= configurationService;
-            _config = _configService.GetAppSettings();
+            _sqliteProviderConfiguration = configurationService;
+            _settings = _sqliteProviderConfiguration.GetSettings();
         }
 
         public void EnsureDbAndTablesCreated()
@@ -30,17 +30,17 @@ namespace SqliteProvider.Implementations
 
         public void CreateDb()
         {
-            using (File.Create(_config.SqliteDbPath))
+            using (File.Create(_settings.ConnectionString))
             {
             }
-            _tableInit.CreateTables(_config.SqliteDbPath);
+            _tableInit.CreateTables(_settings.ConnectionString);
             Console.WriteLine("Creating db;");
 
         }
 
         public bool DatabaseExists()
         {
-            if (File.Exists(_config.SqliteDbPath))
+            if (File.Exists(_settings.ConnectionString))
             {
                 return true;
             }

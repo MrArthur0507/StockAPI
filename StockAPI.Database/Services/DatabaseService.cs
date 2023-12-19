@@ -10,9 +10,17 @@ namespace StockAPI.Database.Services
 {
     public class DatabaseService:IDatabaseService
     {
+        private readonly ITableService _service;
+        public DatabaseService(ITableService service)
+        {
+            _service = service;
+        }
+
         public void Start(string connectionString)
         {
             CreateDatabase(connectionString);
+            _service.AddForeignKeys(connectionString);
+
         }
       /*  private void CreateDatabase(string connectionString)
         {

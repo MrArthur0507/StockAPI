@@ -21,5 +21,9 @@ namespace Gateway.Services.Configuration.Classes
         public string CreateAccount { get; set; }
         public string Login { get; set; }
         public string DeleteAccount { get; set; }
+
+        public string AddMoney { get; set; }
+
+        public string GetNotifications { get; set; }
     }
 }

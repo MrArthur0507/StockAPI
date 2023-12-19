@@ -16,7 +16,8 @@ namespace StockAPI.Database.Data
             { typeof(int), "INT" },
             { typeof(decimal), "DECIMAL(18,2)" },
             { typeof(DateTime), "DATETIME" },
-            {typeof(DummyModel),"NVARCHAR(255)" }
+            {typeof(DummyModel),"NVARCHAR(255)" },
+            {typeof(bool),"BIT" }   
         };
         public Dictionary<Type, string> GetSqlTypes()
         {

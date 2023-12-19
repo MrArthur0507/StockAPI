@@ -20,5 +20,9 @@ namespace Gateway.Services.Configuration.Interfaces
 
         public string Login { get; set; }
         public string DeleteAccount { get; set; }
+
+        public string AddMoney { get; set; }
+
+        public string GetNotifications { get; set; }
     }
 }

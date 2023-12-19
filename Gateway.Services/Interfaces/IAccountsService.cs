@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Gateway.Services.Implementations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,5 +16,9 @@ namespace Gateway.Services.Interfaces
         public Task<int> Register(string username, string password, string email, string balance);
 
         public Task<string> Login(string username, string password);
+
+        public Task<string> AddMoney(string id, string baseCurrency, string quantity);
+
+        public Task<string> GetNotifications(string id);
     }
 }

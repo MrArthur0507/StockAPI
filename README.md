@@ -6,6 +6,7 @@
 - [Usage](#Usage)
 - [Routes](#Routes)
 - [Examples](#Examples)
+- [Importants](#Importants)
 
 ## Setup
 
@@ -68,3 +69,7 @@ builder.Services.AddSingleton<ISeed, Seed>();
 <li>https://localhost:7168/api/Transaction/getTransactionForUser?userId=b18ce351-e9fd-467d-8511-b088acc7f81b</li>
 <li>https://localhost:7168/api/Transaction/getTransactionByStock?stockId=OpenAI</li>
 </ol>
+
+## Importants
+
+<h2 style="color:red;">You should change the file path in Accounts.API.Services/Implementation/LoggerLogic.cs</h2>

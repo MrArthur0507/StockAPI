@@ -35,6 +35,8 @@ builder.Services.AddScoped<IAccountAPIService, AccountAPIService>();
 builder.Services.AddScoped<IAccountsService, AccountService>();
 builder.Services.AddScoped<ISettlementAPIService, SettlementAPIService>();
 builder.Services.AddScoped<ISettlementService, SettlementService>();
+builder.Services.AddScoped<IAnalyzerAPIService, AnalyzerAPIService>();
+builder.Services.AddScoped<IAnalyzerService, AnalyzerService>();
 //
 
 //Services for sqlite provider

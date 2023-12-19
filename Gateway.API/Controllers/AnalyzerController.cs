@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Gateway.Services.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gateway.API.Controllers
@@ -7,32 +8,32 @@ namespace Gateway.API.Controllers
     [ApiController]
     public class AnalyzerController : ControllerBase
     {
-        [HttpGet]
-        [Route("currentProfit")]
-        public IActionResult CurrentProfit(string id)
+        private readonly IAnalyzerService _analyzerService;
+        public AnalyzerController(IAnalyzerService analyzerService)
         {
-            return Ok();
+            _analyzerService = analyzerService;
         }
 
         [HttpGet]
-        [Route("dailyReturnProfit")]
-        public IActionResult DailyReturnProfit(string id)
+        [Route("balance")]
+        public async Task<IActionResult> CurrentProfit(string accountId)
         {
-            return Ok();
+            return Ok(await _analyzerService.GetBalance(accountId));
         }
 
         [HttpGet]
         [Route("percentageChange")]
-        public IActionResult PercentageChange(string id)
+        public async Task<IActionResult> PercentageChange(string futureBalance, string accountId)
         {
-            return Ok();
+            return Ok(await _analyzerService.PercentageChange(futureBalance, accountId));
         }
 
         [HttpGet]
         [Route("portfolioRisk")]
-        public IActionResult PortfolioRisk(string id)
+        public async Task<IActionResult> PortfolioRisk(string accountId)
         {
-            return Ok();
+
+            return Ok(await _analyzerService.PortfolioRisk(accountId));
         }
     }
 }

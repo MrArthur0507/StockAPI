@@ -28,5 +28,9 @@ namespace Gateway.Services.Implementations
         }
 
         public async Task<string> Login(string email, string password) => await _accountApiService.Login(email, password);
+
+        public async Task<string> AddMoney(string id, string baseCurrency, string quantity) => await _accountApiService.AddMoney(id, baseCurrency, quantity);
+
+        public async Task<string> GetNotifications(string id) => await _accountApiService.GetNotifications(id);
     }
 }

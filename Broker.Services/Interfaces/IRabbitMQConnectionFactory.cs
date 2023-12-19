@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Broker.Services.Interfaces
 {
-    public interface IRabbitMQService
+    public interface IRabbitMQConnectionFactory
     {
-        public IModel CreateModel();
+        public IConnection CreateConnection();
     }
 }

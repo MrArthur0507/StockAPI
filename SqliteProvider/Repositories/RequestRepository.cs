@@ -26,7 +26,6 @@ namespace SqliteProvider.Repositories
 
         public async Task<long> GetRequestCountForIp(string ipAddress, DateTime since)
         {
-
             using (SqliteConnection connection = new SqliteConnection($"Data Source = {config.ConnectionString}"))
             {
                 connection.Open();
@@ -40,8 +39,6 @@ namespace SqliteProvider.Repositories
                     return requestCount;
                 }
             }
-
-
         }
 
         public async Task AddRequest(string ipAddress, DateTime time)
@@ -58,9 +55,26 @@ namespace SqliteProvider.Repositories
                     command.ExecuteNonQuery();
                 }
             }
+        }
 
+        public async Task AddDetailedRequest(RequestInfo requestInfo)
+        {
+            if (requestInfo == null)
+            {
+                throw new ArgumentNullException(nameof(requestInfo));
+            }
 
+            using (var connection = new SqliteConnection($"Data Source = {config.ConnectionString}"))
+            using (var command = connection.CreateCommand())
+            {
+                connection.Open();
 
+                command.CommandText = "INSERT INTO Requests (HttpMethod, Timestamp) VALUES (@HttpMethod, @Timestamp)";
+                command.Parameters.AddWithValue("@HttpMethod", requestInfo.RequestMethod);
+                command.Parameters.AddWithValue("@Timestamp", requestInfo.Timestamp);
+
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

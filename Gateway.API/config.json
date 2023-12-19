@@ -9,11 +9,18 @@
     "CreateAccount": "api/Account/register",
     "Login": "api/Account/login",
     "DeleteAccount": "/api/Account/login",
-    "Host": "http://localhost:5000"
+    "Host": "http://localhost:5000",
+    "AddMoney": "api/Account/addMoney",
+    "GetNotifications": "api/Account/GetAllNotifications",
   },
   "AnalyzerConfig": {
     "Host": "http://localhost:5000",
     "GetStockData": "api/stocks"
   },
-  "StockConfig": { "Host": "http://localhost:5000" }
+  "StockConfig": { "Host": "http://localhost:5000" },
+  "TransactionConfig": {
+    "Host": "http://localhost:5000",
+    "GetTransactionForUser": "api/Transaction/getTransactionForUser",
+    "GetTransactionByStock": "api/Transaction/getTransactionByStock"
+  }
 }

@@ -39,6 +39,23 @@ namespace Gateway.Services.Implementations
             return (int)response.StatusCode;
         }
 
+        public async Task<string> AddMoney(string id, string baseCurrency, string amount)
+        {
+            var parameters = new Dictionary<string, string> { { "id", id }, { "baseCurrency", baseCurrency },
+            {"amount", amount } };
+            HttpResponseMessage responseMessage = await PostAsync($"{client.BaseAddress}{config.AccountConfig.AddMoney}", parameters);
+
+            return await HandleResponse(responseMessage);
+        }
+
+        public async Task<string> GetNotifications(string id)
+        {
+            
+            HttpResponseMessage responseMessage = await GetAsync($"{client.BaseAddress}{config.AccountConfig.GetNotifications}?id={id}");
+
+            return await HandleResponse(responseMessage);
+        }
+
         public async Task<string> Login(string email, string password)
         {
             var parameters = new Dictionary<string, string> { { "email", email }, { "password", password } };

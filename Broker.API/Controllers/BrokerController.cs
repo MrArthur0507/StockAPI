@@ -1,4 +1,5 @@
 ﻿using Broker.Services.Implementation;
+using Broker.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,17 +9,17 @@ namespace Broker.API.Controllers
     [ApiController]
     public class BrokerController : ControllerBase
     {
-        private readonly MessageProducer _messageProducer;
+        private readonly IMessageProducer _messageProducer;
 
-        public BrokerController()
+        public BrokerController(IMessageProducer messageProducer)
         {
-            _messageProducer = new MessageProducer();
+            _messageProducer = messageProducer;
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] string message)
+        public IActionResult Post([FromQuery]string message, string queue)
         {
-            _messageProducer.SendMessage(message);
+            _messageProducer.SendMessage(queue, message);
             return Ok();
         }
     }

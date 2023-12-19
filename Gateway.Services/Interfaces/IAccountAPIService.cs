@@ -12,5 +12,9 @@ namespace Gateway.Services.Interfaces
         Task<string> GetById(string id);
         Task<int> Register(string username, string password, string email, string balance);
         Task<string> Login(string email, string password);
+
+        Task<string> AddMoney(string id, string baseCurrency, string amount);
+
+        Task<string> GetNotifications(string id);
     }
 }

@@ -13,10 +13,15 @@ namespace SettlementServices
 
             JObject data = JsonConvert.DeserializeObject<JObject>(stock);
             JObject timeSeriesDaily = data["Time Series (Daily)"] as JObject;
-            var DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-1).ToString("yyyy-MM-dd")}"] as JObject;
-
-
-
+            JObject DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-1).ToString("yyyy-MM-dd")}"] as JObject;
+            if (DateTime.Now.DayOfWeek is DayOfWeek.Sunday)
+            {
+                 DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-2).ToString("yyyy-MM-dd")}"] as JObject;
+            }
+            else if (DateTime.Now.DayOfWeek is DayOfWeek.Sunday)
+            {
+                 DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-3).ToString("yyyy-MM-dd")}"] as JObject;
+            }
             StockData stockData = new StockData();
             stockData.Open = DailyStock.Value<double>("1. open");
             stockData.High = DailyStock.Value<double>("2. high");

@@ -17,10 +17,8 @@ using Microsoft.OpenApi.Any;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {});
@@ -36,7 +34,8 @@ builder.Services.AddScoped<CheckAccountCreditsService>();
 builder.Services.AddScoped<SqliteAddTransactionsService>();
 builder.Services.AddScoped<SqliteDeleteTransactionsService>();
 builder.Services.AddScoped<SqliteGetTransactionsService>();
-builder.Services.AddScoped<QuartzJobService>();
+builder.Services.AddScoped<TransactionStorageExecutionService>();
+
 
 
 builder.Services.AddQuartz(q =>
@@ -48,7 +47,7 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("QuartzJobService-trigger")
-        .WithCronSchedule("0 0 0 * * ?"));
+        .WithCronSchedule("*/5 * * * * ?"));
 });
 
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);

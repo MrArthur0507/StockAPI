@@ -10,8 +10,8 @@ namespace Accounts.API.Services.Implementation
 {
     public class LoggerLogic:ILoggerLogic
     {
-        private const string loginLogfile = "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\Logs\\loginLogs.txt";
-        private const string regLogFile = "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\Logs\\regLogs.txt";
+        private const string loginLogfile = "D:\\Games";
+        private const string regLogFile = "D:\\Games";
 
         public void SaveLogin(User user)
         {

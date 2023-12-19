@@ -1,9 +1,11 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.SqlServer.Server;
 using Settlement.API.Controllers.SettlementServices;
 using Settlement.Infrastructure.Models.SettlementModels;
 using Settlement.Infrastructure.SettlementContracts;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +17,7 @@ namespace Settlement.Infrastructure.SettlementServices
         public async Task<List<TransactionStorage>> GetTransactions()
         {
             List<TransactionStorage> transactions = new List<TransactionStorage>();
-            using (SqliteConnection connection = new SqliteConnection(filePath))
+            using (SqliteConnection connection = new SqliteConnection($"Data Source={filePath}"))
             {
                 connection.Open();
 
@@ -40,9 +42,18 @@ namespace Settlement.Infrastructure.SettlementServices
                                 string stockName = reader.GetString(reader.GetOrdinal("Stock"));
                                 int quantity = reader.GetInt32(reader.GetOrdinal("Quantity"));
                                 decimal price = reader.GetDecimal(reader.GetOrdinal("Price"));
-                                DateTime transactionDate = reader.GetDateTime(reader.GetOrdinal("TransactionDate"));
+                                DateTime transactionDate =Convert.ToDateTime(reader.GetString
+                                    (reader.GetOrdinal("TransactionDate"))
+                                    .ToString(CultureInfo.CurrentCulture));
 
-                                TransactionStorage transaction = new TransactionStorage();
+
+                                
+
+                                //DateTime.TryParseExact(reader.GetDateTime(reader.GetOrdinal("TransactionDate")), "dd.MM.yyyy г. HH:mm:ss",
+                                //    cultureInfo, DateTimeStyles.None, out DateTime resultDateTime);
+
+
+                                    TransactionStorage transaction = new TransactionStorage();
                                 //transaction.Id = transactionId;
                                 transaction.AccountId = accountId;
                                 transaction.Stock = stockName;
@@ -54,6 +65,7 @@ namespace Settlement.Infrastructure.SettlementServices
                         }
                     }
                 }
+
                 return transactions;
             }
         }

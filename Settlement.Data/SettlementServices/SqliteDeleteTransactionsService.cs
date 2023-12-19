@@ -16,14 +16,14 @@ namespace Settlement.Infrastructure.SettlementServices
             using (SqliteConnection connection = new SqliteConnection($"Data Source = {filePath}"))
             {
                 connection.Open();
-
-                using (SqliteCommand command = connection.CreateCommand())
+                string deleteQuery = "DELETE FROM Transactions";
+                using (SqliteCommand command = new SqliteCommand(deleteQuery, connection))
                 {
-                    string deleteQuery = "DELETE FROM Transactions";
+                    
 
-                    command.CommandText = deleteQuery;
+                    //command.CommandText = deleteQuery;
 
-                    command.ExecuteNonQuery();
+                    int rows = command.ExecuteNonQuery();
                 }
 
                 connection.Close();

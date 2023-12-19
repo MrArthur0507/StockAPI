@@ -15,6 +15,7 @@ using Settlement.API.Controllers.SettlementServices;
 using Settlement.Infrastructure.SettlementServices;
 
 using Settlement.Infrastructure.Models.StockModels;
+using Settlement.Infrastructure.Models.SettlementModels;
 
 namespace Settlement.API.Controllers
 {
@@ -55,15 +56,15 @@ namespace Settlement.API.Controllers
             //4d39f99a-e8e8-4fb3-a1f7-7747e9cf9660
             //e563472d-988d-4697-81b8-c5b0e319c1f6
 
-            var account =   await _accountInfoService.GetAccount(accountId);
-            var stock =   await _stockInfoService.GetStock(stockName, timeSeries, interval, quantity);
-            var stockPrice =  await _getStockPriceService.GetStockPrice(stock.ToString());
+            //var account =   await _accountInfoService.GetAccount(accountId);
+            //var stock =   await _stockInfoService.GetStock(stockName, timeSeries, interval, quantity);
+            //var stockPrice =  await _getStockPriceService.GetStockPrice(stock.ToString());
             
-            if(_checkAccountCreditsService.CheckBalance(account, stockPrice, quantity))
-                return BadRequest($"This account: {account.Username} has not enough credits for this purchase!"); 
+            //if(_checkAccountCreditsService.CheckBalance(account, stockPrice, quantity))
+            //    return BadRequest($"This account: {account.Username} has not enough credits for this purchase!"); 
 
-            await _sqliteAddTransactionsService.AddTransaction(account, stockPrice, quantity, stockName);
-            await _sqliteGetTransactionsService.GetTransactions();
+            //await _sqliteAddTransactionsService.AddTransaction(account, stockPrice, quantity, stockName);
+            List<TransactionStorage> TransactionStorage = await _sqliteGetTransactionsService.GetTransactions();
 
             //timeSeries : INTRADAY
             //stockName: MSFT

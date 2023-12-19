@@ -13,7 +13,7 @@ namespace SettlementServices
 
             JObject data = JsonConvert.DeserializeObject<JObject>(stock);
             JObject timeSeriesDaily = data["Time Series (Daily)"] as JObject;
-            JObject DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-2).ToString("yyyy-MM-dd")}"] as JObject;
+            var DailyStock = timeSeriesDaily[$"{DateTime.Now.Date.AddDays(-1).ToString("yyyy-MM-dd")}"] as JObject;
 
 
 

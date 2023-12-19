@@ -4,7 +4,6 @@ using Settlement.API.Controllers.SettlementServices;
 using Settlement.Infrastructure.Models.AccountModels;
 using Settlement.Infrastructure.Models.SettlementModels;
 using Settlement.Infrastructure.SettlementContracts;
-using Settlement.Infrastructure.SettlementContracts.StockContracts;
 using Settlement.Services;
 using SettlementServices;
 using System;

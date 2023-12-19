@@ -33,6 +33,10 @@ builder.Services.AddScoped<StockInfoService>();
 builder.Services.AddScoped<GetStockPriceService>();
 builder.Services.AddScoped<SqliteService>();
 builder.Services.AddScoped<CheckAccountCreditsService>();
+builder.Services.AddScoped<SqliteAddTransactionsService>();
+builder.Services.AddScoped<SqliteDeleteTransactionsService>();
+builder.Services.AddScoped<SqliteGetTransactionsService>();
+builder.Services.AddScoped<QuartzJobService>();
 
 
 builder.Services.AddQuartz(q =>

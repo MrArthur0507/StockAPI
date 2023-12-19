@@ -8,7 +8,7 @@ using Settlement.Infrastructure.SettlementContracts;
 using System;
 using System.IO;
 
-public class SqliteService : SqliteFilePath, ISqliteService
+public class SqliteService : SqliteFilePath
 {
 
     public SqliteService()
@@ -52,7 +52,7 @@ public class SqliteService : SqliteFilePath, ISqliteService
                     TransactionId INTEGER PRIMARY KEY AUTOINCREMENT,
                     AccountId TEXT NOT NULL,
                     Quantity INTEGER NOT NULL,
-                    Price NUMERIC(10, 2) NOT NULL,
+                    Price REAL NOT NULL,
                     Stock TEXT NOT NULL,
                     TransactionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )";

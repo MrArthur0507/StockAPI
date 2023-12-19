@@ -14,25 +14,26 @@ namespace Settlement.Infrastructure.SettlementServices
     {
         public async Task AddTransaction(Account account, double price, int quantity, string stockName)
         {
-            using (SqliteConnection connection = new SqliteConnection($"Data Source = {filePath}"))
+            using (SqliteConnection connection = new SqliteConnection($"Data Source={filePath}"))
             {
                 connection.Open();
-                using (SqliteCommand command = connection.CreateCommand())
-                {
-                    string insertQuery = @"
+                string insertQuery = @"
                 INSERT INTO Transactions (AccountId, Quantity, Price, Stock, TransactionDate)
-                VALUES (@AccountId, @Quantity, @Price, @StockId, @TransactionDate)";
+                VALUES (@AccountId, @Quantity, @Price, @Stock, @TransactionDate)";
+
+                using (SqliteCommand command = new SqliteCommand(insertQuery, connection))
+                {
 
 
 
                     command.Parameters.AddWithValue("@AccountId", account.Id);
                     command.Parameters.AddWithValue("@Quantity", quantity);
                     command.Parameters.AddWithValue("@Price", price);
-                    command.Parameters.AddWithValue("@StockId", stockName);
-                    command.Parameters.AddWithValue("@TransactionDate", DateTime.Now);
+                    command.Parameters.AddWithValue("@Stock", stockName);
+                    command.Parameters.AddWithValue("@TransactionDate", DateTime.Now.ToString());
 
 
-                    command.ExecuteNonQuery();
+                    int rows = command.ExecuteNonQuery();
 
                     //int rowsAffected = command.ExecuteNonQuery();
                 }

@@ -18,11 +18,11 @@ namespace Gateway.Services.Implementations
 
         public async Task<string> GetById(string id) => await _accountApiService.GetById(id);
 
-        public async Task<int> Register(string username, string password, string email, string balance)
+        public async Task<int> Register(string username, string password, string email)
         {
             if (await _blacklistService.IsEmailValid(email))
             {
-                return await _accountApiService.Register(username, password, email, balance); 
+                return await _accountApiService.Register(username, password, email); 
             }
             return 401;
         }

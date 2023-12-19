@@ -58,7 +58,6 @@ builder.Services.AddScoped<IApiEmailValidator, ApiEmailValidator>();
 builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<IRequestInfoStorageService, RequestInfoStorageService>();
 builder.Services.AddScoped<IRequestLimitService, RequestLimitService>();
-builder.Services.AddSingleton<IMessageConsumer, MessageConsumer>();
 builder.Services.AddQuartz(q =>
 {
     var jobKey = new JobKey("SaveRequestInfoJob");
@@ -67,7 +66,8 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("SaveRequestInfoJob-trigger")
-        .WithCronSchedule("0/5 * * * * ?"));
+        .StartNow()
+        .WithCronSchedule("0 0 0 * * ?"));
 
 });
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);

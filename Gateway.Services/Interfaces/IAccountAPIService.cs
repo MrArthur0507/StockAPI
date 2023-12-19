@@ -10,7 +10,7 @@ namespace Gateway.Services.Interfaces
     {
         Task<string> GetAll();
         Task<string> GetById(string id);
-        Task<int> Register(string username, string password, string email, string balance);
+        Task<int> Register(string username, string password, string email);
         Task<string> Login(string email, string password);
 
         Task<string> AddMoney(string id, string baseCurrency, string amount);

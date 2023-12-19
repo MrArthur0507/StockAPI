@@ -52,10 +52,10 @@ namespace Gateway.API.Controllers
 
         [HttpPost]
         [Route("create")]
-        public async Task<IActionResult> Register([FromQuery]string username, string password, string email, string balance)
+        public async Task<IActionResult> Register([FromQuery]string username, string password, string email)
         {
             
-            return StatusCode(await accountsService.Register(username, password, email, balance));
+            return StatusCode(await accountsService.Register(username, password, email));
         }
 
         [HttpPost]

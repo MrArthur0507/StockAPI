@@ -29,10 +29,10 @@ namespace Gateway.Services.Implementations
             return await HandleResponse(response);
         }
 
-        public async Task<int> Register(string username, string password, string email, string balance)
+        public async Task<int> Register(string username, string password, string email)
         {
             var parameters = new Dictionary<string, string> { { "username", username }, { "password", password },
-            {"email", email }, {"balance", balance } };
+            {"email", email }};
 
             HttpResponseMessage response = await PostAsync($"{client.BaseAddress}{config.AccountConfig.CreateAccount}", parameters);
 

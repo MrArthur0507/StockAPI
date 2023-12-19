@@ -13,7 +13,7 @@ namespace Gateway.Services.Interfaces
 
         public Task<string> GetById(string id);
 
-        public Task<int> Register(string username, string password, string email, string balance);
+        public Task<int> Register(string username, string password, string email);
 
         public Task<string> Login(string username, string password);
 

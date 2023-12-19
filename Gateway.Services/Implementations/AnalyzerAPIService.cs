@@ -19,7 +19,7 @@ namespace Gateway.Services.Implementations
 
         public async Task<string> GetBalance(string accountId)
         {
-            HttpResponseMessage response = await GetAsync($"{client.BaseAddress}{config.AnalyzerConfig.CurrentProfit}?userId={accountId}");
+            HttpResponseMessage response = await GetAsync($"{client.BaseAddress}{config.AnalyzerConfig.CurrentProfit}/{accountId}");
 
             return await HandleResponse(response);
         }

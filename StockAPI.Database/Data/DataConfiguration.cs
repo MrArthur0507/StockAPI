@@ -20,6 +20,7 @@ namespace StockAPI.Database.Data
 
 
 
+
         public DataConfiguration(IDatabaseService dbService, ITableService tbService, IDataSelector dataSelector)
         {
             DatabaseService = dbService;

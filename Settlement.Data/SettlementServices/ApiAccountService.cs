@@ -1,26 +1,30 @@
 ﻿using Newtonsoft.Json;
-using Settlement.API.Controllers.Data.Models;
+using Settlement.API.Controllers.SettlementContracts;
+using Settlement.Infrastructure.Models.AccountModels;
+using Settlement.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace SettlementServices
 {
-    public class ApiStockService
+    public class ApiAccountService : IApiAccountService
     {
-        public async Task<Stock> GetStockByName(string name)
+        public async Task<Account> GetAccountByIdAsync(string id)
         {
             try
             {
-                ApiStockConnectionService connectionService = new ApiStockConnectionService();
-                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"");
+                ApiAccountConnectionService connectionService = new ApiAccountConnectionService();
+                HttpResponseMessage response = await connectionService._httpClient.GetAsync($"https://localhost:5000/api/Account/getById?id={id}");
 
                 if (response.IsSuccessStatusCode)
                 {
                     string jsonResponse = await response.Content.ReadAsStringAsync();
-                    Stock account = JsonConvert.DeserializeObject<Stock>(jsonResponse);
+                    Account account = JsonConvert.DeserializeObject<Account>(jsonResponse);
                     return account;
                 }
                 else
@@ -34,5 +38,6 @@ namespace SettlementServices
                 throw ex;
             }
         }
+
     }
 }

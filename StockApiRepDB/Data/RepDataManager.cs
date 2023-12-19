@@ -13,7 +13,9 @@ namespace StockApiRepDB.Data
     {
         private readonly IUnitOfWork _unitOfWork;
 
+
         private readonly string _connectionString = "Server=DESKTOP-4UNOHKM\\SQLEXPRESS;Initial Catalog=StockTestingNew;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;";
+
 
         public RepDataManager(IUnitOfWork unitOfWork)
         {

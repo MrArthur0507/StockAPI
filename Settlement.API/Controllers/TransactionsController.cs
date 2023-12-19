@@ -5,6 +5,17 @@ using SettlementServices;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Data.SqlClient;
 using System.Data;
+using StockAPI.Database.Interfaces;
+using Stocks.services;
+using Stocks.Interfaces;
+using AccountAPI.Data.Models.Interfaces;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using Settlement.API.Controllers.SettlementServices;
+using Settlement.Infrastructure.SettlementServices;
+
+using Settlement.Infrastructure.Models.StockModels;
+using Settlement.Infrastructure.Models.SettlementModels;
 
 namespace Settlement.API.Controllers
 {
@@ -12,68 +23,55 @@ namespace Settlement.API.Controllers
     [ApiController]
     public class TransactionsController : ControllerBase
     {
-        private readonly ApiAccountService _apiAccountService;
-        private readonly ApiStockService _apiStockService;
 
-        public TransactionsController(ApiAccountService apiAccountService, ApiStockService apiStockService)
+        private readonly AccountInfoService _accountInfoService;
+        private readonly StockInfoService _stockInfoService;
+        private readonly GetStockPriceService _getStockPriceService;
+
+        private readonly CheckAccountCreditsService _checkAccountCreditsService;
+        private readonly SqliteGetTransactionsService _sqliteGetTransactionsService;
+        private readonly SqliteAddTransactionsService _sqliteAddTransactionsService;
+
+        public TransactionsController(AccountInfoService accountInfoService,
+            StockInfoService stockInfoService, GetStockPriceService getStockPriceService,
+            CheckAccountCreditsService checkAccountCreditsService, 
+            
+            SqliteAddTransactionsService sqliteAddTransactionsService,
+            SqliteGetTransactionsService sqliteGetTransactionsService
+            )
         {
-            _apiAccountService = apiAccountService;
-            _apiStockService = apiStockService;
+
+            _accountInfoService = accountInfoService;
+            _stockInfoService = stockInfoService;
+            _getStockPriceService = getStockPriceService;
+            _checkAccountCreditsService= checkAccountCreditsService;
+            _sqliteAddTransactionsService = sqliteAddTransactionsService;
+            _sqliteGetTransactionsService = sqliteGetTransactionsService;
+
         }
 
-
-        [HttpPatch]
-        public async Task<IActionResult> Transaction(string accountId, string stockName)
+        [HttpPost]
+        public async Task<IActionResult> MakeTransaction(string accountId, string stockName, SettlementTimeSeries timeSeries, SettlementInterval interval, int quantity)
         {
-            try
-            {
-                await _apiAccountService.GetAccountByIdAsync(accountId);
-                await _apiStockService.GetStockByName(stockName);
+            //4d39f99a-e8e8-4fb3-a1f7-7747e9cf9660
+            //e563472d-988d-4697-81b8-c5b0e319c1f6
 
-
-                string connectionString = "Server=(Local)\\SQLEXPRESS01;Database=StockApiAccounts;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Your SQL operations will go here.
-                
-
-                using (SqlCommand command = new SqlCommand())
-                {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.Text;
-
-                    // Define your SQL query
-                    string sqlQuery = "INSERT INTO YourTable (Column1, Column2) VALUES (@Value1, @Value2)";
-                    command.CommandText = sqlQuery;
-
-                    // Add parameters to the query to prevent SQL injection
-
-
-                    //command.Parameters.AddWithValue("@Value1", value1);
-                    //command.Parameters.AddWithValue("@Value2", value2);
-
-                    // Execute the SQL command
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    // Check rowsAffected to see if the operation was successful
-                }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            //var account =   await _accountInfoService.GetAccount(accountId);
+            //var stock =   await _stockInfoService.GetStock(stockName, timeSeries, interval, quantity);
+            //var stockPrice =  await _getStockPriceService.GetStockPrice(stock.ToString());
             
+            //if(_checkAccountCreditsService.CheckBalance(account, stockPrice, quantity))
+            //    return BadRequest($"This account: {account.Username} has not enough credits for this purchase!"); 
 
-            return BadRequest("Not enough credit to buy the stock!");
+            //await _sqliteAddTransactionsService.AddTransaction(account, stockPrice, quantity, stockName);
+            List<TransactionStorage> TransactionStorage = await _sqliteGetTransactionsService.GetTransactions();
+
+            //timeSeries : INTRADAY
+            //stockName: MSFT
+            //interval: 60
 
 
-            
-
-
+            return Ok("Transaction Added in the waiting list! At 00: 00 o'clock it will be executed!");
         }
     }
 }

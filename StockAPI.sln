@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.Services", "Gateway
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqliteProvider", "SqliteProvider\SqliteProvider.csproj", "{7BCF7D45-E96E-441D-8650-C5E994DE4AD8}"
 EndProject
+
+
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountAPI.Data", "AccountAPI.Data\AccountAPI.Data.csproj", "{769417C2-C7E7-4F0D-A487-35246DF09AF0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stock.API", "Stock.API\Stock.API.csproj", "{D8A02430-6A3D-4428-B158-DA9250D5C180}"
@@ -30,6 +32,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.API", "Broker.API\Broker.API.csproj", "{39230C51-B52A-4CE0-A0E2-4CDE15C91833}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.Services", "Broker.Services\Broker.Services.csproj", "{C30D1800-CEF4-44C1-92D6-B87AA436AB91}"
+
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +60,7 @@ Global
 		{7BCF7D45-E96E-441D-8650-C5E994DE4AD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BCF7D45-E96E-441D-8650-C5E994DE4AD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BCF7D45-E96E-441D-8650-C5E994DE4AD8}.Release|Any CPU.Build.0 = Release|Any CPU
+
 		{769417C2-C7E7-4F0D-A487-35246DF09AF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{769417C2-C7E7-4F0D-A487-35246DF09AF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{769417C2-C7E7-4F0D-A487-35246DF09AF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,6 +97,7 @@ Global
 		{C30D1800-CEF4-44C1-92D6-B87AA436AB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C30D1800-CEF4-44C1-92D6-B87AA436AB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C30D1800-CEF4-44C1-92D6-B87AA436AB91}.Release|Any CPU.Build.0 = Release|Any CPU
+
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

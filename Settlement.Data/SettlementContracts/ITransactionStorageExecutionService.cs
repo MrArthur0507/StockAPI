@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SettlementContracts
+namespace Settlement.Infrastructure.SettlementContracts
 {
-    public interface IQuarzScheduler
+    internal interface ITransactionStorageExecutionService
     {
     }
 }

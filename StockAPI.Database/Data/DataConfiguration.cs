@@ -16,9 +16,8 @@ namespace StockAPI.Database.Data
 
         public IDataSelector DataSelector { get; set; }
 
+
         public string ConnectionString => "Server=DESKTOP-4UNOHKM\\SQLEXPRESS;Initial Catalog=StockTesting1;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;";
-
-
 
 
         public DataConfiguration(IDatabaseService dbService, ITableService tbService, IDataSelector dataSelector)

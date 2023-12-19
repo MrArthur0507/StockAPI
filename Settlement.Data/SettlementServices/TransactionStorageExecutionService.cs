@@ -22,6 +22,7 @@ namespace Settlement.Infrastructure.SettlementServices
     public class TransactionStorageExecutionService : ITransactionStorageExecutionService
     {
         private AccountInfoService _accountInfoService;
+        private string connectionString = "Server=(Local)\\SQLEXPRESS01;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
 
         public TransactionStorageExecutionService(AccountInfoService accountInfoService)
         {
@@ -30,48 +31,37 @@ namespace Settlement.Infrastructure.SettlementServices
 
         public async Task StoreTransactions(Task<List<TransactionStorage>> transactions)
         {
-            string connectionString = "Server=(Local)\\SQLEXPRESS01;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
-            using (SqlConnection connection = new SqlConnection(connectionString))
+
+
+            List<TransactionStorage> storedTransactions = await transactions;
+
+            foreach (TransactionStorage transaction in storedTransactions)
             {
-                connection.Open();
+                var account = await _accountInfoService.GetAccount(transaction.AccountId);
 
-                // Your SQL operations will go here.
-
-
-                using (SqlCommand command = new SqlCommand())
+                if (account.Balance - account.Balance * 0.15m <= transaction.Price * transaction.Quantity)
                 {
-                    command.Connection = connection;
-                    command.CommandType = CommandType.Text;
-
-                    // Define your SQL query
-                    List<TransactionStorage> storedTransactions = await transactions;
-
-                    foreach (TransactionStorage transaction in storedTransactions)
-                    {
-                        var account = await _accountInfoService.GetAccount(transaction.AccountId);
-                        if (account.Balance * 0.15m < transaction.Price * transaction.Quantity)
-                        {
-                            Console.WriteLine($"{account.Username}'s {transaction} was terminated due to low credits");
-                            continue;
-                        }
-
-                        string sqlQuery = "INSERT INTO Transactions (Account, Stock, Date, Price, Quantity, Id) VALUES (@AccountId, @StockName, @Date, @Price, @Quantity, @Id);" +
-                            "UPDATE Accounts SET Balance = Balance - (@Amount + @Amount * 0.05) WHERE Id = @AccountId;";
-                        command.CommandText = sqlQuery;
-                        command.Parameters.AddWithValue("@AccountId", transaction.AccountId);
-                        command.Parameters.AddWithValue("@StockName", transaction.Stock);
-                        command.Parameters.AddWithValue("@Date", transaction.Date);
-                        command.Parameters.AddWithValue("@Price", transaction.Price);
-                        command.Parameters.AddWithValue("Quantity", transaction.Quantity);
-
-
-                    }
-
-
-                    // Execute the SQL command
-                    int rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine($"{account.Username}'s {transaction} was terminated due to low credits");
+                    continue;
                 }
+
+                DateOnly date = new DateOnly(transaction.Date.Year, transaction.Date.Month, transaction.Date.Day);
+                ApiStockConnectionService connectionService = new ApiStockConnectionService();
+                HttpResponseMessage response = await connectionService._httpClient.
+                    PostAsync($"https://localhost:5000/api/Transaction/createTransaction?AccountId={transaction.AccountId}&StockName={transaction.Stock}&Date={date.ToString("yyyy-MM-dd")}&Price={transaction.Price}&Quantity={transaction.Quantity}", new StringContent("", Encoding.UTF8, "application/json"));
+
+                Console.WriteLine("transaction is successful !");
+
+
+                ApiStockConnectionService secondConnectionService = new ApiStockConnectionService();
+                HttpResponseMessage secondResponse = await connectionService._httpClient.
+                    PostAsync($"https://localhost:5000/api/Account/addMoney?id={transaction.AccountId}&baseCurrency=bgn&amount={-(transaction.Price * transaction.Quantity + transaction.Price * transaction.Quantity * 0.05m)}", new StringContent("", Encoding.UTF8, "application/json"));
+
+                Console.WriteLine($"Credits have been withdrawn from the account !");
+
             }
+
         }
     }
 }
+

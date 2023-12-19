@@ -16,6 +16,7 @@ using Settlement.Infrastructure.SettlementServices;
 
 using Settlement.Infrastructure.Models.StockModels;
 using Settlement.Infrastructure.Models.SettlementModels;
+using System.Text;
 
 namespace Settlement.API.Controllers
 {
@@ -34,8 +35,8 @@ namespace Settlement.API.Controllers
 
         public TransactionsController(AccountInfoService accountInfoService,
             StockInfoService stockInfoService, GetStockPriceService getStockPriceService,
-            CheckAccountCreditsService checkAccountCreditsService, 
-            
+            CheckAccountCreditsService checkAccountCreditsService,
+
             SqliteAddTransactionsService sqliteAddTransactionsService,
             SqliteGetTransactionsService sqliteGetTransactionsService
             )
@@ -44,7 +45,7 @@ namespace Settlement.API.Controllers
             _accountInfoService = accountInfoService;
             _stockInfoService = stockInfoService;
             _getStockPriceService = getStockPriceService;
-            _checkAccountCreditsService= checkAccountCreditsService;
+            _checkAccountCreditsService = checkAccountCreditsService;
             _sqliteAddTransactionsService = sqliteAddTransactionsService;
             _sqliteGetTransactionsService = sqliteGetTransactionsService;
 
@@ -56,14 +57,14 @@ namespace Settlement.API.Controllers
             //4d39f99a-e8e8-4fb3-a1f7-7747e9cf9660
             //e563472d-988d-4697-81b8-c5b0e319c1f6
 
-            //var account =   await _accountInfoService.GetAccount(accountId);
-            //var stock =   await _stockInfoService.GetStock(stockName, timeSeries, interval, quantity);
-            //var stockPrice =  await _getStockPriceService.GetStockPrice(stock.ToString());
-            
-            //if(_checkAccountCreditsService.CheckBalance(account, stockPrice, quantity))
-            //    return BadRequest($"This account: {account.Username} has not enough credits for this purchase!"); 
+            var account = await _accountInfoService.GetAccount(accountId);
+            var stock = await _stockInfoService.GetStock(stockName, timeSeries, interval, quantity);
+            var stockPrice = await _getStockPriceService.GetStockPrice(stock.ToString());
 
-            //await _sqliteAddTransactionsService.AddTransaction(account, stockPrice, quantity, stockName);
+            if (_checkAccountCreditsService.CheckBalance(account, stockPrice, quantity))
+                return BadRequest($"This account: {account.Username} has not enough credits for this purchase!");
+
+            await _sqliteAddTransactionsService.AddTransaction(account, stockPrice, quantity, stockName);
             List<TransactionStorage> TransactionStorage = await _sqliteGetTransactionsService.GetTransactions();
 
             //timeSeries : INTRADAY
@@ -72,6 +73,10 @@ namespace Settlement.API.Controllers
 
 
             return Ok("Transaction Added in the waiting list! At 00: 00 o'clock it will be executed!");
+
         }
+                
     }
+        
+    
 }

@@ -26,6 +26,8 @@ namespace Settlement.Infrastructure.SettlementServices
 
         public async Task Execute(IJobExecutionContext context)
         {
+            
+
             await _transactionStorageExecutionService.StoreTransactions(_sqliteGetTransactionService.GetTransactions());
             await _sqliteDeleteTransactionsService.DeleteAllTransactions();
         }

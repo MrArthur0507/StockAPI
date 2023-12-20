@@ -80,15 +80,12 @@ namespace Stocks.utils
                 foreach (ResponseData dataPoint in data)
                 {
                     await _context.Responses.AddAsync(dataPoint);
-                    //Console.WriteLine(dataPoint.TimeSeries);
                 }
                 await _context.SaveChangesAsync();
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
                 Console.WriteLine($"An error occurred in AddToDb: {ex.Message}");
-                // Consider rethrowing the exception if it needs to be handled at a higher level
             }
         }
 

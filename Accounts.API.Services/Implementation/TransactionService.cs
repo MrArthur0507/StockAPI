@@ -37,7 +37,7 @@ namespace Accounts.API.Services.Implementation
                 Console.WriteLine(ex.Message);
                 return StatusCodes.Status400BadRequest;
             }
-            SaveTransactionToPdf(transactionDb, "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\transactions");
+            SaveTransactionToPdf(transactionDb, "D:\\Games");
             return StatusCodes.Status201Created;
         }
         public List<TransactionViewModel> GetAllTransactionsForUser(string userId)

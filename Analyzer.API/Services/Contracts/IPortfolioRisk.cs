@@ -2,6 +2,6 @@
 {
 	public interface IPortfolioRisk
 	{
-		decimal GetPortfolioRisk();
+		Task<string> CheckBalanceRisk(string accountId);
 	}
 }

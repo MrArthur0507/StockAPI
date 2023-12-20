@@ -15,17 +15,18 @@ namespace StockAPI.Database.Data
         public ITableService TableService { get; set; }
 
         public IDataSelector DataSelector { get; set; }
+        public IDataDeleter DataDeleter { get; set; }
 
         public string ConnectionString => "Server=DESKTOP-FN6A49D\\SQLEXPRESS;Initial Catalog=StockTesting1;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;";
 
 
 
-
-        public DataConfiguration(IDatabaseService dbService, ITableService tbService, IDataSelector dataSelector)
+        public DataConfiguration(IDatabaseService dbService, ITableService tbService, IDataSelector dataSelector, IDataDeleter dataDeleter)
         {
             DatabaseService = dbService;
             TableService = tbService;
             DataSelector = dataSelector;
+            DataDeleter = dataDeleter;
         }
     }
 }

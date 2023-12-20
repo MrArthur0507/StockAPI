@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using SettlementContracts;
-using Settlement.Data.Models;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
@@ -18,7 +17,7 @@ namespace Settlement.Services
         public ApiAccountConnectionService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7168/api/Account");
+            _httpClient.BaseAddress = new Uri("http://localhost:5000/");
         }
 
     }

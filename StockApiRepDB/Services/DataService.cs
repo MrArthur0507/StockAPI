@@ -16,7 +16,7 @@ namespace StockApiRepDB.Services
             string dbName = builder.InitialCatalog;
 
             string createDbQuery = $"CREATE DATABASE {dbName}";
-            using (SqlConnection connection = new SqlConnection($"Data Source={builder.DataSource};Initial Catalog=master;Integrated Security=True;"))
+            using (SqlConnection connection = new SqlConnection("Server=(Local)\\SQLEXPRESS01;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;"))
             {
                 try
                 {

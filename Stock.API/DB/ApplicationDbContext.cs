@@ -16,7 +16,7 @@ namespace Stocks.DB
 
             modelBuilder.Entity<ResponseData>()
                 .Property(r => r.TimeSeries)
-                .HasConversion<string>(); // Convert enum to string for storage
+                .HasConversion<string>(); 
         }
 
         public DbSet<ResponseData> Responses { get; set; }

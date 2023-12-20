@@ -31,7 +31,7 @@ namespace Gateway.Services.Implementations
             HttpResponseMessage response = await client.PostAsync(new Uri(client.BaseAddress, endpoint), encodedContent);
             return response;
         }
-        protected async Task<string> HandleResponse(HttpResponseMessage response)
+        protected virtual async Task<string> HandleResponse(HttpResponseMessage response)
         {
             if (response.IsSuccessStatusCode)
             {

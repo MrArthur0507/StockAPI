@@ -8,13 +8,13 @@ namespace Gateway.Services.Interfaces
 {
     public interface IAccountAPIService
     {
-        Task<string> GetAll();
-        Task<string> GetById(string id);
-        Task<int> Register(string username, string password, string email);
-        Task<string> Login(string email, string password);
+        public Task<string> GetAll();
+        public Task<string> GetById(string id);
+        public Task<int> Register(string username, string password, string email);
+        public Task<string> Login(string email, string password);
 
-        Task<string> AddMoney(string id, string baseCurrency, string amount);
+        public Task<string> AddMoney(string id, string baseCurrency, string amount);
 
-        Task<string> GetNotifications(string id);
+        public Task<string> GetNotifications(string id);
     }
 }

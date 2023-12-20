@@ -15,7 +15,7 @@ namespace Gateway.Services.Implementations
             : base(httpClientFactory, configurationService)
         {
             client = _clientFactory.CreateClient();
-            client.BaseAddress = new Uri("test");
+            client.BaseAddress = new Uri("http://localhost:5158");
         }
 
         public async Task<string> MakeTransaction(Transaction transaction)

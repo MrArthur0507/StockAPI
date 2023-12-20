@@ -11,8 +11,8 @@ namespace Accounts.API.Services.Implementation
     public class LoggerLogic:ILoggerLogic
     {
 
-        private const string loginLogfile = "D:\\Games";
-        private const string regLogFile = "D:\\Games";
+        private const string loginLogfile = "C:\\Users\\Bozhidar\\Desktop\\loginLog.txt";
+        private const string regLogFile = "C:\\Users\\Bozhidar\\Desktop\\regLog.txt";
 
 
         public void SaveLogin(User user)

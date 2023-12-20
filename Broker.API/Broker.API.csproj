@@ -8,6 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
+    <PackageReference Include="Quartz" Version="3.8.0" />
+    <PackageReference Include="Quartz.AspNetCore" Version="3.8.0" />
+    <PackageReference Include="Quartz.Extensions.Hosting" Version="3.8.0" />
     <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>

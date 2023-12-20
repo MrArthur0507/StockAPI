@@ -11,18 +11,21 @@ namespace Broker.Services.Implementation
 {
     public class AccountsGetter : IAccountsGetter
     {
-        private readonly HttpClient _client;
+        private readonly IHttpClientFactory _clientFactory;
         private readonly IConfiguration _configuration;
-        public AccountsGetter(HttpClient client, IConfiguration configuration)
+        private readonly HttpClient client;
+        public AccountsGetter(IHttpClientFactory clientFactory, IConfiguration configuration)
         {
-            _client = client;
+            _clientFactory = clientFactory;
+            client = _clientFactory.CreateClient();
             _configuration = configuration;
-            client.BaseAddress = new Uri(_configuration.GetRequiredSection("AccountInfoGetterURL").Value);
+            
         }
 
         public async Task<string> GetAllAccountsAsJson()
         {
-            HttpResponseMessage response = await _client.GetAsync(_client.BaseAddress);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(_configuration.GetRequiredSection("AccountInfoGetterURL").Value);
             return await response.Content.ReadAsStringAsync();
         }
     }

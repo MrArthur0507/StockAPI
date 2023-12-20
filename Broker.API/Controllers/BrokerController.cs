@@ -25,12 +25,12 @@ namespace Broker.API.Controllers
             return Ok();
         }
 
-        //[HttpGet]
-        //[Route("getAccounts")]
-        //public IActionResult GetAccounts()
-        //{
-        //    _accountsGetter.GetAccounts();
-        //    return Ok();
-        //}
+        [HttpGet]
+        [Route("getAccounts")]
+        public IActionResult GetAccounts()
+        {
+            _accountsGetter.GetAccounts();
+            return Ok();
+        }
     }
 }

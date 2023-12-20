@@ -27,9 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StockApiRepDB", "StockApiRe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gateway.Domain", "Gateway.Domain\Gateway.Domain.csproj", "{9284493D-4B63-4D38-B24C-B7192D3FB792}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.API", "Broker.API\Broker.API.csproj", "{39230C51-B52A-4CE0-A0E2-4CDE15C91833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Broker.API", "Broker.API\Broker.API.csproj", "{39230C51-B52A-4CE0-A0E2-4CDE15C91833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.Services", "Broker.Services\Broker.Services.csproj", "{C30D1800-CEF4-44C1-92D6-B87AA436AB91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Broker.Services", "Broker.Services\Broker.Services.csproj", "{C30D1800-CEF4-44C1-92D6-B87AA436AB91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Broker.Models", "Broker.Models\Broker.Models.csproj", "{3A653512-A55F-453B-8FCA-50468A136C6A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{C30D1800-CEF4-44C1-92D6-B87AA436AB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C30D1800-CEF4-44C1-92D6-B87AA436AB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C30D1800-CEF4-44C1-92D6-B87AA436AB91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A653512-A55F-453B-8FCA-50468A136C6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A653512-A55F-453B-8FCA-50468A136C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A653512-A55F-453B-8FCA-50468A136C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A653512-A55F-453B-8FCA-50468A136C6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

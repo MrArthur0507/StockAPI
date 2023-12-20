@@ -1,4 +1,5 @@
 ﻿using Broker.Services.Interfaces;
+using Broker.Services.Tools;
 using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,12 @@ namespace Broker.Services.Implementation
     public class MessageProducer : IMessageProducer
     {
         private readonly IRabbitMQConnectionFactory _connectionFactory;
-
+        private readonly ILogger logger;
         public MessageProducer(IRabbitMQConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
         }
-
+        
         public void SendMessage(string queueName, string message)
         {
             using (var connection = _connectionFactory.CreateConnection())
@@ -29,7 +30,7 @@ namespace Broker.Services.Implementation
 
                 channel.BasicPublish(exchange: "", routingKey: queueName, basicProperties: null, body: body);
 
-                Console.WriteLine($"Sent '{message}' to {queueName}");
+                logger.Log($"Sent '{message}' to {queueName}");
             }
         }
     }

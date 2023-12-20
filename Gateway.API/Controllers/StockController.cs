@@ -19,8 +19,6 @@ namespace Gateway.API.Controllers
 
         [HttpGet]
         [Route("getStockData")]
-
-        
         public async Task<string> GetStockData([FromQuery]Stock stock)
         {
             var stockResponse = await _stockService.GetStockData(stock);

@@ -1,4 +1,5 @@
 ﻿using Gateway.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,6 +16,7 @@ namespace Gateway.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("balance")]
         public async Task<IActionResult> CurrentProfit(string accountId)
         {
@@ -22,6 +24,7 @@ namespace Gateway.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("percentageChange")]
         public async Task<IActionResult> PercentageChange(string futureBalance, string accountId)
         {
@@ -29,6 +32,7 @@ namespace Gateway.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("portfolioRisk")]
         public async Task<IActionResult> PortfolioRisk(string accountId)
         {

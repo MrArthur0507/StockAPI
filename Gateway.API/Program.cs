@@ -22,6 +22,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
+builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<IConfigurationService, ConfigurationService>();
 builder.Services.AddSingleton<IConfig, Config>();
 builder.Services.AddSingleton<IRequestLogger, RequestLogger>();
@@ -54,8 +55,6 @@ builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IApiEmailDeserializer, ApiEmailDeserializer>();
 builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 builder.Services.AddScoped<IApiEmailValidator, ApiEmailValidator>();
-
-builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<IRequestInfoStorageService, RequestInfoStorageService>();
 builder.Services.AddScoped<IRequestLimitService, RequestLimitService>();
 builder.Services.AddQuartz(q =>
@@ -67,7 +66,8 @@ builder.Services.AddQuartz(q =>
         .ForJob(jobKey)
         .WithIdentity("SaveRequestInfoJob-trigger")
         .StartNow()
-        .WithCronSchedule("0 0 0 * * ?"));
+        //.WithCronSchedule("0 0 0 * * ?"))
+        .WithCronSchedule("0/5 * * * * ?"));
 
 });
 builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
@@ -99,6 +99,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
+app.UseResponseCaching();
 app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseMiddleware<RequestLimitingMiddleware>();
 app.UseAuthentication();

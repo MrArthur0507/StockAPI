@@ -15,6 +15,7 @@ namespace Accounts.API.Services.Interfaces
         public List<TransactionViewModel> GetAllTransactionsForUser(string userId);
 
         public List<TransactionViewModel> GetAllTransactionsByStock(string stockId);
-        public ServiceResponse GetExistingPdf(string filePath);
+
+        public ServiceResponse GetExistingPdf(string filePath, string userId);
     }
 }

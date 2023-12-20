@@ -72,4 +72,9 @@ builder.Services.AddSingleton<ISeed, Seed>();
 
 ## Importants
 
-<h2 style="color:red;">You should change the file path in Accounts.API.Services/Implementation/LoggerLogic.cs</h2>
+<ol>
+<li>
+<h4 style="color:red;">You should change the file path in Accounts.API.Services/Implementation/LoggerLogic.cs</h4></li>
+<li><h4>Change the file path in Acounts.API.Services/Implementation/TransactionService.cs in method: CreateTransaction</h4></li>
+<li><h4>Change the file path in Acounts.API/Controllers/TransactionController.cs in method: GetExistingPdf</h4></li>
+</ol>

@@ -66,43 +66,60 @@ namespace Accounts.API.Services.Implementation
             }
             return result;
         }
-        public ServiceResponse GetExistingPdf(string filePath)
+        public ServiceResponse GetExistingPdf(string filePath, string userId)
         {
-            try
+            string[] files = Directory.GetFiles(filePath);
+            string targetFileName = files.FirstOrDefault(file =>
             {
-                byte[] pdfContent;
-
-
-                using (MemoryStream stream = new MemoryStream())
+                string fileName = Path.GetFileName(file);
+                return fileName.Contains($"_{userId}_");
+            });
+            if (targetFileName != null) {
+                try
                 {
-                    using (PdfReader pdfReader = new PdfReader(filePath))
+                    byte[] pdfContent;
+
+
+                    using (MemoryStream stream = new MemoryStream())
                     {
-                        using (PdfWriter pdfWriter = new PdfWriter(stream))
+                        using (PdfReader pdfReader = new PdfReader(targetFileName))
                         {
-                            using (PdfDocument pdf = new PdfDocument(pdfReader, pdfWriter))
+                            using (PdfWriter pdfWriter = new PdfWriter(stream))
                             {
-                                
+                                using (PdfDocument pdf = new PdfDocument(pdfReader, pdfWriter))
+                                {
+
+                                }
+                                pdfContent = stream.ToArray();
                             }
-                            pdfContent=stream.ToArray();
                         }
                     }
-                }
 
-                return new ServiceResponse
+                    return new ServiceResponse
+                    {
+                        PdfContent = pdfContent,
+                        FileName = Path.GetFileName(filePath),
+                        IsSuccess = true
+                    };
+                }
+                catch (Exception ex)
                 {
-                    PdfContent = pdfContent,
-                    FileName = Path.GetFileName(filePath),
-                    IsSuccess = true
-                };
+                    Console.WriteLine(ex.Message);
+                    return new ServiceResponse
+                    {
+                        IsSuccess = false,
+                        ErrorMessage = ex.Message
+                    };
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.Message);
                 return new ServiceResponse
                 {
                     IsSuccess = false,
-                    ErrorMessage = ex.Message
+                    ErrorMessage = $"No file found for userId: {userId} in folder: {filePath}"
                 };
+
             }
         }
         private void SaveTransactionToPdf(Transaction transaction, string folderPath)

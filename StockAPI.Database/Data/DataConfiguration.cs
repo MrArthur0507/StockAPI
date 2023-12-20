@@ -16,7 +16,8 @@ namespace StockAPI.Database.Data
 
         public IDataSelector DataSelector { get; set; }
         public IDataDeleter DataDeleter { get; set; }
-        public string ConnectionString => "Server=DESKTOP-JAGL7D3\\SQLEXPRESS;Initial Catalog=StockTesting1;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;";
+
+        public string ConnectionString => "Server=DESKTOP-FN6A49D\\SQLEXPRESS;Initial Catalog=StockTesting1;Integrated Security=SSPI;Trusted_Connection=True;TrustServerCertificate=True;";
 
 
 

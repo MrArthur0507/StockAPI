@@ -35,6 +35,7 @@ namespace Gateway.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [ResponseCache(Duration = 120, Location = ResponseCacheLocation.Any)]
         [Route("getAll")]
         public async Task<string> GetAllAccounts()
@@ -44,6 +45,7 @@ namespace Gateway.API.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         [Route("getById")]
         public async Task<string> GetById(string id)
         {
@@ -52,13 +54,14 @@ namespace Gateway.API.Controllers
 
         [HttpPost]
         [Route("create")]
-        public async Task<IActionResult> Register([FromQuery]string username, string password, string email, string balance)
+        public async Task<IActionResult> Register([FromQuery]string username, string password, string email)
         {
             
-            return StatusCode(await accountsService.Register(username, password, email, balance));
+            return StatusCode(await accountsService.Register(username, password, email));
         }
 
         [HttpPost]
+        [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client, VaryByHeader = "Authorization")]
         [Route("login")]
         public async Task<IActionResult> Login([FromQuery] string email, string password)
         {
@@ -68,6 +71,7 @@ namespace Gateway.API.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [Route("addMoney")]
         public async Task<string> AddMoney(string id, string baseCurrency, string amount)
         {

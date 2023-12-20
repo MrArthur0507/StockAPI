@@ -59,17 +59,14 @@ namespace SqliteProvider.Repositories
 
         public async Task AddDetailedRequest(RequestInfo requestInfo)
         {
-            if (requestInfo == null)
-            {
-                throw new ArgumentNullException(nameof(requestInfo));
-            }
+            
 
             using (var connection = new SqliteConnection($"Data Source = {config.ConnectionString}"))
             using (var command = connection.CreateCommand())
             {
                 connection.Open();
 
-                command.CommandText = "INSERT INTO Requests (HttpMethod, Timestamp) VALUES (@HttpMethod, @Timestamp)";
+                command.CommandText = "INSERT INTO DetailedRequests (HttpMethod, Timestamp) VALUES (@HttpMethod, @Timestamp)";
                 command.Parameters.AddWithValue("@HttpMethod", requestInfo.RequestMethod);
                 command.Parameters.AddWithValue("@Timestamp", requestInfo.Timestamp);
 

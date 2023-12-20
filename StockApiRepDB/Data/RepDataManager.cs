@@ -17,6 +17,7 @@ namespace StockApiRepDB.Data
         private readonly string _connectionString = "Server=(Local)\\SQLEXPRESS01;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
 
 
+
         public RepDataManager(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;

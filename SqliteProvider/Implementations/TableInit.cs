@@ -23,7 +23,7 @@ namespace SqliteProvider.Implementations
                     {
                         string query = "CREATE TABLE IF NOT EXISTS Requests (Id INTEGER PRIMARY KEY AUTOINCREMENT, VisitorIp TEXT, RequestTime DATETIME);" +
                                         "CREATE TABLE IF NOT EXISTS Emails (Id INTEGER PRIMARY KEY AUTOINCREMENT, Email TEXT, IsValid INTEGER);" +
-                                        "CREATE TABLE IF NOT EXISTS Requests(Id INTEGER PRIMARY KEY AUTOINCREMENT, HttpMethod TEXT, Timestamp DATETIME);";
+                                        "CREATE TABLE IF NOT EXISTS DetailedRequests(Id INTEGER PRIMARY KEY AUTOINCREMENT, HttpMethod TEXT, Timestamp DATETIME);";
                                    
                         using (SqliteCommand command = connection.CreateCommand())
                         {

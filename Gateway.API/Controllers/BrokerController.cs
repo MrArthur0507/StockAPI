@@ -8,16 +8,11 @@ namespace Gateway.API.Controllers
     [ApiController]
     public class BrokerController : ControllerBase
     {
-        private readonly IMessageConsumer _messageConsumer;
-
-        public BrokerController(IMessageConsumer messageConsumer)
-        {
-            _messageConsumer = messageConsumer;
-        }
+        
         [HttpGet]
         public void Listen()
         {
-            _messageConsumer.StartListening();
+            
         }
     }
 }

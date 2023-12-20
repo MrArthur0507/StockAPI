@@ -22,6 +22,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
+builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<IConfigurationService, ConfigurationService>();
 builder.Services.AddSingleton<IConfig, Config>();
 builder.Services.AddSingleton<IRequestLogger, RequestLogger>();
@@ -35,6 +36,8 @@ builder.Services.AddScoped<IAccountAPIService, AccountAPIService>();
 builder.Services.AddScoped<IAccountsService, AccountService>();
 builder.Services.AddScoped<ISettlementAPIService, SettlementAPIService>();
 builder.Services.AddScoped<ISettlementService, SettlementService>();
+builder.Services.AddScoped<IAnalyzerAPIService, AnalyzerAPIService>();
+builder.Services.AddScoped<IAnalyzerService, AnalyzerService>();
 //
 
 //Services for sqlite provider
@@ -52,11 +55,8 @@ builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddScoped<IApiEmailDeserializer, ApiEmailDeserializer>();
 builder.Services.AddScoped<IRequestRepository, RequestRepository>();
 builder.Services.AddScoped<IApiEmailValidator, ApiEmailValidator>();
-
-builder.Services.AddResponseCaching();
 builder.Services.AddSingleton<IRequestInfoStorageService, RequestInfoStorageService>();
 builder.Services.AddScoped<IRequestLimitService, RequestLimitService>();
-builder.Services.AddSingleton<IMessageConsumer, MessageConsumer>();
 builder.Services.AddQuartz(q =>
 {
     var jobKey = new JobKey("SaveRequestInfoJob");
@@ -65,6 +65,8 @@ builder.Services.AddQuartz(q =>
     q.AddTrigger(opts => opts
         .ForJob(jobKey)
         .WithIdentity("SaveRequestInfoJob-trigger")
+        .StartNow()
+        //.WithCronSchedule("0 0 0 * * ?"))
         .WithCronSchedule("0/5 * * * * ?"));
 
 });
@@ -97,6 +99,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseHttpsRedirection();
+app.UseResponseCaching();
 app.UseMiddleware<RequestLoggingMiddleware>();
 app.UseMiddleware<RequestLimitingMiddleware>();
 app.UseAuthentication();

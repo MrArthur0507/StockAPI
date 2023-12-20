@@ -22,7 +22,6 @@ namespace Gateway.API.Jobs
         {
             List<RequestInfo> requestsToSave = _storageService.GetProcessedRequests().ToList();
             
-            Console.Write(requestsToSave.Count);
             foreach (var request in requestsToSave)
             {
                 _requestRepository.AddDetailedRequest(request);

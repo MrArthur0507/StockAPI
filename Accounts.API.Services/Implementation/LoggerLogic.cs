@@ -10,8 +10,10 @@ namespace Accounts.API.Services.Implementation
 {
     public class LoggerLogic:ILoggerLogic
     {
+
         private const string loginLogfile = "D:\\Games";
         private const string regLogFile = "D:\\Games";
+
 
         public void SaveLogin(User user)
         {

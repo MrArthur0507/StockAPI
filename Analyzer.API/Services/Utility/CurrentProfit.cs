@@ -15,7 +15,7 @@ namespace Analyzer.API.Services.Utility
 		{
 			using (var client = new HttpClient())
 			{
-				string apiUrl = $" http://localhost:5000/api/Account/getById?Id={userId}";
+				string apiUrl = $"https://localhost:7168/api/Account/getById?Id={userId}";
 				var response = await _httpClient.GetAsync(apiUrl);
 				response.EnsureSuccessStatusCode();
 

@@ -10,16 +10,26 @@ namespace Broker.API.Controllers
     public class BrokerController : ControllerBase
     {
         private readonly IMessageProducer _messageProducer;
-
-        public BrokerController(IMessageProducer messageProducer)
+        private readonly IAccountsFinalGetter _accountsGetter;
+        public BrokerController(IMessageProducer messageProducer, IAccountsFinalGetter accountsGetter)
         {
             _messageProducer = messageProducer;
+            _accountsGetter = accountsGetter;
         }
 
         [HttpPost]
+        [Route("sendMessage")]
         public IActionResult Post([FromQuery]string message, string queue)
         {
             _messageProducer.SendMessage(queue, message);
+            return Ok();
+        }
+
+        [HttpGet]
+        [Route("getAccounts")]
+        public IActionResult GetAccounts()
+        {
+            _accountsGetter.GetAccounts();
             return Ok();
         }
     }

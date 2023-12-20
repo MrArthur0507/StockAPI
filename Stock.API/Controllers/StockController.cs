@@ -20,7 +20,6 @@ namespace Stocks.Controllers
         private readonly ILogger<StockController> _logger;
 
         public StockController(AlphaVantageService alphaVantageService, DbService dbService, ILogger<StockController> logger)
-        //
 
         {
             _alphaVantageService = alphaVantageService;
@@ -31,11 +30,7 @@ namespace Stocks.Controllers
         [HttpGet]
         public async Task<IActionResult> GetStockData([FromQuery] Models.Stock stock)
         {
-            // first pass the stock to the IsStockIsPresentInDb method
-            // there we check if there is such a stock in the db
-            // if so , get the data from there , and if not
-            // proceed with the API call and add the data to the db
-
+           
 
 
 

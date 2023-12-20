@@ -15,12 +15,8 @@ namespace Stocks.utils
         public List<ResponseData> HandleIntraday(List<ResponseData> data, Interval interval)
         {
             DateTime startDate = CalculateIntradayStartTime(interval);
-            foreach (ResponseData responseData in data)
-            {
-                Console.WriteLine("data in response object : " + responseData.Date);
-            }
+           
             List<ResponseData> dataForThatPeriod = FilterData(data, TimeSeries.INTRADAY, startDate);
-            //Console.WriteLine("dataForThatPeriod " + dataForThatPeriod);
           
             return HandleReturnData(dataForThatPeriod, DataPointsFromIntraday);
         }
@@ -30,7 +26,6 @@ namespace Stocks.utils
 
             DateTime today = DateTime.Now;
 
-            // Calculate the date exactly DataPointsFromDaily days back from today
             DateTime startDate = today.AddDays(-DataPointsFromDaily);
 
             List<ResponseData> dailyData = FilterData(data, TimeSeries.DAILY, startDate);
@@ -42,7 +37,6 @@ namespace Stocks.utils
            
             DateTime today = DateTime.Now;
 
-            // Calculate the date exactly DataPointsFromWeekly weeks back from today
             DateTime startDate = today.AddDays(-(DataPointsFromWeekly * 7));
 
 
@@ -60,7 +54,7 @@ namespace Stocks.utils
 
             DateTime today = DateTime.Now;
 
-            // Calculate the date exactly DataPointsFromMonthly months back from today
+          
             DateTime startDate = today.AddMonths(-DataPointsFromMonthly);
 
 
@@ -75,11 +69,9 @@ namespace Stocks.utils
 
         private DateTime CalculateIntradayStartTime(Interval interval)
         {
-            // subtract 1 day from today , since api
-            // returns data only after the day is closed
-            // for non-premium package
+           
             DateTime yesterday = DateTime.Now.AddDays(-1);
-            // Calculate the start date based on the intraday interval
+
             return interval switch
             {
                 Interval.OneMin => yesterday.AddMinutes(-DataPointsFromIntraday),
@@ -93,29 +85,19 @@ namespace Stocks.utils
 
         private List<ResponseData> FilterData(IEnumerable<ResponseData> data, TimeSeries timeSeries, DateTime startDate)
         {
-            // Filter data with TimeSeries equal to timeSeries and within the desired date/time range
-            Console.WriteLine("Logs from FilterData method");
-            foreach(var item in data)
-            {
-                Console.WriteLine("DateTime.Parse(item.Date!) : " + DateTime.Parse(item.Date!));
-
-            }
-            Console.WriteLine("startDate : " + startDate);
+            
+           
             var result = data
                 .Where(item => item.TimeSeries == timeSeries && DateTime.Parse(item.Date!) >= startDate)
-                .OrderByDescending(item => DateTime.Parse(item.Date!)) // Order by date in descending order
+                .OrderByDescending(item => DateTime.Parse(item.Date!)) 
                 .ToList();
-            foreach(var item in result)
-            {
-                Console.WriteLine("item in result : " + item);
-            }
+         
             return result;
         }
 
         private List<ResponseData> HandleReturnData(List<ResponseData> data, int dataPoints)
         {
-            // If there are enough data points, return the data
-            // If not enough data points, return null
+           
             if (data.Count >= dataPoints)
             {
                 return data.Take(dataPoints).ToList();

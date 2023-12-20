@@ -14,7 +14,7 @@ namespace StockApiRepDB.Data
         private readonly IUnitOfWork _unitOfWork;
 
 
-        private readonly string _connectionString = "Server=(Local)\\SQLEXPRESS01;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
+        private readonly string _connectionString = "Server=DESKTOP-FN6A49D\\SQLEXPRESS;Database=StockApi;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true;";
 
 
 

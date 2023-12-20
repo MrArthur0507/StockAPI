@@ -1,4 +1,5 @@
 ﻿using Gateway.Domain.Models.ApiRelated.Classes;
+using Gateway.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,11 +9,17 @@ namespace Gateway.API.Controllers
     [ApiController]
     public class TransactionController : ControllerBase
     {
+        private readonly ISettlementService _settlementService;
+        public TransactionController(ISettlementService settlementService)
+        {
+            _settlementService = settlementService;
+        }
         [HttpPost]
         [Route("makeTransaction")]
-        public async Task<IActionResult> MakeTransaction([FromQuery]Transaction transcation)
+        public async Task<string> MakeTransaction([FromQuery]Transaction transaction)
         {
-            return Ok();
+            string response = await _settlementService.MakeTransaction(transaction);
+            return response;
         }
     }
 }

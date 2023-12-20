@@ -36,7 +36,7 @@ namespace Accounts.API.Controllers
         [HttpGet("/get-existing-pdf")]
         public IActionResult GetExistingPdf(string userId)
         {
-            string filePath = "D:\\VTU software engineering\\C#\\StockAPI\\Accounts.API\\transactions\\";
+            string filePath = "C:\\Users\\Bozhidar";
 
             var serviceResponse = _transactionService.GetExistingPdf(filePath, userId);
 

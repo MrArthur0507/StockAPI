@@ -19,7 +19,7 @@ namespace Gateway.Services.Implementations
 
         public async Task<string> GetStockData(Stock stock)
         {
-            var response = await GetAsync($"api/stocks?TIME_SERIES_{stock.TimeSeries}&symbol={stock.Symbol}&interval={(int?)stock.Interval}");
+            var response = await GetAsync($"{config.StockConfig.GetStockData}?TIME_SERIES_{stock.TimeSeries}&symbol={stock.Symbol}&interval={(int?)stock.Interval}");
             
             return await HandleResponse(response);
         }
